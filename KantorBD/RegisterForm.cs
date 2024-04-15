@@ -63,6 +63,8 @@ namespace KantorBD
                     if (command.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Account created");
+                        MySqlCommand walletCommand = new MySqlCommand("INSERT INTO `wallet`(`userID`) VALUES (LAST_INSERT_ID())", db.getConnection());
+                        walletCommand.ExecuteNonQuery();
                     }
                     else
                     {

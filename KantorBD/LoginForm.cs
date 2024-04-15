@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Security.Cryptography;
 
 namespace KantorBD
 {
@@ -59,7 +60,7 @@ namespace KantorBD
             MySqlCommand command = new MySqlCommand("SELECT * FROM `user` WHERE `email` = @uE AND `haslo` = @uH", db.getConnection());
 
             command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
-            command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = haslo;
+            //command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = haslo;
 
             adapter.SelectCommand = command;
 
@@ -67,7 +68,13 @@ namespace KantorBD
 
             if (table.Rows.Count > 0)
             {
-                MessageBox.Show("Sukces!");
+                string storedPassword = table.Rows[1]["haslo"] != null ? table.Rows[1]["haslo"].ToString() : string.Empty;
+                if (storedPassword == haslo || storedPassword == HashPassword(haslo))
+                {
+                    this.Hide();
+                    MainForm f2 = new MainForm();
+                    f2.Show();
+                }
             }
             else
             {
@@ -75,7 +82,7 @@ namespace KantorBD
                 {
                     MessageBox.Show("Enter your email to login", "Empty Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (email.Trim().Equals(""))
+                else if (haslo.Trim().Equals(""))
                 {
                     MessageBox.Show("Enter your password to login", "Empty Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -103,6 +110,21 @@ namespace KantorBD
             this.Hide();
             RegisterForm f3 = new RegisterForm();
             f3.Show();
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
