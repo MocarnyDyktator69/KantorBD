@@ -1,7 +1,7 @@
 ﻿
 namespace KantorBD
 {
-    partial class Form2
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,12 +31,15 @@ namespace KantorBD
         {
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxEmail = new TextBox();
+            textBoxPassword = new TextBox();
             label3 = new Label();
-            button1 = new Button();
+            buttonSigIn = new Button();
             label4 = new Label();
             linkLabel1 = new LinkLabel();
+            panel1 = new Panel();
+            labelClose = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -45,7 +48,7 @@ namespace KantorBD
             label1.Cursor = Cursors.Hand;
             label1.Font = new Font("Comic Sans MS", 48F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label1.ForeColor = Color.FromArgb(255, 193, 37);
-            label1.Location = new Point(393, 9);
+            label1.Location = new Point(391, 98);
             label1.Name = "label1";
             label1.Size = new Size(256, 90);
             label1.TabIndex = 5;
@@ -59,7 +62,7 @@ namespace KantorBD
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label2.ForeColor = Color.FromArgb(255, 193, 37);
-            label2.Location = new Point(240, 174);
+            label2.Location = new Point(218, 259);
             label2.Name = "label2";
             label2.Size = new Size(137, 52);
             label2.TabIndex = 6;
@@ -67,23 +70,24 @@ namespace KantorBD
             label2.TextAlign = ContentAlignment.MiddleCenter;
             label2.Click += label2_Click;
             // 
-            // textBox1
+            // textBoxEmail
             // 
-            textBox1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox1.Location = new Point(240, 229);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(600, 71);
-            textBox1.TabIndex = 7;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBoxEmail.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxEmail.Location = new Point(218, 314);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(600, 71);
+            textBoxEmail.TabIndex = 7;
+            textBoxEmail.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            textBox2.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox2.Location = new Point(240, 395);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(600, 71);
-            textBox2.TabIndex = 9;
-            textBox2.TextChanged += textBox2_TextChanged;
+            textBoxPassword.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxPassword.Location = new Point(218, 443);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.Size = new Size(600, 71);
+            textBoxPassword.TabIndex = 9;
+            textBoxPassword.UseSystemPasswordChar = true;
+            textBoxPassword.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -91,7 +95,7 @@ namespace KantorBD
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label3.ForeColor = Color.FromArgb(255, 193, 37);
-            label3.Location = new Point(240, 340);
+            label3.Location = new Point(218, 388);
             label3.Name = "label3";
             label3.Size = new Size(190, 52);
             label3.TabIndex = 8;
@@ -99,18 +103,19 @@ namespace KantorBD
             label3.TextAlign = ContentAlignment.MiddleCenter;
             label3.Click += label3_Click;
             // 
-            // button1
+            // buttonSigIn
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button1.ForeColor = Color.FromArgb(255, 193, 37);
-            button1.Location = new Point(832, 609);
-            button1.Name = "button1";
-            button1.Size = new Size(220, 60);
-            button1.TabIndex = 10;
-            button1.Text = "Sign In";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonSigIn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonSigIn.Cursor = Cursors.Hand;
+            buttonSigIn.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            buttonSigIn.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonSigIn.Location = new Point(849, 602);
+            buttonSigIn.Name = "buttonSigIn";
+            buttonSigIn.Size = new Size(203, 67);
+            buttonSigIn.TabIndex = 10;
+            buttonSigIn.Text = "Sign In";
+            buttonSigIn.UseVisualStyleBackColor = true;
+            buttonSigIn.Click += button1_Click;
             // 
             // label4
             // 
@@ -118,7 +123,7 @@ namespace KantorBD
             label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(12, 640);
+            label4.Location = new Point(14, 640);
             label4.Name = "label4";
             label4.Size = new Size(277, 29);
             label4.TabIndex = 11;
@@ -128,35 +133,66 @@ namespace KantorBD
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
+            linkLabel1.Cursor = Cursors.Hand;
             linkLabel1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             linkLabel1.LinkColor = Color.FromArgb(255, 193, 37);
-            linkLabel1.Location = new Point(289, 640);
+            linkLabel1.Location = new Point(297, 640);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(88, 29);
             linkLabel1.TabIndex = 12;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Sign Up";
             linkLabel1.TextAlign = ContentAlignment.MiddleLeft;
+            linkLabel1.Click += linkLabel1_Click;
             // 
-            // Form2
+            // panel1
+            // 
+            panel1.Controls.Add(labelClose);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(linkLabel1);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(textBoxEmail);
+            panel1.Controls.Add(buttonSigIn);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(textBoxPassword);
+            panel1.Cursor = Cursors.Default;
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1064, 681);
+            panel1.TabIndex = 13;
+            panel1.Paint += panel1_Paint;
+            // 
+            // labelClose
+            // 
+            labelClose.AutoSize = true;
+            labelClose.Cursor = Cursors.Hand;
+            labelClose.Font = new Font("Comic Sans MS", 27.75F);
+            labelClose.ForeColor = Color.FromArgb(255, 193, 37);
+            labelClose.Location = new Point(1003, 9);
+            labelClose.Name = "labelClose";
+            labelClose.Size = new Size(49, 52);
+            labelClose.TabIndex = 14;
+            labelClose.Text = "X";
+            labelClose.Click += labelClose_Click;
+            // 
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(linkLabel1);
-            Controls.Add(label4);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Name = "Form2";
+            Controls.Add(panel1);
+            Cursor = Cursors.Hand;
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             Load += Form2_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -168,11 +204,13 @@ namespace KantorBD
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxEmail;
+        private TextBox textBoxPassword;
         private Label label3;
-        private Button button1;
+        private Button buttonSigIn;
         private Label label4;
         private LinkLabel linkLabel1;
+        private Panel panel1;
+        private Label labelClose;
     }
 }

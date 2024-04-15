@@ -1,8 +1,8 @@
 namespace KantorBD
 {
-    public partial class Form1 : Form
+    public partial class StartForm : Form
     {
-        public Form1()
+        public StartForm()
         {
             InitializeComponent();
         }
@@ -24,8 +24,16 @@ namespace KantorBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            f2.ShowDialog(); // Shows Form2
+            this.Hide();
+            LoginForm f2 = new LoginForm();
+            f2.Show(); // Shows Form2
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterForm f3 = new RegisterForm();
+            f3.Show(); // Shows Form3
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -41,6 +49,11 @@ namespace KantorBD
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void labelClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

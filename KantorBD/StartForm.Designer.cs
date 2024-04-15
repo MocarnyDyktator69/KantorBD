@@ -1,6 +1,6 @@
 ﻿namespace KantorBD
 {
-    partial class Form1
+    partial class StartForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             button1 = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             button3 = new Button();
+            labelClose = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Comic Sans MS", 48F, FontStyle.Regular, GraphicsUnit.Point, 238);
             button1.ForeColor = Color.FromArgb(255, 193, 37);
             button1.Location = new Point(315, 430);
@@ -76,6 +78,7 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button3.Cursor = Cursors.Hand;
             button3.Font = new Font("Comic Sans MS", 48F, FontStyle.Regular, GraphicsUnit.Point, 238);
             button3.ForeColor = Color.FromArgb(255, 193, 37);
             button3.Location = new Point(314, 560);
@@ -84,19 +87,35 @@
             button3.TabIndex = 0;
             button3.Text = "Sign Up";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button1_Click;
+            button3.Click += button3_Click;
             // 
-            // Form1
+            // labelClose
+            // 
+            labelClose.AutoSize = true;
+            labelClose.Cursor = Cursors.Hand;
+            labelClose.Font = new Font("Comic Sans MS", 27.75F);
+            labelClose.ForeColor = Color.FromArgb(255, 193, 37);
+            labelClose.Location = new Point(1003, 9);
+            labelClose.Name = "labelClose";
+            labelClose.Size = new Size(49, 52);
+            labelClose.TabIndex = 5;
+            labelClose.Text = "X";
+            labelClose.Click += labelClose_Click;
+            // 
+            // StartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(labelClose);
             Controls.Add(button3);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
-            Name = "Form1";
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "StartForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -110,5 +129,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button3;
+        private Label labelClose;
     }
 }
