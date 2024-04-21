@@ -37,15 +37,9 @@
             pictureBox6 = new PictureBox();
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
-            pictureBox9 = new PictureBox();
-            pictureBox10 = new PictureBox();
             label2 = new Label();
             pictureBox12 = new PictureBox();
-            pictureBox14 = new PictureBox();
             label3 = new Label();
-            pictureBox15 = new PictureBox();
-            pictureBox16 = new PictureBox();
-            pictureBox18 = new PictureBox();
             pictureBox13 = new PictureBox();
             pictureBox19 = new PictureBox();
             pictureBox20 = new PictureBox();
@@ -60,12 +54,11 @@
             pictureBox29 = new PictureBox();
             pictureBox30 = new PictureBox();
             label1 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            pictureBox11 = new PictureBox();
-            pictureBox17 = new PictureBox();
-            pictureBox31 = new PictureBox();
-            pictureBox32 = new PictureBox();
+            FromCurrencyBox = new ComboBox();
+            ToCurrencyBox = new ComboBox();
+            AmmountToConvertBox = new TextBox();
+            ExchangeButton = new Button();
+            ConvertedAmountDisplay = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -74,13 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox18).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox19).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
@@ -94,10 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox17).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox31).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox32).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -183,24 +166,6 @@
             pictureBox8.TabIndex = 14;
             pictureBox8.TabStop = false;
             // 
-            // pictureBox9
-            // 
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(22, 276);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(554, 76);
-            pictureBox9.TabIndex = 15;
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(22, 448);
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(554, 76);
-            pictureBox10.TabIndex = 16;
-            pictureBox10.TabStop = false;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -224,16 +189,6 @@
             pictureBox12.TabIndex = 19;
             pictureBox12.TabStop = false;
             // 
-            // pictureBox14
-            // 
-            pictureBox14.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
-            pictureBox14.Location = new Point(517, 463);
-            pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(46, 39);
-            pictureBox14.TabIndex = 21;
-            pictureBox14.TabStop = false;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -247,38 +202,6 @@
             label3.TabIndex = 22;
             label3.Text = "Exchange rate";
             label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox15
-            // 
-            pictureBox15.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox15.BackgroundImageLayout = ImageLayout.None;
-            pictureBox15.Image = (Image)resources.GetObject("pictureBox15.Image");
-            pictureBox15.Location = new Point(37, 294);
-            pictureBox15.Name = "pictureBox15";
-            pictureBox15.Size = new Size(100, 32);
-            pictureBox15.TabIndex = 23;
-            pictureBox15.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            pictureBox16.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox16.Image = (Image)resources.GetObject("pictureBox16.Image");
-            pictureBox16.Location = new Point(37, 470);
-            pictureBox16.Name = "pictureBox16";
-            pictureBox16.Size = new Size(100, 32);
-            pictureBox16.TabIndex = 24;
-            pictureBox16.TabStop = false;
-            pictureBox16.Click += pictureBox16_Click;
-            // 
-            // pictureBox18
-            // 
-            pictureBox18.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox18.Image = (Image)resources.GetObject("pictureBox18.Image");
-            pictureBox18.Location = new Point(517, 294);
-            pictureBox18.Name = "pictureBox18";
-            pictureBox18.Size = new Size(46, 39);
-            pictureBox18.TabIndex = 26;
-            pictureBox18.TabStop = false;
             // 
             // pictureBox13
             // 
@@ -416,74 +339,63 @@
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
-            // label4
+            // FromCurrencyBox
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(217, 217, 217);
-            label4.Cursor = Cursors.Hand;
-            label4.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label4.ForeColor = Color.FromArgb(255, 193, 37);
-            label4.Location = new Point(379, 448);
-            label4.Name = "label4";
-            label4.Size = new Size(132, 67);
-            label4.TabIndex = 43;
-            label4.Text = "USD";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            label4.Click += label4_Click_1;
+            FromCurrencyBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            FromCurrencyBox.ForeColor = Color.FromArgb(255, 193, 37);
+            FromCurrencyBox.FormattingEnabled = true;
+            FromCurrencyBox.Items.AddRange(new object[] { "EUR", "USD", "GBP", "PLN" });
+            FromCurrencyBox.Location = new Point(369, 273);
+            FromCurrencyBox.Name = "FromCurrencyBox";
+            FromCurrencyBox.Size = new Size(207, 75);
+            FromCurrencyBox.TabIndex = 49;
             // 
-            // label5
+            // ToCurrencyBox
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.FromArgb(217, 217, 217);
-            label5.Cursor = Cursors.Hand;
-            label5.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label5.ForeColor = Color.FromArgb(255, 193, 37);
-            label5.Location = new Point(379, 278);
-            label5.Name = "label5";
-            label5.Size = new Size(118, 67);
-            label5.TabIndex = 44;
-            label5.Text = "PLN";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
+            ToCurrencyBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            ToCurrencyBox.ForeColor = Color.FromArgb(255, 193, 37);
+            ToCurrencyBox.FormattingEnabled = true;
+            ToCurrencyBox.Items.AddRange(new object[] { "EUR", "USD", "GBP", "PLN" });
+            ToCurrencyBox.Location = new Point(369, 448);
+            ToCurrencyBox.Name = "ToCurrencyBox";
+            ToCurrencyBox.Size = new Size(207, 75);
+            ToCurrencyBox.TabIndex = 49;
             // 
-            // pictureBox11
+            // AmmountToConvertBox
             // 
-            pictureBox11.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(321, 448);
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(42, 39);
-            pictureBox11.TabIndex = 45;
-            pictureBox11.TabStop = false;
+            AmmountToConvertBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            AmmountToConvertBox.ForeColor = Color.FromArgb(255, 193, 37);
+            AmmountToConvertBox.Location = new Point(22, 274);
+            AmmountToConvertBox.Name = "AmmountToConvertBox";
+            AmmountToConvertBox.Size = new Size(345, 74);
+            AmmountToConvertBox.TabIndex = 51;
+            AmmountToConvertBox.Text = "0";
+            AmmountToConvertBox.TextChanged += AmmountToConvert_TextChanged;
             // 
-            // pictureBox17
+            // ExchangeButton
             // 
-            pictureBox17.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox17.Image = (Image)resources.GetObject("pictureBox17.Image");
-            pictureBox17.Location = new Point(321, 276);
-            pictureBox17.Name = "pictureBox17";
-            pictureBox17.Size = new Size(42, 39);
-            pictureBox17.TabIndex = 46;
-            pictureBox17.TabStop = false;
+            ExchangeButton.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            ExchangeButton.ForeColor = Color.FromArgb(255, 193, 37);
+            ExchangeButton.Location = new Point(116, 551);
+            ExchangeButton.Name = "ExchangeButton";
+            ExchangeButton.Size = new Size(350, 100);
+            ExchangeButton.TabIndex = 53;
+            ExchangeButton.Text = "Exchange";
+            ExchangeButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            ExchangeButton.UseVisualStyleBackColor = true;
+            ExchangeButton.Click += ExchangeButton_Click;
             // 
-            // pictureBox31
+            // ConvertedAmountDisplay
             // 
-            pictureBox31.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox31.Image = (Image)resources.GetObject("pictureBox31.Image");
-            pictureBox31.Location = new Point(317, 313);
-            pictureBox31.Name = "pictureBox31";
-            pictureBox31.Size = new Size(46, 39);
-            pictureBox31.TabIndex = 47;
-            pictureBox31.TabStop = false;
-            // 
-            // pictureBox32
-            // 
-            pictureBox32.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox32.Image = (Image)resources.GetObject("pictureBox32.Image");
-            pictureBox32.Location = new Point(317, 485);
-            pictureBox32.Name = "pictureBox32";
-            pictureBox32.Size = new Size(46, 39);
-            pictureBox32.TabIndex = 48;
-            pictureBox32.TabStop = false;
+            ConvertedAmountDisplay.BackColor = Color.White;
+            ConvertedAmountDisplay.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            ConvertedAmountDisplay.ForeColor = Color.FromArgb(255, 193, 37);
+            ConvertedAmountDisplay.Location = new Point(22, 449);
+            ConvertedAmountDisplay.Name = "ConvertedAmountDisplay";
+            ConvertedAmountDisplay.Size = new Size(345, 74);
+            ConvertedAmountDisplay.TabIndex = 54;
+            ConvertedAmountDisplay.Text = "0";
+            ConvertedAmountDisplay.Click += ConvertedAmountDisplay_Click;
             // 
             // Form2
             // 
@@ -491,12 +403,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(pictureBox32);
-            Controls.Add(pictureBox31);
-            Controls.Add(pictureBox17);
-            Controls.Add(pictureBox11);
-            Controls.Add(label5);
-            Controls.Add(label4);
+            Controls.Add(ConvertedAmountDisplay);
+            Controls.Add(ExchangeButton);
+            Controls.Add(AmmountToConvertBox);
+            Controls.Add(ToCurrencyBox);
+            Controls.Add(FromCurrencyBox);
             Controls.Add(pictureBox30);
             Controls.Add(pictureBox29);
             Controls.Add(pictureBox28);
@@ -510,15 +421,9 @@
             Controls.Add(pictureBox20);
             Controls.Add(pictureBox19);
             Controls.Add(pictureBox13);
-            Controls.Add(pictureBox18);
-            Controls.Add(pictureBox16);
-            Controls.Add(pictureBox15);
             Controls.Add(label3);
-            Controls.Add(pictureBox14);
             Controls.Add(pictureBox12);
             Controls.Add(label2);
-            Controls.Add(pictureBox10);
-            Controls.Add(pictureBox9);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBox7);
             Controls.Add(pictureBox6);
@@ -540,13 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox16).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox18).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox19).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
@@ -560,10 +459,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox17).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox31).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox32).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -577,15 +472,9 @@
         private PictureBox pictureBox6;
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
-        private PictureBox pictureBox9;
-        private PictureBox pictureBox10;
         private Label label2;
         private PictureBox pictureBox12;
-        private PictureBox pictureBox14;
         private Label label3;
-        private PictureBox pictureBox15;
-        private PictureBox pictureBox16;
-        private PictureBox pictureBox18;
         private PictureBox pictureBox13;
         private PictureBox pictureBox19;
         private PictureBox pictureBox20;
@@ -600,11 +489,10 @@
         private PictureBox pictureBox29;
         private PictureBox pictureBox30;
         private Label label1;
-        private Label label4;
-        private Label label5;
-        private PictureBox pictureBox11;
-        private PictureBox pictureBox17;
-        private PictureBox pictureBox31;
-        private PictureBox pictureBox32;
+        private ComboBox FromCurrencyBox;
+        private ComboBox ToCurrencyBox;
+        private TextBox AmmountToConvertBox;
+        private Button ExchangeButton;
+        private Label ConvertedAmountDisplay;
     }
 }

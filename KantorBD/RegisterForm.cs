@@ -42,7 +42,7 @@ namespace KantorBD
         private void buttonSigUp_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `user`(`name`, `surname`, `email`, `haslo`, `birth_date`) VALUES (@fn,@fs,@email,@h,@b)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `user`(`name`, `surname`, `email`, `password`, `birth_date`) VALUES (@fn,@fs,@email,@h,@b)", db.getConnection());
 
             command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = textBoxName.Text;
             command.Parameters.Add("@fs", MySqlDbType.VarChar).Value = textBoxSurname.Text;

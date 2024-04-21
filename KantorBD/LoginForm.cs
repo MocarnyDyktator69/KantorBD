@@ -51,16 +51,16 @@ namespace KantorBD
             DB db = new DB();
 
             String email = textBoxEmail.Text;
-            String haslo = textBoxPassword.Text;
+            String password = textBoxPassword.Text;
 
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` WHERE `email` = @uE AND `haslo` = @uH", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` WHERE `email` = @uE AND `password` = @uH", db.getConnection());
 
             command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
-            //command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = haslo;
+            command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = password;
 
             adapter.SelectCommand = command;
 
@@ -68,11 +68,11 @@ namespace KantorBD
 
             if (table.Rows.Count > 0)
             {
-                string storedPassword = table.Rows[1]["haslo"] != null ? table.Rows[1]["haslo"].ToString() : string.Empty;
-                if (storedPassword == haslo || storedPassword == HashPassword(haslo))
+                /*string storedPassword = table.Rows[1]["password"] != null ? table.Rows[1]["password"].ToString() : string.Empty;
+                if (storedPassword == password || storedPassword == HashPassword(password))*/
                 {
                     this.Hide();
-                    MainForm f2 = new MainForm();
+                    Form2 f2 = new Form2();
                     f2.Show();
                 }
             }
@@ -82,7 +82,7 @@ namespace KantorBD
                 {
                     MessageBox.Show("Enter your email to login", "Empty Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (haslo.Trim().Equals(""))
+                else if (password.Trim().Equals(""))
                 {
                     MessageBox.Show("Enter your password to login", "Empty Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
