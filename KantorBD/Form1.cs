@@ -33,7 +33,7 @@ namespace KantorBD
 
             using (var client = new WebClient())
             {
-                json = client.DownloadString($"https://v6.exchangerate-api.com/v6/b9f4c7090a7d9ee239826cc5/latest/USD"); //{fromCurrency}
+                json = client.DownloadString($"https://v6.exchangerate-api.com/v6/b9f4c7090a7d9ee239826cc5/latest/{fromCurrency}");
             }
 
             var data = JObject.Parse(json);
