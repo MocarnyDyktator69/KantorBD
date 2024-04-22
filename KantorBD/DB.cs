@@ -9,7 +9,7 @@ namespace KantorBD
 {
     internal class DB
     {
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=kantor_db");
+        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=db_kantor");
 
         public void openConnection()
         {

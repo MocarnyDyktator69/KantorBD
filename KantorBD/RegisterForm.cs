@@ -65,6 +65,12 @@ namespace KantorBD
                         MessageBox.Show("Account created");
                         MySqlCommand walletCommand = new MySqlCommand("INSERT INTO `wallet`(`userID`) VALUES (LAST_INSERT_ID())", db.getConnection());
                         walletCommand.ExecuteNonQuery();
+
+                        long walletID = walletCommand.LastInsertedId;
+
+                        MySqlCommand walletCurrencyCommand = new MySqlCommand("INSERT INTO `walletcurrency`(`walletID`, `currencyID`) VALUES (@wID, 1), (@wID, 2), (@wID, 3), (@wID, 4)", db.getConnection());
+                        walletCurrencyCommand.Parameters.Add("@wID", MySqlDbType.Int64).Value = walletID;
+                        walletCurrencyCommand.ExecuteNonQuery();
                     }
                     else
                     {

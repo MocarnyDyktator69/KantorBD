@@ -1,6 +1,6 @@
 ﻿namespace KantorBD
 {
-    partial class MainForm
+    partial class MainAdminForm
     {
         /// <summary>
         /// Required designer variable.

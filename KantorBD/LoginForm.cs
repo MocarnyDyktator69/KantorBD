@@ -51,13 +51,13 @@ namespace KantorBD
             DB db = new DB();
 
             String email = textBoxEmail.Text;
-            String password = textBoxPassword.Text;
+            String password = HashPassword(textBoxPassword.Text);
 
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` WHERE `email` = @uE AND `password` = @uH", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT `email`, `password`, `usertypeID` FROM `user` WHERE `email` = @uE AND `password` = @uH", db.getConnection());
 
             command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
             command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = password;
@@ -68,10 +68,15 @@ namespace KantorBD
 
             if (table.Rows.Count > 0)
             {
-                /*string storedPassword = table.Rows[1]["password"] != null ? table.Rows[1]["password"].ToString() : string.Empty;
-                if (storedPassword == password || storedPassword == HashPassword(password))*/
+                int userType = Convert.ToInt32(table.Rows[0]["usertypeID"]);
+                this.Hide();
+                if (userType == 1) // admin
                 {
-                    this.Hide();
+                    MainAdminForm f1 = new MainAdminForm();
+                    f1.Show();
+                } 
+                else if (userType == 2) // user
+                {
                     Form2 f2 = new Form2();
                     f2.Show();
                 }
