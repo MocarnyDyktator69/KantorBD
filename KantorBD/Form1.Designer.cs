@@ -41,14 +41,6 @@
             pictureBox12 = new PictureBox();
             label3 = new Label();
             pictureBox13 = new PictureBox();
-            pictureBox19 = new PictureBox();
-            pictureBox20 = new PictureBox();
-            pictureBox21 = new PictureBox();
-            pictureBox22 = new PictureBox();
-            pictureBox24 = new PictureBox();
-            pictureBox25 = new PictureBox();
-            pictureBox26 = new PictureBox();
-            pictureBox23 = new PictureBox();
             pictureBox27 = new PictureBox();
             pictureBox28 = new PictureBox();
             pictureBox29 = new PictureBox();
@@ -59,6 +51,11 @@
             AmmountToConvertBox = new TextBox();
             ExchangeButton = new Button();
             ConvertedAmountDisplay = new Label();
+            labelEUR = new Label();
+            labelUSD = new Label();
+            labelGBP = new Label();
+            labelPLN = new Label();
+            rateBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -69,14 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox19).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox21).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox22).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox24).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox25).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox26).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox23).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
@@ -103,7 +92,6 @@
             pictureBox2.Size = new Size(100, 109);
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox3
             // 
@@ -134,7 +122,6 @@
             pictureBox5.Size = new Size(97, 94);
             pictureBox5.TabIndex = 11;
             pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
             // 
             // pictureBox6
             // 
@@ -196,7 +183,7 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Comic Sans MS", 30F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label3.ForeColor = Color.FromArgb(255, 193, 37);
-            label3.Location = new Point(691, 176);
+            label3.Location = new Point(509, 176);
             label3.Name = "label3";
             label3.Size = new Size(293, 56);
             label3.TabIndex = 22;
@@ -212,86 +199,10 @@
             pictureBox13.TabIndex = 27;
             pictureBox13.TabStop = false;
             // 
-            // pictureBox19
-            // 
-            pictureBox19.Image = (Image)resources.GetObject("pictureBox19.Image");
-            pictureBox19.Location = new Point(826, 260);
-            pictureBox19.Name = "pictureBox19";
-            pictureBox19.Size = new Size(200, 76);
-            pictureBox19.TabIndex = 29;
-            pictureBox19.TabStop = false;
-            // 
-            // pictureBox20
-            // 
-            pictureBox20.Image = (Image)resources.GetObject("pictureBox20.Image");
-            pictureBox20.Location = new Point(826, 356);
-            pictureBox20.Name = "pictureBox20";
-            pictureBox20.Size = new Size(200, 76);
-            pictureBox20.TabIndex = 30;
-            pictureBox20.TabStop = false;
-            // 
-            // pictureBox21
-            // 
-            pictureBox21.Image = (Image)resources.GetObject("pictureBox21.Image");
-            pictureBox21.Location = new Point(826, 454);
-            pictureBox21.Name = "pictureBox21";
-            pictureBox21.Size = new Size(200, 76);
-            pictureBox21.TabIndex = 31;
-            pictureBox21.TabStop = false;
-            // 
-            // pictureBox22
-            // 
-            pictureBox22.Image = (Image)resources.GetObject("pictureBox22.Image");
-            pictureBox22.Location = new Point(826, 551);
-            pictureBox22.Name = "pictureBox22";
-            pictureBox22.Size = new Size(200, 76);
-            pictureBox22.TabIndex = 32;
-            pictureBox22.TabStop = false;
-            // 
-            // pictureBox24
-            // 
-            pictureBox24.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox24.Image = (Image)resources.GetObject("pictureBox24.Image");
-            pictureBox24.Location = new Point(884, 367);
-            pictureBox24.Name = "pictureBox24";
-            pictureBox24.Size = new Size(100, 50);
-            pictureBox24.TabIndex = 34;
-            pictureBox24.TabStop = false;
-            // 
-            // pictureBox25
-            // 
-            pictureBox25.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox25.Image = (Image)resources.GetObject("pictureBox25.Image");
-            pictureBox25.Location = new Point(884, 467);
-            pictureBox25.Name = "pictureBox25";
-            pictureBox25.Size = new Size(100, 50);
-            pictureBox25.TabIndex = 35;
-            pictureBox25.TabStop = false;
-            // 
-            // pictureBox26
-            // 
-            pictureBox26.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox26.Image = (Image)resources.GetObject("pictureBox26.Image");
-            pictureBox26.Location = new Point(884, 566);
-            pictureBox26.Name = "pictureBox26";
-            pictureBox26.Size = new Size(100, 50);
-            pictureBox26.TabIndex = 36;
-            pictureBox26.TabStop = false;
-            // 
-            // pictureBox23
-            // 
-            pictureBox23.BackColor = Color.FromArgb(217, 217, 217);
-            pictureBox23.Image = (Image)resources.GetObject("pictureBox23.Image");
-            pictureBox23.Location = new Point(884, 278);
-            pictureBox23.Name = "pictureBox23";
-            pictureBox23.Size = new Size(100, 50);
-            pictureBox23.TabIndex = 37;
-            pictureBox23.TabStop = false;
-            // 
             // pictureBox27
             // 
             pictureBox27.Image = (Image)resources.GetObject("pictureBox27.Image");
-            pictureBox27.Location = new Point(640, 551);
+            pictureBox27.Location = new Point(640, 545);
             pictureBox27.Name = "pictureBox27";
             pictureBox27.Size = new Size(162, 65);
             pictureBox27.TabIndex = 38;
@@ -300,7 +211,7 @@
             // pictureBox28
             // 
             pictureBox28.Image = (Image)resources.GetObject("pictureBox28.Image");
-            pictureBox28.Location = new Point(705, 261);
+            pictureBox28.Location = new Point(714, 260);
             pictureBox28.Name = "pictureBox28";
             pictureBox28.Size = new Size(69, 75);
             pictureBox28.TabIndex = 39;
@@ -309,7 +220,7 @@
             // pictureBox29
             // 
             pictureBox29.Image = (Image)resources.GetObject("pictureBox29.Image");
-            pictureBox29.Location = new Point(714, 454);
+            pictureBox29.Location = new Point(723, 450);
             pictureBox29.Name = "pictureBox29";
             pictureBox29.Size = new Size(60, 72);
             pictureBox29.TabIndex = 40;
@@ -318,7 +229,7 @@
             // pictureBox30
             // 
             pictureBox30.Image = (Image)resources.GetObject("pictureBox30.Image");
-            pictureBox30.Location = new Point(714, 356);
+            pictureBox30.Location = new Point(723, 355);
             pictureBox30.Name = "pictureBox30";
             pictureBox30.Size = new Size(51, 73);
             pictureBox30.TabIndex = 41;
@@ -337,7 +248,6 @@
             label1.TabIndex = 6;
             label1.Text = "Jan Kowalski";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // FromCurrencyBox
             // 
@@ -370,7 +280,6 @@
             AmmountToConvertBox.Size = new Size(345, 74);
             AmmountToConvertBox.TabIndex = 51;
             AmmountToConvertBox.Text = "0";
-            AmmountToConvertBox.TextChanged += AmmountToConvert_TextChanged;
             // 
             // ExchangeButton
             // 
@@ -395,7 +304,62 @@
             ConvertedAmountDisplay.Size = new Size(345, 74);
             ConvertedAmountDisplay.TabIndex = 54;
             ConvertedAmountDisplay.Text = "0";
-            ConvertedAmountDisplay.Click += ConvertedAmountDisplay_Click;
+            // 
+            // labelEUR
+            // 
+            labelEUR.BackColor = Color.White;
+            labelEUR.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelEUR.ForeColor = Color.FromArgb(255, 193, 37);
+            labelEUR.Location = new Point(825, 260);
+            labelEUR.Name = "labelEUR";
+            labelEUR.Size = new Size(200, 75);
+            labelEUR.TabIndex = 55;
+            labelEUR.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelUSD
+            // 
+            labelUSD.BackColor = Color.White;
+            labelUSD.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelUSD.ForeColor = Color.FromArgb(255, 193, 37);
+            labelUSD.Location = new Point(825, 355);
+            labelUSD.Name = "labelUSD";
+            labelUSD.Size = new Size(200, 75);
+            labelUSD.TabIndex = 55;
+            labelUSD.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelGBP
+            // 
+            labelGBP.BackColor = Color.White;
+            labelGBP.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelGBP.ForeColor = Color.FromArgb(255, 193, 37);
+            labelGBP.Location = new Point(825, 450);
+            labelGBP.Name = "labelGBP";
+            labelGBP.Size = new Size(200, 75);
+            labelGBP.TabIndex = 55;
+            labelGBP.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelPLN
+            // 
+            labelPLN.BackColor = Color.White;
+            labelPLN.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelPLN.ForeColor = Color.FromArgb(255, 193, 37);
+            labelPLN.Location = new Point(825, 545);
+            labelPLN.Name = "labelPLN";
+            labelPLN.Size = new Size(200, 75);
+            labelPLN.TabIndex = 55;
+            labelPLN.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // rateBox
+            // 
+            rateBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rateBox.ForeColor = Color.FromArgb(255, 193, 37);
+            rateBox.FormattingEnabled = true;
+            rateBox.Items.AddRange(new object[] { "EUR", "USD", "GBP", "PLN" });
+            rateBox.Location = new Point(825, 165);
+            rateBox.Name = "rateBox";
+            rateBox.Size = new Size(200, 75);
+            rateBox.TabIndex = 56;
+            rateBox.SelectedIndexChanged += rateBox_SelectedIndexChanged;
             // 
             // Form2
             // 
@@ -403,6 +367,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(rateBox);
+            Controls.Add(labelPLN);
+            Controls.Add(labelGBP);
+            Controls.Add(labelUSD);
+            Controls.Add(labelEUR);
             Controls.Add(ConvertedAmountDisplay);
             Controls.Add(ExchangeButton);
             Controls.Add(AmmountToConvertBox);
@@ -412,14 +381,6 @@
             Controls.Add(pictureBox29);
             Controls.Add(pictureBox28);
             Controls.Add(pictureBox27);
-            Controls.Add(pictureBox23);
-            Controls.Add(pictureBox26);
-            Controls.Add(pictureBox25);
-            Controls.Add(pictureBox24);
-            Controls.Add(pictureBox22);
-            Controls.Add(pictureBox21);
-            Controls.Add(pictureBox20);
-            Controls.Add(pictureBox19);
             Controls.Add(pictureBox13);
             Controls.Add(label3);
             Controls.Add(pictureBox12);
@@ -447,14 +408,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox19).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox21).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox22).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox24).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox25).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox26).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox23).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
@@ -476,14 +429,6 @@
         private PictureBox pictureBox12;
         private Label label3;
         private PictureBox pictureBox13;
-        private PictureBox pictureBox19;
-        private PictureBox pictureBox20;
-        private PictureBox pictureBox21;
-        private PictureBox pictureBox22;
-        private PictureBox pictureBox24;
-        private PictureBox pictureBox25;
-        private PictureBox pictureBox26;
-        private PictureBox pictureBox23;
         private PictureBox pictureBox27;
         private PictureBox pictureBox28;
         private PictureBox pictureBox29;
@@ -494,5 +439,10 @@
         private TextBox AmmountToConvertBox;
         private Button ExchangeButton;
         private Label ConvertedAmountDisplay;
+        private Label labelEUR;
+        private Label labelUSD;
+        private Label labelGBP;
+        private Label labelPLN;
+        protected ComboBox rateBox;
     }
 }

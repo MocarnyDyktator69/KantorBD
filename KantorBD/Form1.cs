@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
-
 
 namespace KantorBD
 {
@@ -69,79 +60,27 @@ namespace KantorBD
             ConvertedAmountDisplay.Text = $"{convertedAmount.ToString("F2")}";
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
+        private void rateBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selectedCurrency = rateBox.SelectedItem.ToString();
 
+            try
+            {
+                double usdRate = GetExchangeRate(selectedCurrency, "USD");
+                double eurRate = GetExchangeRate(selectedCurrency, "EUR");
+                double gbpRate = GetExchangeRate(selectedCurrency, "GBP");
+                double plnRate = GetExchangeRate(selectedCurrency, "PLN");
+
+                labelUSD.Text = $"{usdRate.ToString("F4")}";
+                labelEUR.Text = $"{eurRate.ToString("F4")}";
+                labelGBP.Text = $"{gbpRate.ToString("F4")}";
+                labelPLN.Text = $"{plnRate.ToString("F4")}";
+            }
+            catch
+            {
+                MessageBox.Show("An error occurred while retrieving exchange rates!", "Error - API error", MessageBoxButtons.OK);
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public class Rate
-        {
-            public string no { get; set; }
-            public string effectiveDate { get; set; }
-            public double mid { get; set; }
-        }
-
-        public class Root
-        {
-            public string table { get; set; }
-            public string currency { get; set; }
-            public string code { get; set; }
-            public List<Rate> rates { get; set; }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConvertedAmmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AmmountToConvert_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConvertedAmountDisplay_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
