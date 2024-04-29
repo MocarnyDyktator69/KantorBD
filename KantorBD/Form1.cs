@@ -5,9 +5,9 @@ using Newtonsoft.Json.Linq;
 
 namespace KantorBD
 {
-    public partial class Form2 : Form
+    public partial class CurrencyExchange : Form
     {
-        public Form2()
+        public CurrencyExchange()
         {
             InitializeComponent();
         }
@@ -82,5 +82,30 @@ namespace KantorBD
             }
         }
 
+        private void pictureBoxLogout_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBoxTransactionHistory_Click(object sender, EventArgs e)
+        {
+            TransactionHistory transactionHistory = new TransactionHistory();
+            transactionHistory.Show();
+            this.Hide();
+        }
+
+        private void pictureBoxCurrencyExchange_Click(object sender, EventArgs e)
+        {
+            CurrencyExchange currencyExchange = new CurrencyExchange();
+            currencyExchange.Show();
+            this.Hide();
+        }
+
+        private void pictureBoxWallet_Click(object sender, EventArgs e)
+        {
+            Wallet wallet = new Wallet();
+            wallet.Show();
+            this.Hide();
+        }
     }
 }

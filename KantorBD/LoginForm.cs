@@ -77,7 +77,7 @@ namespace KantorBD
                 } 
                 else if (userType == 2) // user
                 {
-                    Form2 f2 = new Form2();
+                    TransactionHistory f2 = new TransactionHistory();
                     f2.Show();
                 }
             }
