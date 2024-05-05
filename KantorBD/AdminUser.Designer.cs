@@ -1,6 +1,6 @@
 ﻿namespace KantorBD
 {
-    partial class MainAdminForm
+    partial class AdminUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainAdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUser));
             panel1 = new Panel();
+            label1 = new Label();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -38,7 +39,6 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             labelClose = new Label();
-            label1 = new Label();
             panel1.SuspendLayout();
             MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -59,7 +59,16 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 681);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(475, 26);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 15);
+            label1.TabIndex = 18;
+            label1.Text = "USER";
             // 
             // MenuPanel
             // 
@@ -83,7 +92,7 @@
             pictureBox6.Margin = new Padding(5);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(65, 65);
-            pictureBox6.TabIndex = 17;
+            pictureBox6.TabIndex = 18;
             pictureBox6.TabStop = false;
             pictureBox6.Click += pictureBox6_Click;
             // 
@@ -162,25 +171,16 @@
             labelClose.Text = "X";
             labelClose.Click += labelClose_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(444, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(41, 15);
-            label1.TabIndex = 17;
-            label1.Text = "MENU";
-            // 
-            // MainAdminForm
+            // AdminUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 681);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "MainAdminForm";
+            Name = "AdminUser";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MainForm";
+            Text = "AdminUser";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             MenuPanel.ResumeLayout(false);
@@ -196,13 +196,13 @@
         #endregion
 
         private Panel panel1;
-        private Label labelClose;
         private Panel MenuPanel;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Label labelClose;
         private PictureBox pictureBox6;
         private Label label1;
     }

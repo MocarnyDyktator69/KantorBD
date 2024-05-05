@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace KantorBD
 {
-    public partial class MainAdminForm : Form
+    public partial class AdminUser : Form
     {
-        public MainAdminForm()
+        public AdminUser()
         {
             InitializeComponent();
-        }
-
-        private void labelClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -62,6 +57,11 @@ namespace KantorBD
             this.Hide();
             MainAdminForm f6 = new MainAdminForm();
             f6.Show();
+        }
+
+        private void labelClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
