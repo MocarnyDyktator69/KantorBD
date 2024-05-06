@@ -1,15 +1,17 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KantorBD
 {
-    internal class DB
+    internal class DB : IDisposable
     {
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=db_kantor");
+        private readonly string connectionString = "server=localhost;port=3306;username=root;password=;database=db_kantor";
+        private MySqlConnection connection;
+
+        public DB()
+        {
+            connection = new MySqlConnection(connectionString);
+        }
 
         public void openConnection()
         {
@@ -18,6 +20,7 @@ namespace KantorBD
                 connection.Open();
             }
         }
+
         public void closeConnection()
         {
             if (connection.State == System.Data.ConnectionState.Open)
@@ -29,6 +32,11 @@ namespace KantorBD
         public MySqlConnection getConnection()
         {
             return connection;
+        }
+
+        public void Dispose()
+        {
+            connection.Dispose();
         }
     }
 }

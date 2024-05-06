@@ -39,7 +39,7 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            listBoxTransactions = new ListBox();
+            dataGridViewTransactions = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
@@ -48,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).BeginInit();
             SuspendLayout();
             // 
             // pictureBox8
@@ -162,17 +163,15 @@
             label2.Text = "Transaction History";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // listBoxTransactions
+            // dataGridViewTransactions
             // 
-            listBoxTransactions.BackColor = Color.FromArgb(5, 5, 50);
-            listBoxTransactions.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listBoxTransactions.ForeColor = Color.FromArgb(255, 193, 37);
-            listBoxTransactions.FormattingEnabled = true;
-            listBoxTransactions.ItemHeight = 23;
-            listBoxTransactions.Location = new Point(12, 218);
-            listBoxTransactions.Name = "listBoxTransactions";
-            listBoxTransactions.Size = new Size(1040, 441);
-            listBoxTransactions.TabIndex = 34;
+            dataGridViewTransactions.BackgroundColor = Color.FromArgb(5, 5, 50);
+            dataGridViewTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTransactions.GridColor = Color.FromArgb(255, 193, 37);
+            dataGridViewTransactions.Location = new Point(12, 218);
+            dataGridViewTransactions.Name = "dataGridViewTransactions";
+            dataGridViewTransactions.Size = new Size(1040, 451);
+            dataGridViewTransactions.TabIndex = 35;
             // 
             // TransactionHistory
             // 
@@ -180,7 +179,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(listBoxTransactions);
+            Controls.Add(dataGridViewTransactions);
             Controls.Add(label2);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBoxWallet);
@@ -194,7 +193,6 @@
             Name = "TransactionHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TransactionHistory";
-            Load += TransactionHistory_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
@@ -203,6 +201,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -219,6 +218,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Label label2;
-        private ListBox listBoxTransactions;
+        private DataGridView dataGridViewTransactions;
     }
 }

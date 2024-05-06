@@ -57,7 +57,8 @@ namespace KantorBD
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT `email`, `password`, `usertypeID` FROM `user` WHERE `email` = @uE AND `password` = @uH", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT `userID`, `email`, `password`, `usertypeID` FROM `user` WHERE `email` = @uE AND `password` = @uH", db.getConnection());
+
 
             command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
             command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = password;
@@ -74,10 +75,12 @@ namespace KantorBD
                 {
                     MainAdminForm f1 = new MainAdminForm();
                     f1.Show();
-                } 
+                }
                 else if (userType == 2) // user
                 {
-                    TransactionHistory f2 = new TransactionHistory();
+                    int userID = Convert.ToInt32(table.Rows[0]["userID"]);
+
+                    TransactionHistory f2 = new TransactionHistory(userID);
                     f2.Show();
                 }
             }

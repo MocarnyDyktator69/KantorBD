@@ -65,44 +65,44 @@
             // labelPLN
             // 
             labelPLN.BackColor = Color.White;
-            labelPLN.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelPLN.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelPLN.ForeColor = Color.FromArgb(255, 193, 37);
             labelPLN.Location = new Point(219, 485);
             labelPLN.Name = "labelPLN";
-            labelPLN.Size = new Size(200, 75);
+            labelPLN.Size = new Size(253, 75);
             labelPLN.TabIndex = 60;
             labelPLN.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelGBP
             // 
             labelGBP.BackColor = Color.White;
-            labelGBP.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelGBP.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelGBP.ForeColor = Color.FromArgb(255, 193, 37);
             labelGBP.Location = new Point(219, 390);
             labelGBP.Name = "labelGBP";
-            labelGBP.Size = new Size(200, 75);
+            labelGBP.Size = new Size(253, 75);
             labelGBP.TabIndex = 61;
             labelGBP.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelUSD
             // 
             labelUSD.BackColor = Color.White;
-            labelUSD.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelUSD.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelUSD.ForeColor = Color.FromArgb(255, 193, 37);
             labelUSD.Location = new Point(219, 295);
             labelUSD.Name = "labelUSD";
-            labelUSD.Size = new Size(200, 75);
+            labelUSD.Size = new Size(253, 75);
             labelUSD.TabIndex = 62;
             labelUSD.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelEUR
             // 
             labelEUR.BackColor = Color.White;
-            labelEUR.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelEUR.Font = new Font("Comic Sans MS", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelEUR.ForeColor = Color.FromArgb(255, 193, 37);
             labelEUR.Location = new Point(219, 200);
             labelEUR.Name = "labelEUR";
-            labelEUR.Size = new Size(200, 75);
+            labelEUR.Size = new Size(253, 75);
             labelEUR.TabIndex = 63;
             labelEUR.TextAlign = ContentAlignment.MiddleCenter;
             // 
