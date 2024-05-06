@@ -30,6 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUser));
             panel1 = new Panel();
+            buttonClear = new Button();
+            comboBoxUserTypeId = new ComboBox();
+            buttonLast = new Button();
+            buttonNext = new Button();
+            buttonPrevious = new Button();
+            buttonFirst = new Button();
+            buttonRemove = new Button();
+            buttonEdit = new Button();
+            buttonSearch = new Button();
+            textBoxBirth = new TextBox();
+            textBoxEmail = new TextBox();
+            textBoxSurname = new TextBox();
+            textBoxName = new TextBox();
+            numericID = new NumericUpDown();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
             label2 = new Label();
             dataGridViewUser = new DataGridView();
             label1 = new Label();
@@ -41,26 +60,9 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             labelClose = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            numericID = new NumericUpDown();
-            textBoxName = new TextBox();
-            textBoxSurname = new TextBox();
-            textBoxEmail = new TextBox();
-            textBoxBirth = new TextBox();
-            textBoxUsertype = new TextBox();
-            buttonSearch = new Button();
-            buttonAdd = new Button();
-            buttonEdit = new Button();
-            buttonRemove = new Button();
-            buttonFirst = new Button();
-            buttonPrevious = new Button();
-            buttonNext = new Button();
-            buttonLast = new Button();
+            labelUserI = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUser).BeginInit();
             MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -69,21 +71,21 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericID).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(36, 26, 82);
+            panel1.Controls.Add(labelUserI);
+            panel1.Controls.Add(buttonClear);
+            panel1.Controls.Add(comboBoxUserTypeId);
             panel1.Controls.Add(buttonLast);
             panel1.Controls.Add(buttonNext);
             panel1.Controls.Add(buttonPrevious);
             panel1.Controls.Add(buttonFirst);
             panel1.Controls.Add(buttonRemove);
             panel1.Controls.Add(buttonEdit);
-            panel1.Controls.Add(buttonAdd);
             panel1.Controls.Add(buttonSearch);
-            panel1.Controls.Add(textBoxUsertype);
             panel1.Controls.Add(textBoxBirth);
             panel1.Controls.Add(textBoxEmail);
             panel1.Controls.Add(textBoxSurname);
@@ -105,6 +107,221 @@
             panel1.Size = new Size(1064, 681);
             panel1.TabIndex = 1;
             // 
+            // buttonClear
+            // 
+            buttonClear.BackColor = Color.FromArgb(16, 9, 48);
+            buttonClear.FlatStyle = FlatStyle.Flat;
+            buttonClear.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonClear.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonClear.Location = new Point(710, 606);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(150, 50);
+            buttonClear.TabIndex = 41;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
+            // 
+            // comboBoxUserTypeId
+            // 
+            comboBoxUserTypeId.FormattingEnabled = true;
+            comboBoxUserTypeId.Items.AddRange(new object[] { "1", "2" });
+            comboBoxUserTypeId.Location = new Point(898, 539);
+            comboBoxUserTypeId.Name = "comboBoxUserTypeId";
+            comboBoxUserTypeId.Size = new Size(121, 23);
+            comboBoxUserTypeId.TabIndex = 40;
+            // 
+            // buttonLast
+            // 
+            buttonLast.BackColor = Color.FromArgb(16, 9, 48);
+            buttonLast.FlatStyle = FlatStyle.Flat;
+            buttonLast.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonLast.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonLast.Location = new Point(710, 429);
+            buttonLast.Name = "buttonLast";
+            buttonLast.Size = new Size(150, 50);
+            buttonLast.TabIndex = 39;
+            buttonLast.Text = ">>";
+            buttonLast.UseVisualStyleBackColor = false;
+            buttonLast.Click += buttonLast_Click;
+            // 
+            // buttonNext
+            // 
+            buttonNext.BackColor = Color.FromArgb(16, 9, 48);
+            buttonNext.FlatStyle = FlatStyle.Flat;
+            buttonNext.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonNext.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonNext.Location = new Point(543, 429);
+            buttonNext.Name = "buttonNext";
+            buttonNext.Size = new Size(150, 50);
+            buttonNext.TabIndex = 38;
+            buttonNext.Text = ">";
+            buttonNext.UseVisualStyleBackColor = false;
+            buttonNext.Click += buttonNext_Click;
+            // 
+            // buttonPrevious
+            // 
+            buttonPrevious.BackColor = Color.FromArgb(16, 9, 48);
+            buttonPrevious.FlatStyle = FlatStyle.Flat;
+            buttonPrevious.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonPrevious.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonPrevious.Location = new Point(371, 429);
+            buttonPrevious.Name = "buttonPrevious";
+            buttonPrevious.Size = new Size(150, 50);
+            buttonPrevious.TabIndex = 37;
+            buttonPrevious.Text = "<";
+            buttonPrevious.UseVisualStyleBackColor = false;
+            buttonPrevious.Click += buttonPrevious_Click;
+            // 
+            // buttonFirst
+            // 
+            buttonFirst.BackColor = Color.FromArgb(16, 9, 48);
+            buttonFirst.FlatStyle = FlatStyle.Flat;
+            buttonFirst.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonFirst.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonFirst.Location = new Point(197, 429);
+            buttonFirst.Name = "buttonFirst";
+            buttonFirst.Size = new Size(150, 50);
+            buttonFirst.TabIndex = 36;
+            buttonFirst.Text = "<<";
+            buttonFirst.UseVisualStyleBackColor = false;
+            buttonFirst.Click += buttonFirst_Click;
+            // 
+            // buttonRemove
+            // 
+            buttonRemove.BackColor = Color.FromArgb(16, 9, 48);
+            buttonRemove.FlatStyle = FlatStyle.Flat;
+            buttonRemove.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonRemove.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonRemove.Location = new Point(543, 606);
+            buttonRemove.Name = "buttonRemove";
+            buttonRemove.Size = new Size(150, 50);
+            buttonRemove.TabIndex = 35;
+            buttonRemove.Text = "Remove";
+            buttonRemove.UseVisualStyleBackColor = false;
+            buttonRemove.Click += buttonRemove_Click;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.BackColor = Color.FromArgb(16, 9, 48);
+            buttonEdit.FlatStyle = FlatStyle.Flat;
+            buttonEdit.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonEdit.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonEdit.Location = new Point(371, 606);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(150, 50);
+            buttonEdit.TabIndex = 34;
+            buttonEdit.Text = "Edit";
+            buttonEdit.UseVisualStyleBackColor = false;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.BackColor = Color.FromArgb(16, 9, 48);
+            buttonSearch.FlatStyle = FlatStyle.Flat;
+            buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonSearch.Location = new Point(197, 606);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.TabIndex = 32;
+            buttonSearch.Text = "Search";
+            buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // textBoxBirth
+            // 
+            textBoxBirth.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxBirth.Location = new Point(702, 539);
+            textBoxBirth.Name = "textBoxBirth";
+            textBoxBirth.Size = new Size(163, 35);
+            textBoxBirth.TabIndex = 30;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxEmail.Location = new Point(485, 539);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(195, 35);
+            textBoxEmail.TabIndex = 29;
+            // 
+            // textBoxSurname
+            // 
+            textBoxSurname.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxSurname.Location = new Point(309, 539);
+            textBoxSurname.Name = "textBoxSurname";
+            textBoxSurname.Size = new Size(170, 35);
+            textBoxSurname.TabIndex = 28;
+            // 
+            // textBoxName
+            // 
+            textBoxName.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxName.Location = new Point(131, 539);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(170, 35);
+            textBoxName.TabIndex = 27;
+            // 
+            // numericID
+            // 
+            numericID.Location = new Point(32, 539);
+            numericID.Name = "numericID";
+            numericID.Size = new Size(71, 23);
+            numericID.TabIndex = 26;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label7.ForeColor = Color.FromArgb(255, 193, 37);
+            label7.Location = new Point(874, 503);
+            label7.Name = "label7";
+            label7.Size = new Size(168, 29);
+            label7.TabIndex = 25;
+            label7.Text = "USER_TYPE_ID";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.ForeColor = Color.FromArgb(255, 193, 37);
+            label6.Location = new Point(712, 503);
+            label6.Name = "label6";
+            label6.Size = new Size(143, 29);
+            label6.TabIndex = 24;
+            label6.Text = "BIRTH DATE";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label5.ForeColor = Color.FromArgb(255, 193, 37);
+            label5.Location = new Point(535, 503);
+            label5.Name = "label5";
+            label5.Size = new Size(92, 29);
+            label5.TabIndex = 23;
+            label5.Text = "E-MAIL";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label4.ForeColor = Color.FromArgb(255, 193, 37);
+            label4.Location = new Point(339, 503);
+            label4.Name = "label4";
+            label4.Size = new Size(116, 29);
+            label4.TabIndex = 22;
+            label4.Text = "SURNAME";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label3.ForeColor = Color.FromArgb(255, 193, 37);
+            label3.Location = new Point(179, 503);
+            label3.Name = "label3";
+            label3.Size = new Size(74, 29);
+            label3.TabIndex = 21;
+            label3.Text = "NAME";
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -118,11 +335,13 @@
             // 
             // dataGridViewUser
             // 
+            dataGridViewUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUser.Location = new Point(12, 180);
+            dataGridViewUser.Location = new Point(109, 180);
             dataGridViewUser.Name = "dataGridViewUser";
-            dataGridViewUser.Size = new Size(1040, 243);
+            dataGridViewUser.Size = new Size(848, 214);
             dataGridViewUser.TabIndex = 19;
+            dataGridViewUser.Click += dataGridViewUser_Click;
             // 
             // label1
             // 
@@ -234,211 +453,16 @@
             labelClose.Text = "X";
             labelClose.Click += labelClose_Click;
             // 
-            // label3
+            // labelUserI
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label3.ForeColor = Color.FromArgb(255, 193, 37);
-            label3.Location = new Point(179, 503);
-            label3.Name = "label3";
-            label3.Size = new Size(74, 29);
-            label3.TabIndex = 21;
-            label3.Text = "NAME";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label4.ForeColor = Color.FromArgb(255, 193, 37);
-            label4.Location = new Point(339, 503);
-            label4.Name = "label4";
-            label4.Size = new Size(116, 29);
-            label4.TabIndex = 22;
-            label4.Text = "SURNAME";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label5.ForeColor = Color.FromArgb(255, 193, 37);
-            label5.Location = new Point(535, 503);
-            label5.Name = "label5";
-            label5.Size = new Size(92, 29);
-            label5.TabIndex = 23;
-            label5.Text = "E-MAIL";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label6.ForeColor = Color.FromArgb(255, 193, 37);
-            label6.Location = new Point(712, 503);
-            label6.Name = "label6";
-            label6.Size = new Size(143, 29);
-            label6.TabIndex = 24;
-            label6.Text = "BIRTH DATE";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label7.ForeColor = Color.FromArgb(255, 193, 37);
-            label7.Location = new Point(874, 503);
-            label7.Name = "label7";
-            label7.Size = new Size(168, 29);
-            label7.TabIndex = 25;
-            label7.Text = "USER_TYPE_ID";
-            // 
-            // numericID
-            // 
-            numericID.Location = new Point(32, 539);
-            numericID.Name = "numericID";
-            numericID.Size = new Size(71, 23);
-            numericID.TabIndex = 26;
-            // 
-            // textBoxName
-            // 
-            textBoxName.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxName.Location = new Point(131, 539);
-            textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(170, 35);
-            textBoxName.TabIndex = 27;
-            // 
-            // textBoxSurname
-            // 
-            textBoxSurname.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxSurname.Location = new Point(309, 539);
-            textBoxSurname.Name = "textBoxSurname";
-            textBoxSurname.Size = new Size(170, 35);
-            textBoxSurname.TabIndex = 28;
-            // 
-            // textBoxEmail
-            // 
-            textBoxEmail.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxEmail.Location = new Point(485, 539);
-            textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(195, 35);
-            textBoxEmail.TabIndex = 29;
-            // 
-            // textBoxBirth
-            // 
-            textBoxBirth.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxBirth.Location = new Point(702, 539);
-            textBoxBirth.Name = "textBoxBirth";
-            textBoxBirth.Size = new Size(163, 35);
-            textBoxBirth.TabIndex = 30;
-            // 
-            // textBoxUsertype
-            // 
-            textBoxUsertype.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxUsertype.Location = new Point(901, 539);
-            textBoxUsertype.Name = "textBoxUsertype";
-            textBoxUsertype.Size = new Size(122, 35);
-            textBoxUsertype.TabIndex = 31;
-            // 
-            // buttonSearch
-            // 
-            buttonSearch.BackColor = Color.FromArgb(16, 9, 48);
-            buttonSearch.FlatStyle = FlatStyle.Flat;
-            buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonSearch.Location = new Point(197, 609);
-            buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(150, 50);
-            buttonSearch.TabIndex = 32;
-            buttonSearch.Text = "Search";
-            buttonSearch.UseVisualStyleBackColor = false;
-            // 
-            // buttonAdd
-            // 
-            buttonAdd.BackColor = Color.FromArgb(16, 9, 48);
-            buttonAdd.FlatStyle = FlatStyle.Flat;
-            buttonAdd.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            buttonAdd.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonAdd.Location = new Point(371, 609);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(150, 50);
-            buttonAdd.TabIndex = 33;
-            buttonAdd.Text = "Add";
-            buttonAdd.UseVisualStyleBackColor = false;
-            // 
-            // buttonEdit
-            // 
-            buttonEdit.BackColor = Color.FromArgb(16, 9, 48);
-            buttonEdit.FlatStyle = FlatStyle.Flat;
-            buttonEdit.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            buttonEdit.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonEdit.Location = new Point(543, 609);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(150, 50);
-            buttonEdit.TabIndex = 34;
-            buttonEdit.Text = "Edit";
-            buttonEdit.UseVisualStyleBackColor = false;
-            // 
-            // buttonRemove
-            // 
-            buttonRemove.BackColor = Color.FromArgb(16, 9, 48);
-            buttonRemove.FlatStyle = FlatStyle.Flat;
-            buttonRemove.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            buttonRemove.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonRemove.Location = new Point(710, 609);
-            buttonRemove.Name = "buttonRemove";
-            buttonRemove.Size = new Size(150, 50);
-            buttonRemove.TabIndex = 35;
-            buttonRemove.Text = "Remove";
-            buttonRemove.UseVisualStyleBackColor = false;
-            // 
-            // buttonFirst
-            // 
-            buttonFirst.BackColor = Color.FromArgb(16, 9, 48);
-            buttonFirst.FlatStyle = FlatStyle.Flat;
-            buttonFirst.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
-            buttonFirst.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonFirst.Location = new Point(197, 429);
-            buttonFirst.Name = "buttonFirst";
-            buttonFirst.Size = new Size(150, 50);
-            buttonFirst.TabIndex = 36;
-            buttonFirst.Text = "<<";
-            buttonFirst.UseVisualStyleBackColor = false;
-            // 
-            // buttonPrevious
-            // 
-            buttonPrevious.BackColor = Color.FromArgb(16, 9, 48);
-            buttonPrevious.FlatStyle = FlatStyle.Flat;
-            buttonPrevious.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
-            buttonPrevious.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonPrevious.Location = new Point(371, 429);
-            buttonPrevious.Name = "buttonPrevious";
-            buttonPrevious.Size = new Size(150, 50);
-            buttonPrevious.TabIndex = 37;
-            buttonPrevious.Text = "<";
-            buttonPrevious.UseVisualStyleBackColor = false;
-            // 
-            // buttonNext
-            // 
-            buttonNext.BackColor = Color.FromArgb(16, 9, 48);
-            buttonNext.FlatStyle = FlatStyle.Flat;
-            buttonNext.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
-            buttonNext.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonNext.Location = new Point(543, 429);
-            buttonNext.Name = "buttonNext";
-            buttonNext.Size = new Size(150, 50);
-            buttonNext.TabIndex = 38;
-            buttonNext.Text = ">";
-            buttonNext.UseVisualStyleBackColor = false;
-            // 
-            // buttonLast
-            // 
-            buttonLast.BackColor = Color.FromArgb(16, 9, 48);
-            buttonLast.FlatStyle = FlatStyle.Flat;
-            buttonLast.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
-            buttonLast.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonLast.Location = new Point(710, 429);
-            buttonLast.Name = "buttonLast";
-            buttonLast.Size = new Size(150, 50);
-            buttonLast.TabIndex = 39;
-            buttonLast.Text = ">>";
-            buttonLast.UseVisualStyleBackColor = false;
+            labelUserI.AutoSize = true;
+            labelUserI.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            labelUserI.ForeColor = Color.FromArgb(255, 193, 37);
+            labelUserI.Location = new Point(826, 397);
+            labelUserI.Name = "labelUserI";
+            labelUserI.Size = new Size(92, 23);
+            labelUserI.TabIndex = 42;
+            labelUserI.Text = "100 Users";
             // 
             // AdminUser
             // 
@@ -450,8 +474,10 @@
             Name = "AdminUser";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminUser";
+            Load += AdminUser_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericID).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUser).EndInit();
             MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -460,7 +486,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericID).EndInit();
             ResumeLayout(false);
         }
 
@@ -485,17 +510,18 @@
         private Label label3;
         private TextBox textBoxName;
         private NumericUpDown numericID;
-        private TextBox textBoxUsertype;
         private TextBox textBoxBirth;
         private TextBox textBoxEmail;
         private TextBox textBoxSurname;
         private Button buttonSearch;
         private Button buttonRemove;
         private Button buttonEdit;
-        private Button buttonAdd;
         private Button buttonLast;
         private Button buttonNext;
         private Button buttonPrevious;
         private Button buttonFirst;
+        private ComboBox comboBoxUserTypeId;
+        private Button buttonClear;
+        private Label labelUserI;
     }
 }
