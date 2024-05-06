@@ -2,14 +2,18 @@
 using System.Windows.Forms;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace KantorBD
 {
     public partial class CurrencyExchange : Form
     {
-        public CurrencyExchange()
+        private int loggedInUserID;
+
+        public CurrencyExchange(int userID)
         {
             InitializeComponent();
+            loggedInUserID = userID;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -89,21 +93,21 @@ namespace KantorBD
 
         private void pictureBoxTransactionHistory_Click(object sender, EventArgs e)
         {
-            TransactionHistory transactionHistory = new TransactionHistory();
+            TransactionHistory transactionHistory = new TransactionHistory(loggedInUserID);
             transactionHistory.Show();
             this.Hide();
         }
 
         private void pictureBoxCurrencyExchange_Click(object sender, EventArgs e)
         {
-            CurrencyExchange currencyExchange = new CurrencyExchange();
+            CurrencyExchange currencyExchange = new CurrencyExchange(loggedInUserID);
             currencyExchange.Show();
             this.Hide();
         }
 
         private void pictureBoxWallet_Click(object sender, EventArgs e)
         {
-            Wallet wallet = new Wallet();
+            Wallet wallet = new Wallet(loggedInUserID);
             wallet.Show();
             this.Hide();
         }
