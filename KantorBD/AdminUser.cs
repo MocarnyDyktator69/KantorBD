@@ -143,16 +143,14 @@ namespace KantorBD
             string name = textBoxName.Text;
             string surname = textBoxSurname.Text;
             string email = textBoxEmail.Text;
-            string birth = textBoxBirth.Text;
             string usertypeID = comboBoxUserTypeId.Text;
 
-            MySqlCommand command = new MySqlCommand("UPDATE `user` SET `name`=@nm, `surname`=@sn, `email`=@em, `birth_date`=@bi, `usertypeID`= @typ WHERE `userID` = @id", db.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `user` SET `name`=@nm, `surname`=@sn, `email`=@em, `usertypeID`= @typ WHERE `userID` = @id", db.getConnection());
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@sn", MySqlDbType.VarChar).Value = surname;
             command.Parameters.Add("@em", MySqlDbType.VarChar).Value = email;
-            command.Parameters.Add("@bi", MySqlDbType.VarChar).Value = birth;
             command.Parameters.Add("@typ", MySqlDbType.VarChar).Value = usertypeID;
 
             db.openConnection();
