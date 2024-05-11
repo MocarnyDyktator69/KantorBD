@@ -20,29 +20,68 @@ namespace KantorBD
             InitializeComponent();
         }
         DB db = new DB();
-        DataTable table = new DataTable();
+        BindingList<UserDTO> users = new BindingList<UserDTO>();
         int userIndex = 0;
 
-        public void getUsers()
+        public BindingList<UserDTO> getUsers()
         {
-            table.Clear();
-            dataGridViewUser.DataSource = table;
+            users.Clear();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT U.*, UT.type FROM `User` AS U JOIN `Usertype` AS UT ON U.usertypeID = UT.usertypeID;", db.getConnection());
+            DataTable table = new DataTable();
             adapter.Fill(table);
-            dataGridViewUser.DataSource = table;
 
-            labelUserI.Text = table.Rows.Count.ToString() + " User";
+            foreach (DataRow row in table.Rows)
+            {
+                UserDTO user = new UserDTO
+                {
+                    UserID = row["userID"] == DBNull.Value ? 0 : int.TryParse(row["userID"].ToString(), out int userId) ? userId : 0,
+                    FullName = row["name"].ToString() + " " + row["surname"].ToString(),
+                    Name = row["name"] == DBNull.Value ? null : row["name"].ToString(),
+                    Surname = row["surname"] == DBNull.Value ? null : row["surname"].ToString(),
+                    Email = row["email"] == DBNull.Value ? null : row["email"].ToString(),
+                    BirthDate = row["birth_date"] == DBNull.Value ? DateTime.MinValue : DateTime.TryParse(row["birth_date"].ToString(), out DateTime birthdate) ? birthdate : DateTime.MinValue,
+                    Type = row["type"] == DBNull.Value ? null : row["type"].ToString()
+                };
+                users.Add(user);
+            }
+
+
+            listViewUser.Items.Clear();
+            foreach (UserDTO user in users)
+            {
+                ListViewItem item = new ListViewItem(user.UserID.ToString());
+                item.SubItems.Add(user.FullName);
+                item.SubItems.Add(user.Email);
+                item.SubItems.Add(user.BirthDate.ToString("dd.MM.yyyy"));
+                item.SubItems.Add(user.Type);
+                item.Tag = user;
+                listViewUser.Items.Add(item);
+            }
+
+            labelUserI.Text = users.Count.ToString() + " User";
+
+            return users;
+
         }
         private void AdminUser_Load(object sender, EventArgs e)
         {
             getUsers();
 
-            dataGridViewUser.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(16, 9, 48);
-            dataGridViewUser.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(255, 193, 37);
-            dataGridViewUser.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 13, FontStyle.Bold);
-            dataGridViewUser.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewUser.EnableHeadersVisualStyles = false;
+            listViewUser.View = View.Details;
+            listViewUser.FullRowSelect = true;
+            listViewUser.GridLines = true;
+            listViewUser.Columns.Add("ID", 50);
+            listViewUser.Columns.Add("Name and Surname", 200);
+            listViewUser.Columns.Add("Email", 200);
+            listViewUser.Columns.Add("Birth_date", 150);
+            listViewUser.Columns.Add("Type", 75);
+
+            listViewUser.Columns[0].TextAlign = HorizontalAlignment.Center;
+            listViewUser.Columns[1].TextAlign = HorizontalAlignment.Center;
+            listViewUser.Columns[2].TextAlign = HorizontalAlignment.Center;
+            listViewUser.Columns[3].TextAlign = HorizontalAlignment.Center;
+            listViewUser.Columns[4].TextAlign = HorizontalAlignment.Center;
         }
 
 
@@ -93,38 +132,26 @@ namespace KantorBD
             Application.Exit();
         }
 
-        private void dataGridViewUser_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selectedRow = dataGridViewUser.CurrentRow;
-
-            numericID.Value = int.Parse(selectedRow.Cells[0].Value.ToString());
-            textBoxName.Text = selectedRow.Cells[1].Value.ToString();
-            textBoxSurname.Text = selectedRow.Cells[2].Value.ToString();
-            textBoxEmail.Text = selectedRow.Cells[3].Value.ToString();
-            textBoxBirth.Text = selectedRow.Cells[5].Value.ToString();
-            comboBoxUserTypeId.Text = selectedRow.Cells[6].Value.ToString();
-        }
-
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = (int)numericID.Value;
-                DataRow[] row = table.Select("userID = " + id);
-                if (row.Length > 0)
+                string email = textBoxEmail.Text;
+                UserDTO user = users.FirstOrDefault(u => u.Email == email);
+                if (user != null)
                 {
-                    textBoxName.Text = row[0][1].ToString();
-                    textBoxSurname.Text = row[0][2].ToString();
-                    textBoxEmail.Text = row[0][3].ToString();
-                    textBoxBirth.Text = row[0][5].ToString();
-                    comboBoxUserTypeId.Text = row[0][6].ToString();
+                    numericID.Value = user.UserID;
+                    textBoxName.Text = user.Name;
+                    textBoxSurname.Text = user.Surname;
+                    textBoxBirth.Text = user.BirthDate.ToString("yyyy-MM-dd");
+                    comboBoxUserTypeId.Text = user.Type;
                 }
                 else
                 {
                     MessageBox.Show("User not found", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    numericID.Value = 0;
                     textBoxName.Text = "";
                     textBoxSurname.Text = "";
-                    textBoxEmail.Text = "";
                     textBoxBirth.Text = "";
                     comboBoxUserTypeId.SelectedIndex = 0;
                 }
@@ -134,6 +161,7 @@ namespace KantorBD
             {
                 MessageBox.Show("ERROR: " + ex.Message);
             }
+
 
         }
 
@@ -214,30 +242,32 @@ namespace KantorBD
         private void buttonNext_Click(object sender, EventArgs e)
         {
             userIndex++;
-            if (userIndex >= table.Rows.Count)
+            if (userIndex >= users.Count)
             {
-                userIndex = table.Rows.Count - 1;
+                userIndex = users.Count - 1;
             }
             displayInfo(userIndex);
         }
 
         private void buttonLast_Click(object sender, EventArgs e)
         {
-            userIndex = table.Rows.Count - 1;
+            userIndex = users.Count - 1;
             displayInfo(userIndex);
         }
 
         public void displayInfo(int index)
         {
-            dataGridViewUser.ClearSelection();
-            dataGridViewUser.Rows[index].Selected = true;
+            UserDTO selectedUser = users[index];
 
-            numericID.Value = (int)table.Rows[index][0];
-            textBoxName.Text = table.Rows[index][1].ToString();
-            textBoxSurname.Text = table.Rows[index][2].ToString();
-            textBoxEmail.Text = table.Rows[index][3].ToString();
-            textBoxBirth.Text = table.Rows[index][5].ToString();
-            comboBoxUserTypeId.Text = table.Rows[index][6].ToString();
+            numericID.Value = selectedUser.UserID;
+            textBoxName.Text = selectedUser.Name;
+            textBoxSurname.Text = selectedUser.Surname;
+            textBoxEmail.Text = selectedUser.Email;
+            textBoxBirth.Text = selectedUser.BirthDate.ToString("yyyy-MM-dd");
+            comboBoxUserTypeId.Text = selectedUser.Type;
+
+            listViewUser.SelectedIndices.Clear();
+            listViewUser.SelectedIndices.Add(index);
 
 
         }
@@ -251,5 +281,34 @@ namespace KantorBD
             textBoxBirth.Text = "";
             comboBoxUserTypeId.SelectedIndex = 0;
         }
+
+        private void listViewUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewUser.SelectedItems.Count > 0)
+            {
+                UserDTO selectedUser = (UserDTO)listViewUser.SelectedItems[0].Tag;
+
+                numericID.Value = selectedUser.UserID;
+                textBoxName.Text = selectedUser.Name;
+                textBoxSurname.Text = selectedUser.Surname;
+                textBoxEmail.Text = selectedUser.Email;
+                textBoxBirth.Text = selectedUser.BirthDate.ToString("yyyy-MM-dd");
+                comboBoxUserTypeId.Text = selectedUser.Type;
+            }
+
+        }
     }
+
+    public class UserDTO
+    {
+        public int UserID { get; set; }
+        public string FullName { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string Type { get; set; }
+
+    }
+
 }
