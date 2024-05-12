@@ -30,6 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminTransaction));
             panel1 = new Panel();
+            buttonClear = new Button();
+            buttonSearch = new Button();
+            dateTimePicker1 = new DateTimePicker();
+            label6 = new Label();
+            textBoxEmail = new TextBox();
+            label5 = new Label();
+            labelTransactionI = new Label();
+            buttonLast = new Button();
+            buttonNext = new Button();
+            buttonPrevious = new Button();
+            buttonFirst = new Button();
+            listViewTransaction = new ListView();
             label1 = new Label();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
@@ -52,6 +64,18 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(36, 26, 82);
+            panel1.Controls.Add(buttonClear);
+            panel1.Controls.Add(buttonSearch);
+            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(textBoxEmail);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(labelTransactionI);
+            panel1.Controls.Add(buttonLast);
+            panel1.Controls.Add(buttonNext);
+            panel1.Controls.Add(buttonPrevious);
+            panel1.Controls.Add(buttonFirst);
+            panel1.Controls.Add(listViewTransaction);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(MenuPanel);
             panel1.Controls.Add(labelClose);
@@ -60,6 +84,146 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 681);
             panel1.TabIndex = 1;
+            // 
+            // buttonClear
+            // 
+            buttonClear.BackColor = Color.FromArgb(16, 9, 48);
+            buttonClear.FlatStyle = FlatStyle.Flat;
+            buttonClear.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonClear.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonClear.Location = new Point(545, 600);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(150, 50);
+            buttonClear.TabIndex = 55;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.BackColor = Color.FromArgb(16, 9, 48);
+            buttonSearch.FlatStyle = FlatStyle.Flat;
+            buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonSearch.Location = new Point(373, 600);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.TabIndex = 54;
+            buttonSearch.Text = "Search";
+            buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(564, 541);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 23);
+            dateTimePicker1.TabIndex = 53;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.ForeColor = Color.FromArgb(255, 193, 37);
+            label6.Location = new Point(564, 502);
+            label6.Name = "label6";
+            label6.Size = new Size(233, 29);
+            label6.TabIndex = 52;
+            label6.Text = "TRANSACTION DATE";
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxEmail.Location = new Point(267, 534);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(250, 35);
+            textBoxEmail.TabIndex = 51;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label5.ForeColor = Color.FromArgb(255, 193, 37);
+            label5.Location = new Point(350, 502);
+            label5.Name = "label5";
+            label5.Size = new Size(92, 29);
+            label5.TabIndex = 50;
+            label5.Text = "E-MAIL";
+            // 
+            // labelTransactionI
+            // 
+            labelTransactionI.AutoSize = true;
+            labelTransactionI.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            labelTransactionI.ForeColor = Color.FromArgb(255, 193, 37);
+            labelTransactionI.Location = new Point(828, 397);
+            labelTransactionI.Name = "labelTransactionI";
+            labelTransactionI.Size = new Size(92, 23);
+            labelTransactionI.TabIndex = 49;
+            labelTransactionI.Text = "100 Users";
+            // 
+            // buttonLast
+            // 
+            buttonLast.BackColor = Color.FromArgb(16, 9, 48);
+            buttonLast.FlatStyle = FlatStyle.Flat;
+            buttonLast.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonLast.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonLast.Location = new Point(712, 429);
+            buttonLast.Name = "buttonLast";
+            buttonLast.Size = new Size(150, 50);
+            buttonLast.TabIndex = 48;
+            buttonLast.Text = ">>";
+            buttonLast.UseVisualStyleBackColor = false;
+            buttonLast.Click += buttonLast_Click;
+            // 
+            // buttonNext
+            // 
+            buttonNext.BackColor = Color.FromArgb(16, 9, 48);
+            buttonNext.FlatStyle = FlatStyle.Flat;
+            buttonNext.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonNext.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonNext.Location = new Point(545, 429);
+            buttonNext.Name = "buttonNext";
+            buttonNext.Size = new Size(150, 50);
+            buttonNext.TabIndex = 47;
+            buttonNext.Text = ">";
+            buttonNext.UseVisualStyleBackColor = false;
+            buttonNext.Click += buttonNext_Click;
+            // 
+            // buttonPrevious
+            // 
+            buttonPrevious.BackColor = Color.FromArgb(16, 9, 48);
+            buttonPrevious.FlatStyle = FlatStyle.Flat;
+            buttonPrevious.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonPrevious.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonPrevious.Location = new Point(373, 429);
+            buttonPrevious.Name = "buttonPrevious";
+            buttonPrevious.Size = new Size(150, 50);
+            buttonPrevious.TabIndex = 46;
+            buttonPrevious.Text = "<";
+            buttonPrevious.UseVisualStyleBackColor = false;
+            buttonPrevious.Click += buttonPrevious_Click;
+            // 
+            // buttonFirst
+            // 
+            buttonFirst.BackColor = Color.FromArgb(16, 9, 48);
+            buttonFirst.FlatStyle = FlatStyle.Flat;
+            buttonFirst.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonFirst.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonFirst.Location = new Point(199, 429);
+            buttonFirst.Name = "buttonFirst";
+            buttonFirst.Size = new Size(150, 50);
+            buttonFirst.TabIndex = 45;
+            buttonFirst.Text = "<<";
+            buttonFirst.UseVisualStyleBackColor = false;
+            buttonFirst.Click += buttonFirst_Click;
+            // 
+            // listViewTransaction
+            // 
+            listViewTransaction.Location = new Point(54, 180);
+            listViewTransaction.Name = "listViewTransaction";
+            listViewTransaction.Size = new Size(955, 214);
+            listViewTransaction.TabIndex = 44;
+            listViewTransaction.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -180,6 +344,7 @@
             Name = "AdminTransaction";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminTransaction";
+            Load += AdminTransaction_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             MenuPanel.ResumeLayout(false);
@@ -204,5 +369,17 @@
         private Label labelClose;
         private PictureBox pictureBox6;
         private Label label1;
+        private ListView listViewTransaction;
+        private Label labelTransactionI;
+        private Button buttonLast;
+        private Button buttonNext;
+        private Button buttonPrevious;
+        private Button buttonFirst;
+        private TextBox textBoxEmail;
+        private Label label5;
+        private DateTimePicker dateTimePicker1;
+        private Label label6;
+        private Button buttonClear;
+        private Button buttonSearch;
     }
 }

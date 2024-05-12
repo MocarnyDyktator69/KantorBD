@@ -291,11 +291,11 @@
             label7.AutoSize = true;
             label7.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label7.ForeColor = Color.FromArgb(255, 193, 37);
-            label7.Location = new Point(874, 503);
+            label7.Location = new Point(893, 503);
             label7.Name = "label7";
-            label7.Size = new Size(168, 29);
+            label7.Size = new Size(126, 29);
             label7.TabIndex = 25;
-            label7.Text = "USER_TYPE_ID";
+            label7.Text = "USER TYPE";
             // 
             // label6
             // 
