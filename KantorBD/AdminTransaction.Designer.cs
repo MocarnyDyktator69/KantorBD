@@ -42,7 +42,6 @@
             buttonPrevious = new Button();
             buttonFirst = new Button();
             listViewTransaction = new ListView();
-            label1 = new Label();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -76,7 +75,6 @@
             panel1.Controls.Add(buttonPrevious);
             panel1.Controls.Add(buttonFirst);
             panel1.Controls.Add(listViewTransaction);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(MenuPanel);
             panel1.Controls.Add(labelClose);
             panel1.Dock = DockStyle.Fill;
@@ -225,15 +223,6 @@
             listViewTransaction.TabIndex = 44;
             listViewTransaction.UseCompatibleStateImageBehavior = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(454, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(86, 15);
-            label1.TabIndex = 18;
-            label1.Text = "TRANSACTION";
-            // 
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.FromArgb(16, 9, 48);
@@ -368,7 +357,6 @@
         private PictureBox pictureBox1;
         private Label labelClose;
         private PictureBox pictureBox6;
-        private Label label1;
         private ListView listViewTransaction;
         private Label labelTransactionI;
         private Button buttonLast;

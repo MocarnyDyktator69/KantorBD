@@ -30,7 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminWalletcs));
             panel1 = new Panel();
-            label1 = new Label();
+            buttonClear = new Button();
+            comboBoxCurrency = new ComboBox();
+            buttonEdit = new Button();
+            buttonSearch = new Button();
+            textBoxBalance = new TextBox();
+            textBoxEmail = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            listViewWallet = new ListView();
+            labelWalletI = new Label();
+            buttonLast = new Button();
+            buttonNext = new Button();
+            buttonPrevious = new Button();
+            buttonFirst = new Button();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -52,7 +66,21 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(36, 26, 82);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(buttonClear);
+            panel1.Controls.Add(comboBoxCurrency);
+            panel1.Controls.Add(buttonEdit);
+            panel1.Controls.Add(buttonSearch);
+            panel1.Controls.Add(textBoxBalance);
+            panel1.Controls.Add(textBoxEmail);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(listViewWallet);
+            panel1.Controls.Add(labelWalletI);
+            panel1.Controls.Add(buttonLast);
+            panel1.Controls.Add(buttonNext);
+            panel1.Controls.Add(buttonPrevious);
+            panel1.Controls.Add(buttonFirst);
             panel1.Controls.Add(MenuPanel);
             panel1.Controls.Add(labelClose);
             panel1.Dock = DockStyle.Fill;
@@ -61,14 +89,173 @@
             panel1.Size = new Size(1064, 681);
             panel1.TabIndex = 1;
             // 
-            // label1
+            // buttonClear
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(459, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 15);
-            label1.TabIndex = 18;
-            label1.Text = "WALLET";
+            buttonClear.BackColor = Color.FromArgb(16, 9, 48);
+            buttonClear.FlatStyle = FlatStyle.Flat;
+            buttonClear.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonClear.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonClear.Location = new Point(634, 601);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(150, 50);
+            buttonClear.TabIndex = 58;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = false;
+            // 
+            // comboBoxCurrency
+            // 
+            comboBoxCurrency.FormattingEnabled = true;
+            comboBoxCurrency.Items.AddRange(new object[] { "PLN", "EUR", "GPB", "USD" });
+            comboBoxCurrency.Location = new Point(483, 547);
+            comboBoxCurrency.Name = "comboBoxCurrency";
+            comboBoxCurrency.Size = new Size(121, 23);
+            comboBoxCurrency.TabIndex = 57;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.BackColor = Color.FromArgb(16, 9, 48);
+            buttonEdit.FlatStyle = FlatStyle.Flat;
+            buttonEdit.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonEdit.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonEdit.Location = new Point(460, 601);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(150, 50);
+            buttonEdit.TabIndex = 56;
+            buttonEdit.Text = "Edit";
+            buttonEdit.UseVisualStyleBackColor = false;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.BackColor = Color.FromArgb(16, 9, 48);
+            buttonSearch.FlatStyle = FlatStyle.Flat;
+            buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonSearch.Location = new Point(286, 601);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.TabIndex = 55;
+            buttonSearch.Text = "Search";
+            buttonSearch.UseVisualStyleBackColor = false;
+            // 
+            // textBoxBalance
+            // 
+            textBoxBalance.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxBalance.Location = new Point(631, 537);
+            textBoxBalance.Name = "textBoxBalance";
+            textBoxBalance.Size = new Size(225, 35);
+            textBoxBalance.TabIndex = 54;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Font = new Font("Comic Sans MS", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxEmail.Location = new Point(232, 537);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(225, 35);
+            textBoxEmail.TabIndex = 53;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label7.ForeColor = Color.FromArgb(255, 193, 37);
+            label7.Location = new Point(483, 501);
+            label7.Name = "label7";
+            label7.Size = new Size(119, 29);
+            label7.TabIndex = 52;
+            label7.Text = "CURRENCY";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.ForeColor = Color.FromArgb(255, 193, 37);
+            label6.Location = new Point(689, 501);
+            label6.Name = "label6";
+            label6.Size = new Size(107, 29);
+            label6.TabIndex = 51;
+            label6.Text = "BALANCE";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label5.ForeColor = Color.FromArgb(255, 193, 37);
+            label5.Location = new Point(304, 501);
+            label5.Name = "label5";
+            label5.Size = new Size(92, 29);
+            label5.TabIndex = 50;
+            label5.Text = "E-MAIL";
+            // 
+            // listViewWallet
+            // 
+            listViewWallet.Location = new Point(198, 180);
+            listViewWallet.Name = "listViewWallet";
+            listViewWallet.Size = new Size(655, 214);
+            listViewWallet.TabIndex = 49;
+            listViewWallet.UseCompatibleStateImageBehavior = false;
+            // 
+            // labelWalletI
+            // 
+            labelWalletI.AutoSize = true;
+            labelWalletI.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            labelWalletI.ForeColor = Color.FromArgb(255, 193, 37);
+            labelWalletI.Location = new Point(755, 397);
+            labelWalletI.Name = "labelWalletI";
+            labelWalletI.Size = new Size(106, 23);
+            labelWalletI.TabIndex = 48;
+            labelWalletI.Text = "100 Wallets";
+            // 
+            // buttonLast
+            // 
+            buttonLast.BackColor = Color.FromArgb(16, 9, 48);
+            buttonLast.FlatStyle = FlatStyle.Flat;
+            buttonLast.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonLast.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonLast.Location = new Point(706, 429);
+            buttonLast.Name = "buttonLast";
+            buttonLast.Size = new Size(150, 50);
+            buttonLast.TabIndex = 47;
+            buttonLast.Text = ">>";
+            buttonLast.UseVisualStyleBackColor = false;
+            // 
+            // buttonNext
+            // 
+            buttonNext.BackColor = Color.FromArgb(16, 9, 48);
+            buttonNext.FlatStyle = FlatStyle.Flat;
+            buttonNext.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonNext.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonNext.Location = new Point(539, 429);
+            buttonNext.Name = "buttonNext";
+            buttonNext.Size = new Size(150, 50);
+            buttonNext.TabIndex = 46;
+            buttonNext.Text = ">";
+            buttonNext.UseVisualStyleBackColor = false;
+            // 
+            // buttonPrevious
+            // 
+            buttonPrevious.BackColor = Color.FromArgb(16, 9, 48);
+            buttonPrevious.FlatStyle = FlatStyle.Flat;
+            buttonPrevious.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonPrevious.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonPrevious.Location = new Point(367, 429);
+            buttonPrevious.Name = "buttonPrevious";
+            buttonPrevious.Size = new Size(150, 50);
+            buttonPrevious.TabIndex = 45;
+            buttonPrevious.Text = "<";
+            buttonPrevious.UseVisualStyleBackColor = false;
+            // 
+            // buttonFirst
+            // 
+            buttonFirst.BackColor = Color.FromArgb(16, 9, 48);
+            buttonFirst.FlatStyle = FlatStyle.Flat;
+            buttonFirst.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonFirst.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonFirst.Location = new Point(193, 429);
+            buttonFirst.Name = "buttonFirst";
+            buttonFirst.Size = new Size(150, 50);
+            buttonFirst.TabIndex = 44;
+            buttonFirst.Text = "<<";
+            buttonFirst.UseVisualStyleBackColor = false;
             // 
             // MenuPanel
             // 
@@ -180,6 +367,7 @@
             Name = "AdminWalletcs";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminWalletcs";
+            Load += AdminWalletcs_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             MenuPanel.ResumeLayout(false);
@@ -203,6 +391,20 @@
         private PictureBox pictureBox1;
         private Label labelClose;
         private PictureBox pictureBox6;
-        private Label label1;
+        private ListView listViewWallet;
+        private Label labelWalletI;
+        private Button buttonLast;
+        private Button buttonNext;
+        private Button buttonPrevious;
+        private Button buttonFirst;
+        private Button buttonClear;
+        private ComboBox comboBoxCurrency;
+        private Button buttonEdit;
+        private Button buttonSearch;
+        private TextBox textBoxBalance;
+        private TextBox textBoxEmail;
+        private Label label7;
+        private Label label6;
+        private Label label5;
     }
 }

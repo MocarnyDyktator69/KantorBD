@@ -297,6 +297,11 @@ namespace KantorBD
             }
 
         }
+
+        private void textBoxBirth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class UserDTO

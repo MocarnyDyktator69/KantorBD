@@ -52,7 +52,6 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -97,7 +96,6 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(MenuPanel);
             panel1.Controls.Add(labelClose);
             panel1.Dock = DockStyle.Fill;
@@ -352,15 +350,6 @@
             label2.TabIndex = 20;
             label2.Text = "ID";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(475, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(34, 15);
-            label1.TabIndex = 18;
-            label1.Text = "USER";
-            // 
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.FromArgb(16, 9, 48);
@@ -497,7 +486,6 @@
         private PictureBox pictureBox1;
         private Label labelClose;
         private PictureBox pictureBox6;
-        private Label label1;
         private Label label2;
         private Label label7;
         private Label label6;
