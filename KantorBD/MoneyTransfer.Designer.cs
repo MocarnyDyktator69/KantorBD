@@ -1,6 +1,7 @@
-﻿namespace KantorBD
+﻿
+namespace KantorBD
 {
-    partial class TransactionHistory
+    partial class MoneyTransfer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionHistory));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoneyTransfer));
             pictureBox8 = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
@@ -38,8 +39,16 @@
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            txtCreditCardNumber = new TextBox();
             label2 = new Label();
-            dataGridViewTransactions = new DataGridView();
+            back_button = new Button();
+            label3 = new Label();
+            textBox2 = new TextBox();
+            buttonTransfer = new Button();
+            label4 = new Label();
+            textBox3 = new TextBox();
+            label5 = new Label();
+            textBox4 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
@@ -48,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).BeginInit();
             SuspendLayout();
             // 
             // pictureBox8
@@ -58,7 +66,7 @@
             pictureBox8.Location = new Point(335, 23);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(84, 98);
-            pictureBox8.TabIndex = 32;
+            pictureBox8.TabIndex = 82;
             pictureBox8.TabStop = false;
             // 
             // pictureBoxWallet
@@ -68,7 +76,7 @@
             pictureBoxWallet.Location = new Point(425, 23);
             pictureBoxWallet.Name = "pictureBoxWallet";
             pictureBoxWallet.Size = new Size(112, 98);
-            pictureBoxWallet.TabIndex = 31;
+            pictureBoxWallet.TabIndex = 81;
             pictureBoxWallet.TabStop = false;
             pictureBoxWallet.Click += pictureBoxWallet_Click;
             // 
@@ -79,7 +87,7 @@
             pictureBoxCurrencyExchange.Location = new Point(533, 12);
             pictureBoxCurrencyExchange.Name = "pictureBoxCurrencyExchange";
             pictureBoxCurrencyExchange.Size = new Size(112, 107);
-            pictureBoxCurrencyExchange.TabIndex = 30;
+            pictureBoxCurrencyExchange.TabIndex = 80;
             pictureBoxCurrencyExchange.TabStop = false;
             pictureBoxCurrencyExchange.Click += pictureBoxCurrencyExchange_Click;
             // 
@@ -90,7 +98,7 @@
             pictureBoxMoneyTransfer.Location = new Point(651, 23);
             pictureBoxMoneyTransfer.Name = "pictureBoxMoneyTransfer";
             pictureBoxMoneyTransfer.Size = new Size(97, 94);
-            pictureBoxMoneyTransfer.TabIndex = 29;
+            pictureBoxMoneyTransfer.TabIndex = 79;
             pictureBoxMoneyTransfer.TabStop = false;
             pictureBoxMoneyTransfer.Click += pictureBoxMoneyTransfer_Click;
             // 
@@ -101,7 +109,7 @@
             pictureBoxTransactionHistory.Location = new Point(754, 12);
             pictureBoxTransactionHistory.Name = "pictureBoxTransactionHistory";
             pictureBoxTransactionHistory.Size = new Size(114, 107);
-            pictureBoxTransactionHistory.TabIndex = 28;
+            pictureBoxTransactionHistory.TabIndex = 78;
             pictureBoxTransactionHistory.TabStop = false;
             pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
             // 
@@ -112,7 +120,7 @@
             pictureBox3.Location = new Point(874, 12);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(80, 107);
-            pictureBox3.TabIndex = 27;
+            pictureBox3.TabIndex = 77;
             pictureBox3.TabStop = false;
             // 
             // pictureBoxLogout
@@ -123,7 +131,7 @@
             pictureBoxLogout.Location = new Point(952, 12);
             pictureBoxLogout.Name = "pictureBoxLogout";
             pictureBoxLogout.Size = new Size(100, 109);
-            pictureBoxLogout.TabIndex = 26;
+            pictureBoxLogout.TabIndex = 76;
             pictureBoxLogout.TabStop = false;
             pictureBoxLogout.Click += pictureBoxLogout_Click;
             // 
@@ -137,7 +145,7 @@
             label1.Location = new Point(34, 39);
             label1.Name = "label1";
             label1.Size = new Size(261, 56);
-            label1.TabIndex = 24;
+            label1.TabIndex = 74;
             label1.Text = "Jan Kowalski";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -148,40 +156,133 @@
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1040, 109);
-            pictureBox1.TabIndex = 25;
+            pictureBox1.TabIndex = 75;
             pictureBox1.TabStop = false;
+            // 
+            // txtCreditCardNumber
+            // 
+            txtCreditCardNumber.Location = new Point(489, 196);
+            txtCreditCardNumber.MaxLength = 16;
+            txtCreditCardNumber.Name = "txtCreditCardNumber";
+            txtCreditCardNumber.Size = new Size(413, 23);
+            txtCreditCardNumber.TabIndex = 83;
+            txtCreditCardNumber.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
+            label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(36, 26, 82);
             label2.Cursor = Cursors.Hand;
-            label2.Font = new Font("Comic Sans MS", 48F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label2.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label2.ForeColor = Color.FromArgb(255, 193, 37);
-            label2.Location = new Point(220, 120);
+            label2.Location = new Point(64, 181);
             label2.Name = "label2";
-            label2.Size = new Size(640, 95);
-            label2.TabIndex = 33;
-            label2.Text = "Transaction History";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Size = new Size(404, 38);
+            label2.TabIndex = 84;
+            label2.Text = "Enter your credit card number";
+            label2.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // dataGridViewTransactions
+            // back_button
             // 
-            dataGridViewTransactions.BackgroundColor = Color.FromArgb(5, 5, 50);
-            dataGridViewTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTransactions.GridColor = Color.FromArgb(255, 193, 37);
-            dataGridViewTransactions.Location = new Point(12, 218);
-            dataGridViewTransactions.Name = "dataGridViewTransactions";
-            dataGridViewTransactions.Size = new Size(1040, 451);
-            dataGridViewTransactions.TabIndex = 35;
+            back_button.Location = new Point(12, 625);
+            back_button.Name = "back_button";
+            back_button.Size = new Size(252, 44);
+            back_button.TabIndex = 85;
+            back_button.Text = "back";
+            back_button.UseVisualStyleBackColor = true;
             // 
-            // TransactionHistory
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(36, 26, 82);
+            label3.Cursor = Cursors.Hand;
+            label3.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label3.ForeColor = Color.FromArgb(255, 193, 37);
+            label3.Location = new Point(228, 359);
+            label3.Name = "label3";
+            label3.Size = new Size(240, 38);
+            label3.TabIndex = 86;
+            label3.Text = "Confirm password";
+            label3.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(489, 359);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(413, 38);
+            textBox2.TabIndex = 87;
+            // 
+            // buttonTransfer
+            // 
+            buttonTransfer.ForeColor = Color.FromArgb(17, 176, 33);
+            buttonTransfer.Location = new Point(773, 609);
+            buttonTransfer.Name = "buttonTransfer";
+            buttonTransfer.Size = new Size(252, 44);
+            buttonTransfer.TabIndex = 88;
+            buttonTransfer.Text = "Accept";
+            buttonTransfer.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(36, 26, 82);
+            label4.Cursor = Cursors.Hand;
+            label4.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label4.ForeColor = Color.FromArgb(255, 193, 37);
+            label4.Location = new Point(233, 406);
+            label4.Name = "label4";
+            label4.Size = new Size(644, 200);
+            label4.TabIndex = 89;
+            label4.Text = resources.GetString("label4.Text");
+            label4.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(917, 196);
+            textBox3.MaxLength = 3;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(61, 23);
+            textBox3.TabIndex = 90;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.FromArgb(36, 26, 82);
+            label5.Cursor = Cursors.Hand;
+            label5.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label5.ForeColor = Color.FromArgb(255, 193, 37);
+            label5.Location = new Point(233, 273);
+            label5.Name = "label5";
+            label5.Size = new Size(235, 38);
+            label5.TabIndex = 91;
+            label5.Text = "Amount of money";
+            label5.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(489, 273);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(413, 38);
+            textBox4.TabIndex = 92;
+            // 
+            // MoneyTransfer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(dataGridViewTransactions);
+            Controls.Add(textBox4);
+            Controls.Add(label5);
+            Controls.Add(textBox3);
+            Controls.Add(label4);
+            Controls.Add(buttonTransfer);
+            Controls.Add(textBox2);
+            Controls.Add(label3);
+            Controls.Add(back_button);
             Controls.Add(label2);
+            Controls.Add(txtCreditCardNumber);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
@@ -191,9 +292,9 @@
             Controls.Add(pictureBoxLogout);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Name = "TransactionHistory";
+            Name = "MoneyTransfer";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TransactionHistory";
+            Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
@@ -202,9 +303,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -218,7 +323,15 @@
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;
+        private TextBox txtCreditCardNumber;
         private Label label2;
-        private DataGridView dataGridViewTransactions;
+        private Button back_button;
+        private Label label3;
+        private TextBox textBox2;
+        private Button buttonTransfer;
+        private Label label4;
+        private TextBox textBox3;
+        private Label label5;
+        private TextBox textBox4;
     }
 }

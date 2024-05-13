@@ -59,5 +59,11 @@ namespace KantorBD
             wallet.Show();
             this.Hide();
         }
+        private void pictureBoxMoneyTransfer_Click(object sender, EventArgs e)
+        {
+            MoneyTransfer moneytransfer = new MoneyTransfer(loggedInUserID);
+            moneytransfer.Show();
+            this.Hide();
+        }
     }
 }

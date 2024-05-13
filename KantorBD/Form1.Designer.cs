@@ -50,7 +50,7 @@
             pictureBox8 = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
-            pictureBox5 = new PictureBox();
+            pictureBoxMoneyTransfer = new PictureBox();
             pictureBoxTransactionHistory = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBoxLogout = new PictureBox();
@@ -65,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
@@ -298,15 +298,16 @@
             pictureBoxCurrencyExchange.TabStop = false;
             pictureBoxCurrencyExchange.Click += pictureBoxCurrencyExchange_Click;
             // 
-            // pictureBox5
+            // pictureBoxMoneyTransfer
             // 
-            pictureBox5.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(651, 23);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(97, 94);
-            pictureBox5.TabIndex = 79;
-            pictureBox5.TabStop = false;
+            pictureBoxMoneyTransfer.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxMoneyTransfer.Image = (Image)resources.GetObject("pictureBoxMoneyTransfer.Image");
+            pictureBoxMoneyTransfer.Location = new Point(651, 23);
+            pictureBoxMoneyTransfer.Name = "pictureBoxMoneyTransfer";
+            pictureBoxMoneyTransfer.Size = new Size(97, 94);
+            pictureBoxMoneyTransfer.TabIndex = 79;
+            pictureBoxMoneyTransfer.TabStop = false;
+            pictureBoxMoneyTransfer.Click += pictureBoxMoneyTransfer_Click;
             // 
             // pictureBoxTransactionHistory
             // 
@@ -374,7 +375,7 @@
             Controls.Add(pictureBox8);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
-            Controls.Add(pictureBox5);
+            Controls.Add(pictureBoxMoneyTransfer);
             Controls.Add(pictureBoxTransactionHistory);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBoxLogout);
@@ -412,7 +413,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
@@ -443,7 +444,7 @@
         private PictureBox pictureBox8;
         private PictureBox pictureBoxWallet;
         private PictureBox pictureBoxCurrencyExchange;
-        private PictureBox pictureBox5;
+        private PictureBox pictureBoxMoneyTransfer;
         private PictureBox pictureBoxTransactionHistory;
         private PictureBox pictureBox3;
         private PictureBox pictureBoxLogout;

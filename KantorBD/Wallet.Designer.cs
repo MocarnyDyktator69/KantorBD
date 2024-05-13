@@ -37,17 +37,17 @@
             pictureBox29 = new PictureBox();
             pictureBox28 = new PictureBox();
             pictureBox27 = new PictureBox();
-            ExchangeButton = new Button();
             button1 = new Button();
             pictureBox8 = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
-            pictureBox5 = new PictureBox();
+            pictureBoxMoneyTransfer = new PictureBox();
             pictureBoxTransactionHistory = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
@@ -55,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
@@ -142,23 +142,11 @@
             pictureBox27.TabIndex = 56;
             pictureBox27.TabStop = false;
             // 
-            // ExchangeButton
-            // 
-            ExchangeButton.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            ExchangeButton.ForeColor = Color.FromArgb(255, 193, 37);
-            ExchangeButton.Location = new Point(604, 263);
-            ExchangeButton.Name = "ExchangeButton";
-            ExchangeButton.Size = new Size(350, 100);
-            ExchangeButton.TabIndex = 64;
-            ExchangeButton.Text = "Top up";
-            ExchangeButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            ExchangeButton.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             button1.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             button1.ForeColor = Color.FromArgb(255, 193, 37);
-            button1.Location = new Point(604, 390);
+            button1.Location = new Point(627, 390);
             button1.Name = "button1";
             button1.Size = new Size(350, 100);
             button1.TabIndex = 64;
@@ -198,15 +186,16 @@
             pictureBoxCurrencyExchange.TabStop = false;
             pictureBoxCurrencyExchange.Click += pictureBoxCurrencyExchange_Click;
             // 
-            // pictureBox5
+            // pictureBoxMoneyTransfer
             // 
-            pictureBox5.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(651, 23);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(97, 94);
-            pictureBox5.TabIndex = 70;
-            pictureBox5.TabStop = false;
+            pictureBoxMoneyTransfer.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxMoneyTransfer.Image = (Image)resources.GetObject("pictureBoxMoneyTransfer.Image");
+            pictureBoxMoneyTransfer.Location = new Point(651, 23);
+            pictureBoxMoneyTransfer.Name = "pictureBoxMoneyTransfer";
+            pictureBoxMoneyTransfer.Size = new Size(97, 94);
+            pictureBoxMoneyTransfer.TabIndex = 70;
+            pictureBoxMoneyTransfer.TabStop = false;
+            pictureBoxMoneyTransfer.Click += pictureBoxMoneyTransfer_Click;
             // 
             // pictureBoxTransactionHistory
             // 
@@ -265,23 +254,35 @@
             pictureBox1.TabIndex = 66;
             pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            button2.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button2.ForeColor = Color.FromArgb(255, 193, 37);
+            button2.Location = new Point(627, 278);
+            button2.Name = "button2";
+            button2.Size = new Size(350, 90);
+            button2.TabIndex = 74;
+            button2.Text = "Add founds";
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Wallet
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(button2);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
-            Controls.Add(pictureBox5);
+            Controls.Add(pictureBoxMoneyTransfer);
             Controls.Add(pictureBoxTransactionHistory);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBoxLogout);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
-            Controls.Add(ExchangeButton);
             Controls.Add(labelPLN);
             Controls.Add(labelGBP);
             Controls.Add(labelUSD);
@@ -300,7 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
@@ -318,16 +319,16 @@
         private PictureBox pictureBox29;
         private PictureBox pictureBox28;
         private PictureBox pictureBox27;
-        private Button ExchangeButton;
         private Button button1;
         private PictureBox pictureBox8;
         private PictureBox pictureBoxWallet;
         private PictureBox pictureBoxCurrencyExchange;
-        private PictureBox pictureBox5;
+        private PictureBox pictureBoxMoneyTransfer;
         private PictureBox pictureBoxTransactionHistory;
         private PictureBox pictureBox3;
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;
+        private Button button2;
     }
 }
