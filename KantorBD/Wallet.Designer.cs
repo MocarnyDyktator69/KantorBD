@@ -47,7 +47,7 @@
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            button2 = new Button();
+            buttonAddFounds = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
@@ -254,17 +254,18 @@
             pictureBox1.TabIndex = 66;
             pictureBox1.TabStop = false;
             // 
-            // button2
+            // buttonAddFounds
             // 
-            button2.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button2.ForeColor = Color.FromArgb(255, 193, 37);
-            button2.Location = new Point(627, 278);
-            button2.Name = "button2";
-            button2.Size = new Size(350, 90);
-            button2.TabIndex = 74;
-            button2.Text = "Add founds";
-            button2.TextImageRelation = TextImageRelation.ImageAboveText;
-            button2.UseVisualStyleBackColor = true;
+            buttonAddFounds.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            buttonAddFounds.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonAddFounds.Location = new Point(627, 278);
+            buttonAddFounds.Name = "buttonAddFounds";
+            buttonAddFounds.Size = new Size(350, 90);
+            buttonAddFounds.TabIndex = 74;
+            buttonAddFounds.Text = "Add founds";
+            buttonAddFounds.TextImageRelation = TextImageRelation.ImageAboveText;
+            buttonAddFounds.UseVisualStyleBackColor = true;
+            buttonAddFounds.Click += buttonAddFounds_Click;
             // 
             // Wallet
             // 
@@ -272,7 +273,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(button2);
+            Controls.Add(buttonAddFounds);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
@@ -329,6 +330,6 @@
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;
-        private Button button2;
+        private Button buttonAddFounds;
     }
 }

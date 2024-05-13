@@ -161,10 +161,12 @@ namespace KantorBD
             // 
             // txtCreditCardNumber
             // 
-            txtCreditCardNumber.Location = new Point(489, 196);
+            txtCreditCardNumber.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            txtCreditCardNumber.Location = new Point(489, 181);
             txtCreditCardNumber.MaxLength = 16;
+            txtCreditCardNumber.Multiline = true;
             txtCreditCardNumber.Name = "txtCreditCardNumber";
-            txtCreditCardNumber.Size = new Size(413, 23);
+            txtCreditCardNumber.Size = new Size(413, 38);
             txtCreditCardNumber.TabIndex = 83;
             // 
             // label2
@@ -206,6 +208,7 @@ namespace KantorBD
             // 
             // textBoxPassword
             // 
+            textBoxPassword.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             textBoxPassword.Location = new Point(489, 359);
             textBoxPassword.Multiline = true;
             textBoxPassword.Name = "textBoxPassword";
@@ -239,10 +242,12 @@ namespace KantorBD
             // 
             // textBoxCVV
             // 
-            textBoxCVV.Location = new Point(917, 196);
+            textBoxCVV.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxCVV.Location = new Point(917, 181);
             textBoxCVV.MaxLength = 3;
+            textBoxCVV.Multiline = true;
             textBoxCVV.Name = "textBoxCVV";
-            textBoxCVV.Size = new Size(61, 23);
+            textBoxCVV.Size = new Size(72, 38);
             textBoxCVV.TabIndex = 90;
             // 
             // label5
@@ -261,6 +266,7 @@ namespace KantorBD
             // 
             // textBoxAmount
             // 
+            textBoxAmount.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             textBoxAmount.Location = new Point(489, 273);
             textBoxAmount.Multiline = true;
             textBoxAmount.Name = "textBoxAmount";
