@@ -64,9 +64,6 @@ namespace KantorBD
         }
         private bool TransferFromBankAccountToWallet(int bankAccountId, decimal amount, string creditCardNumber)
         {
-            // Dodaj logikę przelewu, w tym sprawdzenie numeru karty kredytowej
-            // Możesz wykorzystać dodatkowe walidacje lub integracje z systemem obsługi płatności
-            // Na potrzeby tego przykładu, dodajemy tylko podstawową logikę przelewu
             int walletID = GetUserWalletID(loggedInUserID);
 
             using (DB db = new DB())
@@ -74,12 +71,10 @@ namespace KantorBD
                 db.openConnection();
                 using (MySqlConnection connection = db.getConnection())
                 {
-                    // Rozpocznij transakcję
                     using (MySqlTransaction transaction = connection.BeginTransaction())
                     {
                         try
                         {
-                            // Pobierz saldo i wykonaj sprawdzenie dostępności środków
                             string selectBankAccountQuery = "SELECT balance FROM bankaccount WHERE accountID = @accountID";
                             MySqlCommand selectBankAccountCommand = new MySqlCommand(selectBankAccountQuery, connection, transaction);
                             selectBankAccountCommand.Parameters.AddWithValue("@accountID", bankAccountId);
@@ -88,20 +83,14 @@ namespace KantorBD
 
                             if (bankAccountBalance < amount)
                             {
-                                // Brak wystarczających środków na koncie bankowym
                                 transaction.Rollback();
                                 return false;
                             }
-
-                            // Przetwarzanie przelewu...
-
-                            // Zatwierdź transakcję
                             transaction.Commit();
                             return true;
                         }
                         catch (Exception ex)
                         {
-                            // Wystąpił błąd, cofnij transakcję
                             transaction.Rollback();
                             MessageBox.Show("Wystąpił błąd podczas dokonywania przelewu: " + ex.Message);
                             return false;
@@ -113,20 +102,16 @@ namespace KantorBD
 
         private void buttonTransfer_Click(object sender, EventArgs e)
         {
-            // Pobierz numer karty kredytowej
             string creditCardNumber = txtCreditCardNumber.Text;
 
-            // Pobierz wybrane konto bankowe i kwotę
             int bankAccountId = Convert.ToInt32(comboBoxBankAccounts.SelectedValue);
             decimal transferAmount = Convert.ToDecimal(textBoxTransferAmount.Text);
 
-            // Wywołaj metodę dokonującą przelewu
             bool success = TransferFromBankAccountToWallet(bankAccountId, transferAmount, creditCardNumber);
 
             if (success)
             {
                 MessageBox.Show("Przelew zakończony pomyślnie.");
-                // Załaduj ponownie dane portfela po wykonaniu przelewu
             }
             else
             {
