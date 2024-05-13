@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,8 +17,7 @@ namespace KantorBD
         private DB db = new DB();
         private int loggedInUserID;
 
-        private ComboBox comboBoxBankAccounts;
-        private TextBox textBoxTransferAmount;
+        private int currencyID;
 
 
         public MoneyTransfer()
@@ -28,16 +28,6 @@ namespace KantorBD
         {
             InitializeComponent();
             loggedInUserID = userID;
-        }
-        public MoneyTransfer(ComboBox comboBox)
-        {
-            InitializeComponent();
-            comboBoxBankAccounts = comboBox;
-        }
-
-        public MoneyTransfer(object sender, EventArgs e)
-        {
-            InitializeComponent();
         }
 
         private int GetUserWalletID(int userID)
@@ -62,7 +52,7 @@ namespace KantorBD
             }
             return walletID;
         }
-        private bool TransferFromBankAccountToWallet(int bankAccountId, decimal amount, string creditCardNumber)
+        private bool TransferFromBankAccountToWallet(decimal amount)
         {
             int walletID = GetUserWalletID(loggedInUserID);
 
@@ -75,17 +65,35 @@ namespace KantorBD
                     {
                         try
                         {
-                            string selectBankAccountQuery = "SELECT balance FROM bankaccount WHERE accountID = @accountID";
-                            MySqlCommand selectBankAccountCommand = new MySqlCommand(selectBankAccountQuery, connection, transaction);
-                            selectBankAccountCommand.Parameters.AddWithValue("@accountID", bankAccountId);
-
-                            decimal bankAccountBalance = Convert.ToDecimal(selectBankAccountCommand.ExecuteScalar());
-
-                            if (bankAccountBalance < amount)
+                            string currencyQuery = "SELECT currencyID FROM currency WHERE currencyCode = 'PLN'";
+                            MySqlCommand currencyCommand = new MySqlCommand(currencyQuery, connection, transaction);
+                            object currencyResult = currencyCommand.ExecuteScalar();
+                            if (currencyResult == null)
                             {
-                                transaction.Rollback();
+                                MessageBox.Show("Nie można znaleźć waluty PLN.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return false;
                             }
+                            int currencyID = Convert.ToInt32(currencyResult);
+
+                            string updateWalletQuery = "UPDATE walletcurrency SET balance = balance + @amount WHERE walletID = @walletID AND currencyID = @currencyID";
+                            MySqlCommand updateWalletCommand = new MySqlCommand(updateWalletQuery, connection, transaction);
+                            updateWalletCommand.Parameters.AddWithValue("@amount", amount);
+                            updateWalletCommand.Parameters.AddWithValue("@walletID", walletID);
+                            updateWalletCommand.Parameters.AddWithValue("@currencyID", currencyID);
+                            updateWalletCommand.ExecuteNonQuery();
+
+                            string insertTransactionQuery = "INSERT INTO transactions (userID, walletID, fromCurrencyID, toCurrencyID, amount, transactionType, transactionDate) " +
+                                                            "VALUES (@userID, @walletID, @fromCurrencyID, @toCurrencyID, @amount, @transactionType, @transactionDate)";
+                            MySqlCommand insertTransactionCommand = new MySqlCommand(insertTransactionQuery, connection, transaction);
+                            insertTransactionCommand.Parameters.AddWithValue("@userID", loggedInUserID);
+                            insertTransactionCommand.Parameters.AddWithValue("@walletID", walletID);
+                            insertTransactionCommand.Parameters.AddWithValue("@fromCurrencyID", currencyID);
+                            insertTransactionCommand.Parameters.AddWithValue("@toCurrencyID", currencyID);
+                            insertTransactionCommand.Parameters.AddWithValue("@amount", amount);
+                            insertTransactionCommand.Parameters.AddWithValue("@transactionType", "transfer");
+                            insertTransactionCommand.Parameters.AddWithValue("@transactionDate", DateTime.Now);
+                            insertTransactionCommand.ExecuteNonQuery();
+
                             transaction.Commit();
                             return true;
                         }
@@ -100,14 +108,40 @@ namespace KantorBD
             }
         }
 
+
         private void buttonTransfer_Click(object sender, EventArgs e)
         {
+            string transferAmountText = textBoxAmount.Text;
             string creditCardNumber = txtCreditCardNumber.Text;
+            string cvv = textBoxCVV.Text;
+            string password = textBoxPassword.Text;
 
-            int bankAccountId = Convert.ToInt32(comboBoxBankAccounts.SelectedValue);
-            decimal transferAmount = Convert.ToDecimal(textBoxTransferAmount.Text);
+            if (string.IsNullOrWhiteSpace(transferAmountText) || string.IsNullOrWhiteSpace(creditCardNumber) ||
+                string.IsNullOrWhiteSpace(cvv) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Proszę wypełnić wszystkie pola.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            bool success = TransferFromBankAccountToWallet(bankAccountId, transferAmount, creditCardNumber);
+            if (!decimal.TryParse(transferAmountText, out decimal transferAmount) || transferAmount <= 0)
+            {
+                MessageBox.Show("Podaj poprawną kwotę przelewu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (creditCardNumber.Length != 16 || !creditCardNumber.All(char.IsDigit))
+            {
+                MessageBox.Show("Podaj poprawny numer karty kredytowej.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cvv.Length != 3 || !cvv.All(char.IsDigit))
+            {
+                MessageBox.Show("Podaj poprawny kod CVV.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bool success = TransferFromBankAccountToWallet(transferAmount);
 
             if (success)
             {
@@ -115,9 +149,10 @@ namespace KantorBD
             }
             else
             {
-                MessageBox.Show("Nie udało się dokonać przelewu. Sprawdź dostępne środki na koncie.");
+                MessageBox.Show("Nie udało się dokonać przelewu. Sprawdź dostępne środki na koncie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void pictureBoxLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -150,7 +185,5 @@ namespace KantorBD
             moneytransfer.Show();
             this.Hide();
         }
-
-        
     }
 }

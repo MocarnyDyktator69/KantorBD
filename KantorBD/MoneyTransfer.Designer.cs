@@ -43,12 +43,12 @@ namespace KantorBD
             label2 = new Label();
             back_button = new Button();
             label3 = new Label();
-            textBox2 = new TextBox();
+            textBoxPassword = new TextBox();
             buttonTransfer = new Button();
             label4 = new Label();
-            textBox3 = new TextBox();
+            textBoxCVV = new TextBox();
             label5 = new Label();
-            textBox4 = new TextBox();
+            textBoxAmount = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
@@ -166,7 +166,6 @@ namespace KantorBD
             txtCreditCardNumber.Name = "txtCreditCardNumber";
             txtCreditCardNumber.Size = new Size(413, 23);
             txtCreditCardNumber.TabIndex = 83;
-            txtCreditCardNumber.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
@@ -205,13 +204,13 @@ namespace KantorBD
             label3.Text = "Confirm password";
             label3.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            textBox2.Location = new Point(489, 359);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(413, 38);
-            textBox2.TabIndex = 87;
+            textBoxPassword.Location = new Point(489, 359);
+            textBoxPassword.Multiline = true;
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.Size = new Size(413, 38);
+            textBoxPassword.TabIndex = 87;
             // 
             // buttonTransfer
             // 
@@ -222,6 +221,7 @@ namespace KantorBD
             buttonTransfer.TabIndex = 88;
             buttonTransfer.Text = "Accept";
             buttonTransfer.UseVisualStyleBackColor = true;
+            buttonTransfer.Click += buttonTransfer_Click;
             // 
             // label4
             // 
@@ -237,13 +237,13 @@ namespace KantorBD
             label4.Text = resources.GetString("label4.Text");
             label4.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // textBox3
+            // textBoxCVV
             // 
-            textBox3.Location = new Point(917, 196);
-            textBox3.MaxLength = 3;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(61, 23);
-            textBox3.TabIndex = 90;
+            textBoxCVV.Location = new Point(917, 196);
+            textBoxCVV.MaxLength = 3;
+            textBoxCVV.Name = "textBoxCVV";
+            textBoxCVV.Size = new Size(61, 23);
+            textBoxCVV.TabIndex = 90;
             // 
             // label5
             // 
@@ -259,13 +259,13 @@ namespace KantorBD
             label5.Text = "Amount of money";
             label5.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // textBox4
+            // textBoxAmount
             // 
-            textBox4.Location = new Point(489, 273);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(413, 38);
-            textBox4.TabIndex = 92;
+            textBoxAmount.Location = new Point(489, 273);
+            textBoxAmount.Multiline = true;
+            textBoxAmount.Name = "textBoxAmount";
+            textBoxAmount.Size = new Size(413, 38);
+            textBoxAmount.TabIndex = 92;
             // 
             // MoneyTransfer
             // 
@@ -273,12 +273,12 @@ namespace KantorBD
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(textBox4);
+            Controls.Add(textBoxAmount);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxCVV);
             Controls.Add(label4);
             Controls.Add(buttonTransfer);
-            Controls.Add(textBox2);
+            Controls.Add(textBoxPassword);
             Controls.Add(label3);
             Controls.Add(back_button);
             Controls.Add(label2);
@@ -307,11 +307,6 @@ namespace KantorBD
             PerformLayout();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         private PictureBox pictureBox8;
@@ -327,11 +322,11 @@ namespace KantorBD
         private Label label2;
         private Button back_button;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox textBoxPassword;
         private Button buttonTransfer;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox textBoxCVV;
         private Label label5;
-        private TextBox textBox4;
+        private TextBox textBoxAmount;
     }
 }
