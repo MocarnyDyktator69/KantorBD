@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUser));
             panel1 = new Panel();
+            listViewUser = new ListView();
+            labelUserI = new Label();
             buttonClear = new Button();
             comboBoxUserTypeId = new ComboBox();
             buttonLast = new Button();
@@ -50,8 +52,6 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            dataGridViewUser = new DataGridView();
-            label1 = new Label();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -60,10 +60,8 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             labelClose = new Label();
-            labelUserI = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericID).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewUser).BeginInit();
             MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -76,6 +74,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(36, 26, 82);
+            panel1.Controls.Add(listViewUser);
             panel1.Controls.Add(labelUserI);
             panel1.Controls.Add(buttonClear);
             panel1.Controls.Add(comboBoxUserTypeId);
@@ -97,8 +96,6 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(dataGridViewUser);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(MenuPanel);
             panel1.Controls.Add(labelClose);
             panel1.Dock = DockStyle.Fill;
@@ -106,6 +103,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 681);
             panel1.TabIndex = 1;
+            // 
+            // listViewUser
+            // 
+            listViewUser.Location = new Point(185, 180);
+            listViewUser.Name = "listViewUser";
+            listViewUser.Size = new Size(680, 214);
+            listViewUser.TabIndex = 43;
+            listViewUser.UseCompatibleStateImageBehavior = false;
+            listViewUser.SelectedIndexChanged += listViewUser_SelectedIndexChanged;
+            // 
+            // labelUserI
+            // 
+            labelUserI.AutoSize = true;
+            labelUserI.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            labelUserI.ForeColor = Color.FromArgb(255, 193, 37);
+            labelUserI.Location = new Point(826, 397);
+            labelUserI.Name = "labelUserI";
+            labelUserI.Size = new Size(92, 23);
+            labelUserI.TabIndex = 42;
+            labelUserI.Text = "100 Users";
             // 
             // buttonClear
             // 
@@ -272,11 +289,11 @@
             label7.AutoSize = true;
             label7.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label7.ForeColor = Color.FromArgb(255, 193, 37);
-            label7.Location = new Point(874, 503);
+            label7.Location = new Point(893, 503);
             label7.Name = "label7";
-            label7.Size = new Size(168, 29);
+            label7.Size = new Size(126, 29);
             label7.TabIndex = 25;
-            label7.Text = "USER_TYPE_ID";
+            label7.Text = "USER TYPE";
             // 
             // label6
             // 
@@ -332,25 +349,6 @@
             label2.Size = new Size(38, 29);
             label2.TabIndex = 20;
             label2.Text = "ID";
-            // 
-            // dataGridViewUser
-            // 
-            dataGridViewUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUser.Location = new Point(109, 180);
-            dataGridViewUser.Name = "dataGridViewUser";
-            dataGridViewUser.Size = new Size(848, 214);
-            dataGridViewUser.TabIndex = 19;
-            dataGridViewUser.Click += dataGridViewUser_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(475, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(34, 15);
-            label1.TabIndex = 18;
-            label1.Text = "USER";
             // 
             // MenuPanel
             // 
@@ -453,17 +451,6 @@
             labelClose.Text = "X";
             labelClose.Click += labelClose_Click;
             // 
-            // labelUserI
-            // 
-            labelUserI.AutoSize = true;
-            labelUserI.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
-            labelUserI.ForeColor = Color.FromArgb(255, 193, 37);
-            labelUserI.Location = new Point(826, 397);
-            labelUserI.Name = "labelUserI";
-            labelUserI.Size = new Size(92, 23);
-            labelUserI.TabIndex = 42;
-            labelUserI.Text = "100 Users";
-            // 
             // AdminUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -478,7 +465,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericID).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewUser).EndInit();
             MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -500,9 +486,7 @@
         private PictureBox pictureBox1;
         private Label labelClose;
         private PictureBox pictureBox6;
-        private Label label1;
         private Label label2;
-        private DataGridView dataGridViewUser;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -523,5 +507,6 @@
         private ComboBox comboBoxUserTypeId;
         private Button buttonClear;
         private Label labelUserI;
+        private ListView listViewUser;
     }
 }
