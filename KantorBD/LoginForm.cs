@@ -80,7 +80,7 @@ namespace KantorBD
                 {
                     int userID = Convert.ToInt32(table.Rows[0]["userID"]);
 
-                    TransactionHistory f2 = new TransactionHistory(userID);
+                    CurrencyExchange f2 = new CurrencyExchange(userID);
                     f2.Show();
                 }
             }

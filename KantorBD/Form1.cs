@@ -3,17 +3,21 @@ using System.Windows.Forms;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace KantorBD
 {
     public partial class CurrencyExchange : Form
     {
         private int loggedInUserID;
+        private DB db;
 
         public CurrencyExchange(int userID)
         {
             InitializeComponent();
             loggedInUserID = userID;
+            db = new DB();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -62,7 +66,77 @@ namespace KantorBD
 
             double convertedAmount = amount * exchangeRate;
             ConvertedAmountDisplay.Text = $"{convertedAmount.ToString("F2")}";
+
+            double balance;
+            using (MySqlConnection connection = db.getConnection())
+            {
+                string query = "SELECT balance FROM walletcurrency WHERE walletID = @WalletID AND currencyID = @CurrencyID";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@WalletID", GetWalletID(loggedInUserID));
+                    command.Parameters.AddWithValue("@CurrencyID", GetCurrencyID(fromCurrency));
+                    connection.Open();
+                    balance = Convert.ToDouble(command.ExecuteScalar());
+                }
+            }
+
+            if (balance < amount)
+            {
+                MessageBox.Show("You don't have enough funds to complete this transaction.", "Insufficient Funds", MessageBoxButtons.OK);
+                return;
+            }
+
+            using (MySqlConnection connection = db.getConnection())
+            {
+                string insertQuery = "INSERT INTO transactions (userID, walletID, fromCurrencyID, toCurrencyID, amount, exchangeRate, transactionType, transactionDate) VALUES (@UserID, @WalletID, @FromCurrencyID, @ToCurrencyID, @Amount, @ExchangeRate, @TransactionType, @TransactionDate)";
+                using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", loggedInUserID);
+                    command.Parameters.AddWithValue("@WalletID", GetWalletID(loggedInUserID));
+                    command.Parameters.AddWithValue("@FromCurrencyID", GetCurrencyID(fromCurrency));
+                    command.Parameters.AddWithValue("@ToCurrencyID", GetCurrencyID(toCurrency));
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@ExchangeRate", exchangeRate);
+                    command.Parameters.AddWithValue("@TransactionType", "exchange");
+                    command.Parameters.AddWithValue("@TransactionDate", DateTime.Now);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Transaction completed successfully!", "Success", MessageBoxButtons.OK);
         }
+
+        private int GetCurrencyID(string currencyCode)
+        {
+            int currencyID;
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                command.Connection = db.getConnection();
+                command.CommandText = "SELECT currencyID FROM currency WHERE currencyCode = @CurrencyCode";
+                command.Parameters.AddWithValue("@CurrencyCode", currencyCode);
+                db.openConnection();
+                currencyID = Convert.ToInt32(command.ExecuteScalar());
+                db.closeConnection();
+            }
+            return currencyID;
+        }
+
+        private int GetWalletID(int userID)
+        {
+            int walletID;
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                command.Connection = db.getConnection();
+                command.CommandText = "SELECT walletID FROM wallet WHERE userID = @UserID";
+                command.Parameters.AddWithValue("@UserID", userID);
+                db.openConnection();
+                walletID = Convert.ToInt32(command.ExecuteScalar());
+            }
+            return walletID;
+        }
+
+
 
         private void rateBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -109,6 +183,13 @@ namespace KantorBD
         {
             Wallet wallet = new Wallet(loggedInUserID);
             wallet.Show();
+            this.Hide();
+        }
+
+        private void pictureBoxMoneyTransfer_Click(object sender, EventArgs e)
+        {
+            MoneyTransfer moneytransfer = new MoneyTransfer(loggedInUserID);
+            moneytransfer.Show();
             this.Hide();
         }
     }
