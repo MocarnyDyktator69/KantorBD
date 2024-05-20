@@ -103,7 +103,7 @@
             pictureBoxTransactionHistory.Size = new Size(114, 107);
             pictureBoxTransactionHistory.TabIndex = 28;
             pictureBoxTransactionHistory.TabStop = false;
-            pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
+            
             // 
             // pictureBox3
             // 
@@ -205,6 +205,11 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void pictureBoxTransactionHistory_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
