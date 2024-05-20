@@ -1,7 +1,6 @@
-﻿
-namespace KantorBD
+﻿namespace KantorBD
 {
-    partial class MoneyTransfer
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +28,7 @@ namespace KantorBD
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoneyTransfer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             pictureBoxHome = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
@@ -39,16 +38,20 @@ namespace KantorBD
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            txtCreditCardNumber = new TextBox();
-            label2 = new Label();
-            back_button = new Button();
+            rateBox = new ComboBox();
+            labelPLN = new Label();
+            labelGBP = new Label();
+            labelUSD = new Label();
+            labelEUR = new Label();
+            pictureBox30 = new PictureBox();
+            pictureBox29 = new PictureBox();
+            pictureBox28 = new PictureBox();
+            pictureBox27 = new PictureBox();
             label3 = new Label();
-            textBoxPassword = new TextBox();
-            buttonTransfer = new Button();
+            label2 = new Label();
             label4 = new Label();
-            textBoxCVV = new TextBox();
             label5 = new Label();
-            textBoxAmount = new TextBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHome).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
@@ -57,16 +60,20 @@ namespace KantorBD
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
             SuspendLayout();
             // 
             // pictureBoxHome
             // 
             pictureBoxHome.BackColor = Color.FromArgb(16, 9, 48);
             pictureBoxHome.Image = (Image)resources.GetObject("pictureBoxHome.Image");
-            pictureBoxHome.Location = new Point(335, 23);
+            pictureBoxHome.Location = new Point(335, 19);
             pictureBoxHome.Name = "pictureBoxHome";
             pictureBoxHome.Size = new Size(84, 98);
-            pictureBoxHome.TabIndex = 82;
+            pictureBoxHome.TabIndex = 91;
             pictureBoxHome.TabStop = false;
             pictureBoxHome.Click += pictureBoxHome_Click;
             // 
@@ -77,7 +84,7 @@ namespace KantorBD
             pictureBoxWallet.Location = new Point(425, 23);
             pictureBoxWallet.Name = "pictureBoxWallet";
             pictureBoxWallet.Size = new Size(112, 98);
-            pictureBoxWallet.TabIndex = 81;
+            pictureBoxWallet.TabIndex = 90;
             pictureBoxWallet.TabStop = false;
             pictureBoxWallet.Click += pictureBoxWallet_Click;
             // 
@@ -88,7 +95,7 @@ namespace KantorBD
             pictureBoxCurrencyExchange.Location = new Point(533, 12);
             pictureBoxCurrencyExchange.Name = "pictureBoxCurrencyExchange";
             pictureBoxCurrencyExchange.Size = new Size(112, 107);
-            pictureBoxCurrencyExchange.TabIndex = 80;
+            pictureBoxCurrencyExchange.TabIndex = 89;
             pictureBoxCurrencyExchange.TabStop = false;
             pictureBoxCurrencyExchange.Click += pictureBoxCurrencyExchange_Click;
             // 
@@ -99,7 +106,7 @@ namespace KantorBD
             pictureBoxMoneyTransfer.Location = new Point(651, 23);
             pictureBoxMoneyTransfer.Name = "pictureBoxMoneyTransfer";
             pictureBoxMoneyTransfer.Size = new Size(97, 94);
-            pictureBoxMoneyTransfer.TabIndex = 79;
+            pictureBoxMoneyTransfer.TabIndex = 88;
             pictureBoxMoneyTransfer.TabStop = false;
             pictureBoxMoneyTransfer.Click += pictureBoxMoneyTransfer_Click;
             // 
@@ -110,7 +117,7 @@ namespace KantorBD
             pictureBoxTransactionHistory.Location = new Point(754, 12);
             pictureBoxTransactionHistory.Name = "pictureBoxTransactionHistory";
             pictureBoxTransactionHistory.Size = new Size(114, 107);
-            pictureBoxTransactionHistory.TabIndex = 78;
+            pictureBoxTransactionHistory.TabIndex = 87;
             pictureBoxTransactionHistory.TabStop = false;
             pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
             // 
@@ -121,7 +128,7 @@ namespace KantorBD
             pictureBox3.Location = new Point(874, 12);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(80, 107);
-            pictureBox3.TabIndex = 77;
+            pictureBox3.TabIndex = 86;
             pictureBox3.TabStop = false;
             // 
             // pictureBoxLogout
@@ -132,7 +139,7 @@ namespace KantorBD
             pictureBoxLogout.Location = new Point(952, 12);
             pictureBoxLogout.Name = "pictureBoxLogout";
             pictureBoxLogout.Size = new Size(100, 109);
-            pictureBoxLogout.TabIndex = 76;
+            pictureBoxLogout.TabIndex = 85;
             pictureBoxLogout.TabStop = false;
             pictureBoxLogout.Click += pictureBoxLogout_Click;
             // 
@@ -146,7 +153,7 @@ namespace KantorBD
             label1.Location = new Point(34, 39);
             label1.Name = "label1";
             label1.Size = new Size(261, 56);
-            label1.TabIndex = 74;
+            label1.TabIndex = 83;
             label1.Text = "Jan Kowalski";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -157,139 +164,191 @@ namespace KantorBD
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1040, 109);
-            pictureBox1.TabIndex = 75;
+            pictureBox1.TabIndex = 84;
             pictureBox1.TabStop = false;
             // 
-            // txtCreditCardNumber
+            // rateBox
             // 
-            txtCreditCardNumber.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            txtCreditCardNumber.Location = new Point(489, 181);
-            txtCreditCardNumber.MaxLength = 16;
-            txtCreditCardNumber.Multiline = true;
-            txtCreditCardNumber.Name = "txtCreditCardNumber";
-            txtCreditCardNumber.Size = new Size(413, 38);
-            txtCreditCardNumber.TabIndex = 83;
+            rateBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rateBox.ForeColor = Color.FromArgb(255, 193, 37);
+            rateBox.FormattingEnabled = true;
+            rateBox.Items.AddRange(new object[] { "EUR", "USD", "GBP", "PLN" });
+            rateBox.Location = new Point(151, 339);
+            rateBox.Name = "rateBox";
+            rateBox.Size = new Size(200, 75);
+            rateBox.TabIndex = 101;
+            rateBox.SelectedIndexChanged += rateBox_SelectedIndexChanged;
             // 
-            // label2
+            // labelPLN
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(36, 26, 82);
-            label2.Cursor = Cursors.Hand;
-            label2.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.ForeColor = Color.FromArgb(255, 193, 37);
-            label2.Location = new Point(64, 181);
-            label2.Name = "label2";
-            label2.Size = new Size(404, 38);
-            label2.TabIndex = 84;
-            label2.Text = "Enter your credit card number";
-            label2.TextAlign = ContentAlignment.BottomCenter;
+            labelPLN.BackColor = Color.White;
+            labelPLN.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelPLN.ForeColor = Color.FromArgb(255, 193, 37);
+            labelPLN.Location = new Point(660, 541);
+            labelPLN.Name = "labelPLN";
+            labelPLN.Size = new Size(200, 75);
+            labelPLN.TabIndex = 100;
+            labelPLN.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // back_button
+            // labelGBP
             // 
-            back_button.Location = new Point(12, 625);
-            back_button.Name = "back_button";
-            back_button.Size = new Size(252, 44);
-            back_button.TabIndex = 85;
-            back_button.Text = "back";
-            back_button.UseVisualStyleBackColor = true;
+            labelGBP.BackColor = Color.White;
+            labelGBP.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelGBP.ForeColor = Color.FromArgb(255, 193, 37);
+            labelGBP.Location = new Point(660, 430);
+            labelGBP.Name = "labelGBP";
+            labelGBP.Size = new Size(200, 75);
+            labelGBP.TabIndex = 99;
+            labelGBP.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelUSD
+            // 
+            labelUSD.BackColor = Color.White;
+            labelUSD.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelUSD.ForeColor = Color.FromArgb(255, 193, 37);
+            labelUSD.Location = new Point(660, 322);
+            labelUSD.Name = "labelUSD";
+            labelUSD.Size = new Size(200, 75);
+            labelUSD.TabIndex = 98;
+            labelUSD.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelEUR
+            // 
+            labelEUR.BackColor = Color.White;
+            labelEUR.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelEUR.ForeColor = Color.FromArgb(255, 193, 37);
+            labelEUR.Location = new Point(660, 222);
+            labelEUR.Name = "labelEUR";
+            labelEUR.Size = new Size(200, 75);
+            labelEUR.TabIndex = 97;
+            labelEUR.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox30
+            // 
+            pictureBox30.Image = (Image)resources.GetObject("pictureBox30.Image");
+            pictureBox30.Location = new Point(888, 322);
+            pictureBox30.Name = "pictureBox30";
+            pictureBox30.Size = new Size(51, 73);
+            pictureBox30.TabIndex = 96;
+            pictureBox30.TabStop = false;
+            // 
+            // pictureBox29
+            // 
+            pictureBox29.Image = (Image)resources.GetObject("pictureBox29.Image");
+            pictureBox29.Location = new Point(888, 430);
+            pictureBox29.Name = "pictureBox29";
+            pictureBox29.Size = new Size(60, 72);
+            pictureBox29.TabIndex = 95;
+            pictureBox29.TabStop = false;
+            // 
+            // pictureBox28
+            // 
+            pictureBox28.Image = (Image)resources.GetObject("pictureBox28.Image");
+            pictureBox28.Location = new Point(888, 222);
+            pictureBox28.Name = "pictureBox28";
+            pictureBox28.Size = new Size(69, 75);
+            pictureBox28.TabIndex = 94;
+            pictureBox28.TabStop = false;
+            // 
+            // pictureBox27
+            // 
+            pictureBox27.Image = (Image)resources.GetObject("pictureBox27.Image");
+            pictureBox27.Location = new Point(888, 541);
+            pictureBox27.Name = "pictureBox27";
+            pictureBox27.Size = new Size(162, 65);
+            pictureBox27.TabIndex = 93;
+            pictureBox27.TabStop = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.FromArgb(36, 26, 82);
             label3.Cursor = Cursors.Hand;
-            label3.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label3.Font = new Font("Comic Sans MS", 30F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label3.ForeColor = Color.FromArgb(255, 193, 37);
-            label3.Location = new Point(228, 359);
+            label3.Location = new Point(104, 257);
             label3.Name = "label3";
-            label3.Size = new Size(240, 38);
-            label3.TabIndex = 86;
-            label3.Text = "Confirm password";
-            label3.TextAlign = ContentAlignment.BottomCenter;
+            label3.Size = new Size(293, 56);
+            label3.TabIndex = 92;
+            label3.Text = "Exchange rate";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBoxPassword
+            // label2
             // 
-            textBoxPassword.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxPassword.Location = new Point(489, 359);
-            textBoxPassword.Multiline = true;
-            textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(413, 38);
-            textBoxPassword.TabIndex = 87;
-            // 
-            // buttonTransfer
-            // 
-            buttonTransfer.ForeColor = Color.FromArgb(17, 176, 33);
-            buttonTransfer.Location = new Point(773, 609);
-            buttonTransfer.Name = "buttonTransfer";
-            buttonTransfer.Size = new Size(252, 44);
-            buttonTransfer.TabIndex = 88;
-            buttonTransfer.Text = "Accept";
-            buttonTransfer.UseVisualStyleBackColor = true;
-            buttonTransfer.Click += buttonTransfer_Click;
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(36, 26, 82);
+            label2.Cursor = Cursors.Hand;
+            label2.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label2.ForeColor = Color.FromArgb(255, 193, 37);
+            label2.Location = new Point(551, 240);
+            label2.Name = "label2";
+            label2.Size = new Size(94, 38);
+            label2.TabIndex = 102;
+            label2.Text = "EURO";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.FromArgb(36, 26, 82);
             label4.Cursor = Cursors.Hand;
-            label4.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label4.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label4.ForeColor = Color.FromArgb(255, 193, 37);
-            label4.Location = new Point(233, 406);
+            label4.Location = new Point(570, 339);
             label4.Name = "label4";
-            label4.Size = new Size(644, 200);
-            label4.TabIndex = 89;
-            label4.Text = resources.GetString("label4.Text");
-            label4.TextAlign = ContentAlignment.BottomCenter;
-            // 
-            // textBoxCVV
-            // 
-            textBoxCVV.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxCVV.Location = new Point(917, 181);
-            textBoxCVV.MaxLength = 3;
-            textBoxCVV.Multiline = true;
-            textBoxCVV.Name = "textBoxCVV";
-            textBoxCVV.Size = new Size(72, 38);
-            textBoxCVV.TabIndex = 90;
+            label4.Size = new Size(75, 38);
+            label4.TabIndex = 103;
+            label4.Text = "USD";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.FromArgb(36, 26, 82);
             label5.Cursor = Cursors.Hand;
-            label5.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label5.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label5.ForeColor = Color.FromArgb(255, 193, 37);
-            label5.Location = new Point(233, 273);
+            label5.Location = new Point(570, 446);
             label5.Name = "label5";
-            label5.Size = new Size(235, 38);
-            label5.TabIndex = 91;
-            label5.Text = "Amount of money";
-            label5.TextAlign = ContentAlignment.BottomCenter;
+            label5.Size = new Size(66, 38);
+            label5.TabIndex = 104;
+            label5.Text = "GBP";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBoxAmount
+            // label6
             // 
-            textBoxAmount.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBoxAmount.Location = new Point(489, 273);
-            textBoxAmount.Multiline = true;
-            textBoxAmount.Name = "textBoxAmount";
-            textBoxAmount.Size = new Size(413, 38);
-            textBoxAmount.TabIndex = 92;
+            label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(36, 26, 82);
+            label6.Cursor = Cursors.Hand;
+            label6.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label6.ForeColor = Color.FromArgb(255, 193, 37);
+            label6.Location = new Point(488, 559);
+            label6.Name = "label6";
+            label6.Size = new Size(157, 38);
+            label6.TabIndex = 105;
+            label6.Text = "Polski złoty";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // MoneyTransfer
+            // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(textBoxAmount);
+            Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(textBoxCVV);
             Controls.Add(label4);
-            Controls.Add(buttonTransfer);
-            Controls.Add(textBoxPassword);
-            Controls.Add(label3);
-            Controls.Add(back_button);
             Controls.Add(label2);
-            Controls.Add(txtCreditCardNumber);
+            Controls.Add(rateBox);
+            Controls.Add(labelPLN);
+            Controls.Add(labelGBP);
+            Controls.Add(labelUSD);
+            Controls.Add(labelEUR);
+            Controls.Add(pictureBox30);
+            Controls.Add(pictureBox29);
+            Controls.Add(pictureBox28);
+            Controls.Add(pictureBox27);
+            Controls.Add(label3);
             Controls.Add(pictureBoxHome);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
@@ -299,9 +358,8 @@ namespace KantorBD
             Controls.Add(pictureBoxLogout);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Name = "MoneyTransfer";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form2";
+            Name = "Home";
+            Text = "Home";
             ((System.ComponentModel.ISupportInitialize)pictureBoxHome).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
@@ -310,6 +368,10 @@ namespace KantorBD
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,15 +387,19 @@ namespace KantorBD
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;
-        private TextBox txtCreditCardNumber;
-        private Label label2;
-        private Button back_button;
+        protected ComboBox rateBox;
+        private Label labelPLN;
+        private Label labelGBP;
+        private Label labelUSD;
+        private Label labelEUR;
+        private PictureBox pictureBox30;
+        private PictureBox pictureBox29;
+        private PictureBox pictureBox28;
+        private PictureBox pictureBox27;
         private Label label3;
-        private TextBox textBoxPassword;
-        private Button buttonTransfer;
+        private Label label2;
         private Label label4;
-        private TextBox textBoxCVV;
         private Label label5;
-        private TextBox textBoxAmount;
+        private Label label6;
     }
 }

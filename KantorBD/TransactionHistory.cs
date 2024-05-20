@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using KantorBD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -47,22 +48,31 @@ namespace KantorBD
         private void pictureBoxCurrencyExchange_Click(object sender, EventArgs e)
         {
             CurrencyExchange currencyExchange = new CurrencyExchange(loggedInUserID);
-            currencyExchange.ShowDialog(); 
-            RefreshTransactionHistory(); 
+            currencyExchange.ShowDialog();
+            RefreshTransactionHistory();
         }
 
         private void pictureBoxWallet_Click(object sender, EventArgs e)
         {
             Wallet wallet = new Wallet(loggedInUserID);
-            wallet.ShowDialog(); 
-            RefreshTransactionHistory(); 
+            wallet.ShowDialog();
+            RefreshTransactionHistory();
         }
 
         private void pictureBoxMoneyTransfer_Click(object sender, EventArgs e)
         {
             MoneyTransfer moneytransfer = new MoneyTransfer(loggedInUserID);
-            moneytransfer.ShowDialog(); 
-            RefreshTransactionHistory(); 
+            moneytransfer.ShowDialog();
+            RefreshTransactionHistory();
         }
+
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home(loggedInUserID);
+            home.Show();
+            this.Hide();
+        }
+
+           
     }
 }

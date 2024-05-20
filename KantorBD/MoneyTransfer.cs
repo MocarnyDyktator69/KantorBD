@@ -185,5 +185,11 @@ namespace KantorBD
             moneytransfer.Show();
             this.Hide();
         }
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home(loggedInUserID);
+            home.Show();
+            this.Hide();
+        }
     }
 }
