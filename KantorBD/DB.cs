@@ -5,7 +5,7 @@ namespace KantorBD
 {
     internal class DB : IDisposable
     {
-        private readonly string connectionString = "server=localhost;port=3306;username=root;password=;database=kantor_db";
+        public string connectionString = "server=localhost;port=3306;username=root;password=;database=kantor_db";
         private MySqlConnection connection;
 
         public DB()
