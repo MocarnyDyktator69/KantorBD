@@ -19,6 +19,8 @@ namespace KantorBD
             InitializeComponent();
         }
 
+        DB db = new DB();
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -41,14 +43,14 @@ namespace KantorBD
 
         private void buttonSigUp_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `user`(`name`, `surname`, `email`, `password`, `birth_date`) VALUES (@fn,@fs,@email,@h,@b)", db.getConnection());
-
-            command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = textBoxName.Text;
-            command.Parameters.Add("@fs", MySqlDbType.VarChar).Value = textBoxSurname.Text;
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
-            command.Parameters.Add("@h", MySqlDbType.VarChar).Value = HashPassword(textBoxPassword.Text);
-            command.Parameters.Add("@b", MySqlDbType.VarChar).Value = textBoxBirth.Text;
+            RegUserDTO user = new RegUserDTO
+            {
+                Name = textBoxName.Text,
+                Surname = textBoxSurname.Text,
+                Email = textBoxEmail.Text,
+                PasswordHash = HashPassword(textBoxPassword.Text),
+                BirthDate = textBoxBirth.Text
+            };
 
             db.openConnection();
 
@@ -60,17 +62,10 @@ namespace KantorBD
                 }
                 else
                 {
-                    if (command.ExecuteNonQuery() == 1)
+                    if (InsertUser(user))
                     {
                         MessageBox.Show("Account created");
-                        MySqlCommand walletCommand = new MySqlCommand("INSERT INTO `wallet`(`userID`) VALUES (LAST_INSERT_ID())", db.getConnection());
-                        walletCommand.ExecuteNonQuery();
-
-                        long walletID = walletCommand.LastInsertedId;
-
-                        MySqlCommand walletCurrencyCommand = new MySqlCommand("INSERT INTO `walletcurrency`(`walletID`, `currencyID`) VALUES (@wID, 1), (@wID, 2), (@wID, 3), (@wID, 4)", db.getConnection());
-                        walletCurrencyCommand.Parameters.Add("@wID", MySqlDbType.Int64).Value = walletID;
-                        walletCurrencyCommand.ExecuteNonQuery();
+                        long walletID = InsertWalletAndWalletCurrencies(user);
                     }
                     else
                     {
@@ -83,14 +78,37 @@ namespace KantorBD
                 MessageBox.Show("Enter your information first");
             }
 
-
             db.closeConnection();
+        }
+
+        private bool InsertUser(RegUserDTO user)
+        {
+            MySqlCommand command = new MySqlCommand("INSERT INTO `user`(`name`, `surname`, `email`, `password`, `birth_date`) VALUES (@fn,@fs,@email,@h,@b)", db.getConnection());
+            command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = user.Name;
+            command.Parameters.Add("@fs", MySqlDbType.VarChar).Value = user.Surname;
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.Email;
+            command.Parameters.Add("@h", MySqlDbType.VarChar).Value = user.PasswordHash;
+            command.Parameters.Add("@b", MySqlDbType.VarChar).Value = user.BirthDate;
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        private long InsertWalletAndWalletCurrencies(RegUserDTO user)
+        {
+            MySqlCommand walletCommand = new MySqlCommand("INSERT INTO `wallet`(`userID`) VALUES (LAST_INSERT_ID())", db.getConnection());
+            walletCommand.ExecuteNonQuery();
+
+            long walletID = walletCommand.LastInsertedId;
+
+            MySqlCommand walletCurrencyCommand = new MySqlCommand("INSERT INTO `walletcurrency`(`walletID`, `currencyID`) VALUES (@wID, 1), (@wID, 2), (@wID, 3), (@wID, 4)", db.getConnection());
+            walletCurrencyCommand.Parameters.Add("@wID", MySqlDbType.Int64).Value = walletID;
+            walletCurrencyCommand.ExecuteNonQuery();
+
+            return walletID;
         }
 
         public Boolean checkEmail()
         {
-            DB db = new DB();
-
             String email = textBoxEmail.Text;
 
             DataTable table = new DataTable();
@@ -102,7 +120,6 @@ namespace KantorBD
             command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
 
             adapter.SelectCommand = command;
-
             adapter.Fill(table);
 
             if (table.Rows.Count > 0)
@@ -162,4 +179,13 @@ namespace KantorBD
         }
 
     }
+    public class RegUserDTO
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
+        public string BirthDate { get; set; }
+    }
+
 }
