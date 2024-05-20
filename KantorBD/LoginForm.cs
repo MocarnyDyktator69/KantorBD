@@ -21,6 +21,8 @@ namespace KantorBD
             InitializeComponent();
         }
 
+        DB db = new DB();
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -50,8 +52,11 @@ namespace KantorBD
         {
             DB db = new DB();
 
-            String email = textBoxEmail.Text;
-            String password = HashPassword(textBoxPassword.Text);
+            LogUserDTO user = new LogUserDTO()
+            {
+                Email = textBoxEmail.Text,
+                Password = HashPassword(textBoxPassword.Text)
+            };
 
             DataTable table = new DataTable();
 
@@ -59,9 +64,8 @@ namespace KantorBD
 
             MySqlCommand command = new MySqlCommand("SELECT `userID`, `email`, `password`, `usertypeID` FROM `user` WHERE `email` = @uE AND `password` = @uH", db.getConnection());
 
-
-            command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
-            command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = password;
+            command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = user.Email;
+            command.Parameters.Add("@uH", MySqlDbType.VarChar).Value = user.Password;
 
             adapter.SelectCommand = command;
 
@@ -69,28 +73,31 @@ namespace KantorBD
 
             if (table.Rows.Count > 0)
             {
-                int userType = Convert.ToInt32(table.Rows[0]["usertypeID"]);
+                user.UserID = Convert.ToInt32(table.Rows[0]["userID"]);
+                user.UserTypeID = Convert.ToInt32(table.Rows[0]["usertypeID"]);
+
                 this.Hide();
-                if (userType == 1) // admin
+
+                if (user.UserTypeID == 1) // admin
                 {
                     MainAdminForm f1 = new MainAdminForm();
                     f1.Show();
                 }
-                else if (userType == 2) // user
+                else if (user.UserTypeID == 2) // user
                 {
-                    int userID = Convert.ToInt32(table.Rows[0]["userID"]);
+                    int UserID = Convert.ToInt32(table.Rows[0]["userID"]);
 
-                    Home f2 = new Home(userID);
+                    Home f2 = new Home(UserID);
                     f2.Show();
                 }
             }
             else
             {
-                if (email.Trim().Equals(""))
+                if (user.Email.Trim().Equals(""))
                 {
                     MessageBox.Show("Enter your email to login", "Empty Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (password.Trim().Equals(""))
+                else if (user.Password.Trim().Equals(""))
                 {
                     MessageBox.Show("Enter your password to login", "Empty Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -134,5 +141,12 @@ namespace KantorBD
                 return builder.ToString();
             }
         }
+    }
+    public class LogUserDTO
+    {
+        public int UserID { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int UserTypeID { get; set; }
     }
 }
