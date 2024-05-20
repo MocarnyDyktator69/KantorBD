@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using KantorBD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -64,6 +65,15 @@ namespace KantorBD
             moneytransfer.ShowDialog();
             RefreshTransactionHistory();
         }
+
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home(loggedInUserID);
+            home.Show();
+            this.Hide();
+        }
+
+           
 
         private void pictureBoxUserAccount_Click(object sender, EventArgs e)
         {

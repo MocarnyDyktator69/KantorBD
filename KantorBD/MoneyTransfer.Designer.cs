@@ -30,7 +30,7 @@ namespace KantorBD
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoneyTransfer));
-            pictureBox8 = new PictureBox();
+            pictureBoxHome = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
             pictureBoxMoneyTransfer = new PictureBox();
@@ -49,7 +49,7 @@ namespace KantorBD
             textBoxCVV = new TextBox();
             label5 = new Label();
             textBoxAmount = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
@@ -59,15 +59,16 @@ namespace KantorBD
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox8
+            // pictureBoxHome
             // 
-            pictureBox8.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(335, 23);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(84, 98);
-            pictureBox8.TabIndex = 82;
-            pictureBox8.TabStop = false;
+            pictureBoxHome.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxHome.Image = (Image)resources.GetObject("pictureBoxHome.Image");
+            pictureBoxHome.Location = new Point(335, 23);
+            pictureBoxHome.Name = "pictureBoxHome";
+            pictureBoxHome.Size = new Size(84, 98);
+            pictureBoxHome.TabIndex = 82;
+            pictureBoxHome.TabStop = false;
+            pictureBoxHome.Click += pictureBoxHome_Click;
             // 
             // pictureBoxWallet
             // 
@@ -290,7 +291,7 @@ namespace KantorBD
             Controls.Add(back_button);
             Controls.Add(label2);
             Controls.Add(txtCreditCardNumber);
-            Controls.Add(pictureBox8);
+            Controls.Add(pictureBoxHome);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
             Controls.Add(pictureBoxMoneyTransfer);
@@ -302,7 +303,7 @@ namespace KantorBD
             Name = "MoneyTransfer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
@@ -316,7 +317,7 @@ namespace KantorBD
 
         #endregion
 
-        private PictureBox pictureBox8;
+        private PictureBox pictureBoxHome;
         private PictureBox pictureBoxWallet;
         private PictureBox pictureBoxCurrencyExchange;
         private PictureBox pictureBoxMoneyTransfer;
