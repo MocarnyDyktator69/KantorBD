@@ -2,8 +2,6 @@
 using System.Windows.Forms;
 using System.Net;
 using Newtonsoft.Json.Linq;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace KantorBD
@@ -12,6 +10,7 @@ namespace KantorBD
     {
         private int loggedInUserID;
         private DB db;
+        private const decimal MaxExchangeLimit = 10000m;
 
         public CurrencyExchange(int userID)
         {
@@ -20,10 +19,11 @@ namespace KantorBD
             db = new DB();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void CurrencyExchange_Load(object sender, EventArgs e)
         {
             FromCurrencyBox.SelectedItem = "USD";
             ToCurrencyBox.SelectedItem = "PLN";
+            rateBox.SelectedItem = "PLN";
         }
 
         private double GetExchangeRate(string fromCurrency, string toCurrency)
@@ -46,97 +46,77 @@ namespace KantorBD
             string fromCurrency = FromCurrencyBox.SelectedItem.ToString();
             string toCurrency = ToCurrencyBox.SelectedItem.ToString();
 
-            double amount;
-            if (!double.TryParse(AmmountToConvertBox.Text, out amount))
+            if (!decimal.TryParse(AmountToConvertBox.Text, out decimal amountToConvert) || amountToConvert <= 0)
             {
-                MessageBox.Show("Please enter a valid amount to convert.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Please enter a valid amount to convert!", "Error - Invalid amount", MessageBoxButtons.OK);
                 return;
             }
 
-            double exchangeRate;
+            if (amountToConvert > MaxExchangeLimit)
+            {
+                MessageBox.Show($"The amount to convert exceeds the maximum limit of {MaxExchangeLimit}!", "Error - Limit exceeded", MessageBoxButtons.OK);
+                return;
+            }
+
+            decimal exchangeRate = (decimal)GetExchangeRate(fromCurrency, toCurrency);
+            decimal convertedAmount = amountToConvert * exchangeRate;
+
             try
             {
-                exchangeRate = GetExchangeRate(fromCurrency, toCurrency);
-            }
-            catch
-            {
-                MessageBox.Show("An error occurred while retrieving the exchange rate!", "Error - API error", MessageBoxButtons.OK);
-                return;
-            }
-
-            double convertedAmount = amount * exchangeRate;
-            ConvertedAmountDisplay.Text = $"{convertedAmount.ToString("F2")}";
-
-            double balance;
-            using (MySqlConnection connection = db.getConnection())
-            {
-                string query = "SELECT balance FROM walletcurrency WHERE walletID = @WalletID AND currencyID = @CurrencyID";
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@WalletID", GetWalletID(loggedInUserID));
-                    command.Parameters.AddWithValue("@CurrencyID", GetCurrencyID(fromCurrency));
-                    connection.Open();
-                    balance = Convert.ToDouble(command.ExecuteScalar());
-                }
-            }
-
-            if (balance < amount)
-            {
-                MessageBox.Show("You don't have enough funds to complete this transaction.", "Insufficient Funds", MessageBoxButtons.OK);
-                return;
-            }
-
-            using (MySqlConnection connection = db.getConnection())
-            {
-                string insertQuery = "INSERT INTO transactions (userID, walletID, fromCurrencyID, toCurrencyID, amount, exchangeRate, transactionType, transactionDate) VALUES (@UserID, @WalletID, @FromCurrencyID, @ToCurrencyID, @Amount, @ExchangeRate, @TransactionType, @TransactionDate)";
-                using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@UserID", loggedInUserID);
-                    command.Parameters.AddWithValue("@WalletID", GetWalletID(loggedInUserID));
-                    command.Parameters.AddWithValue("@FromCurrencyID", GetCurrencyID(fromCurrency));
-                    command.Parameters.AddWithValue("@ToCurrencyID", GetCurrencyID(toCurrency));
-                    command.Parameters.AddWithValue("@Amount", amount);
-                    command.Parameters.AddWithValue("@ExchangeRate", exchangeRate);
-                    command.Parameters.AddWithValue("@TransactionType", "exchange");
-                    command.Parameters.AddWithValue("@TransactionDate", DateTime.Now);
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
-
-            MessageBox.Show("Transaction completed successfully!", "Success", MessageBoxButtons.OK);
-        }
-
-        private int GetCurrencyID(string currencyCode)
-        {
-            int currencyID;
-            using (MySqlCommand command = new MySqlCommand())
-            {
-                command.Connection = db.getConnection();
-                command.CommandText = "SELECT currencyID FROM currency WHERE currencyCode = @CurrencyCode";
-                command.Parameters.AddWithValue("@CurrencyCode", currencyCode);
                 db.openConnection();
-                currencyID = Convert.ToInt32(command.ExecuteScalar());
+
+                MySqlCommand command = new MySqlCommand("SELECT currencyID FROM currency WHERE currencyCode = @fromCurrency", db.getConnection());
+                command.Parameters.AddWithValue("@fromCurrency", fromCurrency);
+                int fromCurrencyID = (int)command.ExecuteScalar();
+
+                command = new MySqlCommand("SELECT currencyID FROM currency WHERE currencyCode = @toCurrency", db.getConnection());
+                command.Parameters.AddWithValue("@toCurrency", toCurrency);
+                int toCurrencyID = (int)command.ExecuteScalar();
+
+                command = new MySqlCommand("SELECT balance FROM walletcurrency WHERE walletID = (SELECT walletID FROM wallet WHERE userID = @userID) AND currencyID = @fromCurrencyID", db.getConnection());
+                command.Parameters.AddWithValue("@userID", loggedInUserID);
+                command.Parameters.AddWithValue("@fromCurrencyID", fromCurrencyID);
+                decimal currentBalance = (decimal)command.ExecuteScalar();
+
+                if (currentBalance < amountToConvert)
+                {
+                    MessageBox.Show("You do not have enough funds to complete this exchange!", "Error - Insufficient funds", MessageBoxButtons.OK);
+                    db.closeConnection();
+                    return;
+                }
+
+                DateTime currentDate = DateTime.Now.Date;
+
+                command = new MySqlCommand("INSERT INTO transactions (userID, fromCurrencyID, toCurrencyID, amount, exchangeRate, transactionType, transactionDate) VALUES (@userID, @fromCurrencyID, @toCurrencyID, @amount, @exchangeRate, 'exchange', @transactionDate)", db.getConnection());
+                command.Parameters.AddWithValue("@userID", loggedInUserID);
+                command.Parameters.AddWithValue("@fromCurrencyID", fromCurrencyID);
+                command.Parameters.AddWithValue("@toCurrencyID", toCurrencyID);
+                command.Parameters.AddWithValue("@amount", amountToConvert);
+                command.Parameters.AddWithValue("@exchangeRate", exchangeRate);
+                command.Parameters.AddWithValue("@transactionDate", currentDate.ToString("yyyy-MM-dd"));
+                command.ExecuteNonQuery();
+
+                command = new MySqlCommand("UPDATE walletcurrency SET balance = balance - @amountToConvert WHERE walletID = (SELECT walletID FROM wallet WHERE userID = @userID) AND currencyID = @fromCurrencyID", db.getConnection());
+                command.Parameters.AddWithValue("@amountToConvert", amountToConvert);
+                command.Parameters.AddWithValue("@userID", loggedInUserID);
+                command.Parameters.AddWithValue("@fromCurrencyID", fromCurrencyID);
+                command.ExecuteNonQuery();
+
+                command = new MySqlCommand("UPDATE walletcurrency SET balance = balance + @convertedAmount WHERE walletID = (SELECT walletID FROM wallet WHERE userID = @userID) AND currencyID = @toCurrencyID", db.getConnection());
+                command.Parameters.AddWithValue("@convertedAmount", convertedAmount);
+                command.Parameters.AddWithValue("@userID", loggedInUserID);
+                command.Parameters.AddWithValue("@toCurrencyID", toCurrencyID);
+                command.ExecuteNonQuery();
+
                 db.closeConnection();
-            }
-            return currencyID;
-        }
 
-        private int GetWalletID(int userID)
-        {
-            int walletID;
-            using (MySqlCommand command = new MySqlCommand())
+                MessageBox.Show($"{amountToConvert} {fromCurrency} has been successfully converted to {convertedAmount} {toCurrency}!", "Success - Currency exchange", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
             {
-                command.Connection = db.getConnection();
-                command.CommandText = "SELECT walletID FROM wallet WHERE userID = @UserID";
-                command.Parameters.AddWithValue("@UserID", userID);
-                db.openConnection();
-                walletID = Convert.ToInt32(command.ExecuteScalar());
+                MessageBox.Show($"An error occurred while exchanging the currencies: {ex.Message}", "Error - Currency exchange", MessageBoxButtons.OK);
             }
-            return walletID;
         }
-
-
 
         private void rateBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,10 +129,10 @@ namespace KantorBD
                 double gbpRate = GetExchangeRate(selectedCurrency, "GBP");
                 double plnRate = GetExchangeRate(selectedCurrency, "PLN");
 
-                labelUSD.Text = $"{usdRate.ToString("F4")}";
-                labelEUR.Text = $"{eurRate.ToString("F4")}";
-                labelGBP.Text = $"{gbpRate.ToString("F4")}";
-                labelPLN.Text = $"{plnRate.ToString("F4")}";
+                labelUSD.Text = $"{usdRate:F4}";
+                labelEUR.Text = $"{eurRate:F4}";
+                labelGBP.Text = $"{gbpRate:F4}";
+                labelPLN.Text = $"{plnRate:F4}";
             }
             catch
             {
@@ -160,11 +140,34 @@ namespace KantorBD
             }
         }
 
+        private void AmountToConvertBox_TextChanged(object sender, EventArgs e)
+        {
+            string fromCurrency = FromCurrencyBox.SelectedItem.ToString();
+            string toCurrency = ToCurrencyBox.SelectedItem.ToString();
+
+            if (!decimal.TryParse(AmountToConvertBox.Text, out decimal amountToConvert) || amountToConvert <= 0)
+            {
+                ConvertedAmountDisplay.Text = "Invalid amount";
+                return;
+            }
+
+            if (amountToConvert > MaxExchangeLimit)
+            {
+                ConvertedAmountDisplay.Text = "Exceeds limit";
+                return;
+            }
+
+            decimal exchangeRate = (decimal)GetExchangeRate(fromCurrency, toCurrency);
+            decimal convertedAmount = amountToConvert * exchangeRate;
+
+            ConvertedAmountDisplay.Text = $"{convertedAmount:F2}";
+        }
+
         private void pictureBoxLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+       
         private void pictureBoxTransactionHistory_Click(object sender, EventArgs e)
         {
             TransactionHistory transactionHistory = new TransactionHistory(loggedInUserID);
@@ -188,8 +191,25 @@ namespace KantorBD
 
         private void pictureBoxMoneyTransfer_Click(object sender, EventArgs e)
         {
-            MoneyTransfer moneytransfer = new MoneyTransfer(loggedInUserID);
-            moneytransfer.Show();
+            MoneyTransfer moneyTransfer = new MoneyTransfer(loggedInUserID);
+            moneyTransfer.Show();
+            this.Hide();
+        }
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home(loggedInUserID);
+            home.Show();
+            this.Hide();
+        }
+        private void pictureBox28_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxUserAccount_Click(object sender, EventArgs e)
+        {
+            UserAccount userAccount = new UserAccount(loggedInUserID);
+            userAccount.Show();
             this.Hide();
         }
     }

@@ -39,7 +39,7 @@
             pictureBox30 = new PictureBox();
             FromCurrencyBox = new ComboBox();
             ToCurrencyBox = new ComboBox();
-            AmmountToConvertBox = new TextBox();
+            AmountToConvertBox = new TextBox();
             ExchangeButton = new Button();
             ConvertedAmountDisplay = new Label();
             labelEUR = new Label();
@@ -47,12 +47,12 @@
             labelGBP = new Label();
             labelPLN = new Label();
             rateBox = new ComboBox();
-            pictureBox8 = new PictureBox();
+            pictureBoxHome = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
             pictureBoxMoneyTransfer = new PictureBox();
             pictureBoxTransactionHistory = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pictureBoxUserAccount = new PictureBox();
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -62,12 +62,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUserAccount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -176,15 +176,16 @@
             ToCurrencyBox.Size = new Size(207, 75);
             ToCurrencyBox.TabIndex = 49;
             // 
-            // AmmountToConvertBox
+            // AmountToConvertBox
             // 
-            AmmountToConvertBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            AmmountToConvertBox.ForeColor = Color.FromArgb(255, 193, 37);
-            AmmountToConvertBox.Location = new Point(22, 274);
-            AmmountToConvertBox.Name = "AmmountToConvertBox";
-            AmmountToConvertBox.Size = new Size(345, 74);
-            AmmountToConvertBox.TabIndex = 51;
-            AmmountToConvertBox.Text = "0";
+            AmountToConvertBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            AmountToConvertBox.ForeColor = Color.FromArgb(255, 193, 37);
+            AmountToConvertBox.Location = new Point(22, 274);
+            AmountToConvertBox.Name = "AmountToConvertBox";
+            AmountToConvertBox.Size = new Size(345, 74);
+            AmountToConvertBox.TabIndex = 51;
+            AmountToConvertBox.Text = "0";
+            AmountToConvertBox.TextChanged += AmountToConvertBox_TextChanged;
             // 
             // ExchangeButton
             // 
@@ -266,15 +267,16 @@
             rateBox.TabIndex = 56;
             rateBox.SelectedIndexChanged += rateBox_SelectedIndexChanged;
             // 
-            // pictureBox8
+            // pictureBoxHome
             // 
-            pictureBox8.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(335, 23);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(84, 98);
-            pictureBox8.TabIndex = 82;
-            pictureBox8.TabStop = false;
+            pictureBoxHome.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxHome.Image = (Image)resources.GetObject("pictureBoxHome.Image");
+            pictureBoxHome.Location = new Point(335, 23);
+            pictureBoxHome.Name = "pictureBoxHome";
+            pictureBoxHome.Size = new Size(84, 98);
+            pictureBoxHome.TabIndex = 82;
+            pictureBoxHome.TabStop = false;
+            pictureBoxHome.Click += pictureBoxHome_Click;
             // 
             // pictureBoxWallet
             // 
@@ -320,15 +322,16 @@
             pictureBoxTransactionHistory.TabStop = false;
             pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
             // 
-            // pictureBox3
+            // pictureBoxUserAccount
             // 
-            pictureBox3.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(874, 12);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(80, 107);
-            pictureBox3.TabIndex = 77;
-            pictureBox3.TabStop = false;
+            pictureBoxUserAccount.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxUserAccount.Image = (Image)resources.GetObject("pictureBoxUserAccount.Image");
+            pictureBoxUserAccount.Location = new Point(874, 12);
+            pictureBoxUserAccount.Name = "pictureBoxUserAccount";
+            pictureBoxUserAccount.Size = new Size(80, 107);
+            pictureBoxUserAccount.TabIndex = 77;
+            pictureBoxUserAccount.TabStop = false;
+            pictureBoxUserAccount.Click += pictureBoxUserAccount_Click;
             // 
             // pictureBoxLogout
             // 
@@ -372,12 +375,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
-            Controls.Add(pictureBox8);
+            Controls.Add(pictureBoxHome);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
             Controls.Add(pictureBoxMoneyTransfer);
             Controls.Add(pictureBoxTransactionHistory);
-            Controls.Add(pictureBox3);
+            Controls.Add(pictureBoxUserAccount);
             Controls.Add(pictureBoxLogout);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -388,7 +391,7 @@
             Controls.Add(labelEUR);
             Controls.Add(ConvertedAmountDisplay);
             Controls.Add(ExchangeButton);
-            Controls.Add(AmmountToConvertBox);
+            Controls.Add(AmountToConvertBox);
             Controls.Add(ToCurrencyBox);
             Controls.Add(FromCurrencyBox);
             Controls.Add(pictureBox30);
@@ -403,18 +406,19 @@
             Name = "CurrencyExchange";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += CurrencyExchange_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUserAccount).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -432,7 +436,7 @@
         private PictureBox pictureBox30;
         private ComboBox FromCurrencyBox;
         private ComboBox ToCurrencyBox;
-        private TextBox AmmountToConvertBox;
+        private TextBox AmountToConvertBox;
         private Button ExchangeButton;
         private Label ConvertedAmountDisplay;
         private Label labelEUR;
@@ -440,12 +444,12 @@
         private Label labelGBP;
         private Label labelPLN;
         protected ComboBox rateBox;
-        private PictureBox pictureBox8;
+        private PictureBox pictureBoxHome;
         private PictureBox pictureBoxWallet;
         private PictureBox pictureBoxCurrencyExchange;
         private PictureBox pictureBoxMoneyTransfer;
         private PictureBox pictureBoxTransactionHistory;
-        private PictureBox pictureBox3;
+        private PictureBox pictureBoxUserAccount;
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using KantorBD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -34,35 +35,50 @@ namespace KantorBD
             db.closeConnection();
         }
 
+        public void RefreshTransactionHistory()
+        {
+            LoadTransactionHistory();
+        }
+
         private void pictureBoxLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void pictureBoxTransactionHistory_Click(object sender, EventArgs e)
-        {
-            TransactionHistory transactionHistory = new TransactionHistory(loggedInUserID);
-            transactionHistory.Show();
-            this.Hide();
-        }
-
         private void pictureBoxCurrencyExchange_Click(object sender, EventArgs e)
         {
             CurrencyExchange currencyExchange = new CurrencyExchange(loggedInUserID);
-            currencyExchange.Show();
-            this.Hide();
+            currencyExchange.ShowDialog();
+            RefreshTransactionHistory();
         }
 
         private void pictureBoxWallet_Click(object sender, EventArgs e)
         {
             Wallet wallet = new Wallet(loggedInUserID);
-            wallet.Show();
-            this.Hide();
+            wallet.ShowDialog();
+            RefreshTransactionHistory();
         }
+
         private void pictureBoxMoneyTransfer_Click(object sender, EventArgs e)
         {
             MoneyTransfer moneytransfer = new MoneyTransfer(loggedInUserID);
-            moneytransfer.Show();
+            moneytransfer.ShowDialog();
+            RefreshTransactionHistory();
+        }
+
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home(loggedInUserID);
+            home.Show();
+            this.Hide();
+        }
+
+           
+
+        private void pictureBoxUserAccount_Click(object sender, EventArgs e)
+        {
+            UserAccount userAccount = new UserAccount(loggedInUserID);
+            userAccount.Show();
             this.Hide();
         }
     }

@@ -38,12 +38,12 @@
             pictureBox28 = new PictureBox();
             pictureBox27 = new PictureBox();
             button1 = new Button();
-            pictureBox8 = new PictureBox();
+            pictureBoxHome = new PictureBox();
             pictureBoxWallet = new PictureBox();
             pictureBoxCurrencyExchange = new PictureBox();
             pictureBoxMoneyTransfer = new PictureBox();
             pictureBoxTransactionHistory = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pictureBoxUserAccount = new PictureBox();
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -52,12 +52,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUserAccount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -154,15 +154,16 @@
             button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox8
+            // pictureBoxHome
             // 
-            pictureBox8.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(335, 23);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(84, 98);
-            pictureBox8.TabIndex = 73;
-            pictureBox8.TabStop = false;
+            pictureBoxHome.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxHome.Image = (Image)resources.GetObject("pictureBoxHome.Image");
+            pictureBoxHome.Location = new Point(335, 23);
+            pictureBoxHome.Name = "pictureBoxHome";
+            pictureBoxHome.Size = new Size(84, 98);
+            pictureBoxHome.TabIndex = 73;
+            pictureBoxHome.TabStop = false;
+            pictureBoxHome.Click += pictureBoxHome_Click;
             // 
             // pictureBoxWallet
             // 
@@ -208,15 +209,16 @@
             pictureBoxTransactionHistory.TabStop = false;
             pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
             // 
-            // pictureBox3
+            // pictureBoxUserAccount
             // 
-            pictureBox3.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(874, 12);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(80, 107);
-            pictureBox3.TabIndex = 68;
-            pictureBox3.TabStop = false;
+            pictureBoxUserAccount.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxUserAccount.Image = (Image)resources.GetObject("pictureBoxUserAccount.Image");
+            pictureBoxUserAccount.Location = new Point(874, 12);
+            pictureBoxUserAccount.Name = "pictureBoxUserAccount";
+            pictureBoxUserAccount.Size = new Size(80, 107);
+            pictureBoxUserAccount.TabIndex = 68;
+            pictureBoxUserAccount.TabStop = false;
+            pictureBoxUserAccount.Click += pictureBoxUserAccount_Click;
             // 
             // pictureBoxLogout
             // 
@@ -274,12 +276,12 @@
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
             Controls.Add(buttonAddFounds);
-            Controls.Add(pictureBox8);
+            Controls.Add(pictureBoxHome);
             Controls.Add(pictureBoxWallet);
             Controls.Add(pictureBoxCurrencyExchange);
             Controls.Add(pictureBoxMoneyTransfer);
             Controls.Add(pictureBoxTransactionHistory);
-            Controls.Add(pictureBox3);
+            Controls.Add(pictureBoxUserAccount);
             Controls.Add(pictureBoxLogout);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -299,12 +301,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUserAccount).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -321,12 +323,12 @@
         private PictureBox pictureBox28;
         private PictureBox pictureBox27;
         private Button button1;
-        private PictureBox pictureBox8;
+        private PictureBox pictureBoxHome;
         private PictureBox pictureBoxWallet;
         private PictureBox pictureBoxCurrencyExchange;
         private PictureBox pictureBoxMoneyTransfer;
         private PictureBox pictureBoxTransactionHistory;
-        private PictureBox pictureBox3;
+        private PictureBox pictureBoxUserAccount;
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;
