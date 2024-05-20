@@ -52,7 +52,7 @@
             pictureBoxCurrencyExchange = new PictureBox();
             pictureBoxMoneyTransfer = new PictureBox();
             pictureBoxTransactionHistory = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pictureBoxUserAccount = new PictureBox();
             pictureBoxLogout = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -67,7 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUserAccount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -321,15 +321,16 @@
             pictureBoxTransactionHistory.TabStop = false;
             pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
             // 
-            // pictureBox3
+            // pictureBoxUserAccount
             // 
-            pictureBox3.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(874, 12);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(80, 107);
-            pictureBox3.TabIndex = 77;
-            pictureBox3.TabStop = false;
+            pictureBoxUserAccount.BackColor = Color.FromArgb(16, 9, 48);
+            pictureBoxUserAccount.Image = (Image)resources.GetObject("pictureBoxUserAccount.Image");
+            pictureBoxUserAccount.Location = new Point(874, 12);
+            pictureBoxUserAccount.Name = "pictureBoxUserAccount";
+            pictureBoxUserAccount.Size = new Size(80, 107);
+            pictureBoxUserAccount.TabIndex = 77;
+            pictureBoxUserAccount.TabStop = false;
+            pictureBoxUserAccount.Click += pictureBoxUserAccount_Click;
             // 
             // pictureBoxLogout
             // 
@@ -378,7 +379,7 @@
             Controls.Add(pictureBoxCurrencyExchange);
             Controls.Add(pictureBoxMoneyTransfer);
             Controls.Add(pictureBoxTransactionHistory);
-            Controls.Add(pictureBox3);
+            Controls.Add(pictureBoxUserAccount);
             Controls.Add(pictureBoxLogout);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -416,7 +417,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUserAccount).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -447,7 +448,7 @@
         private PictureBox pictureBoxCurrencyExchange;
         private PictureBox pictureBoxMoneyTransfer;
         private PictureBox pictureBoxTransactionHistory;
-        private PictureBox pictureBox3;
+        private PictureBox pictureBoxUserAccount;
         private PictureBox pictureBoxLogout;
         private Label label1;
         private PictureBox pictureBox1;
