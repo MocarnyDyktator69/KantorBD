@@ -39,7 +39,7 @@
             pictureBox30 = new PictureBox();
             FromCurrencyBox = new ComboBox();
             ToCurrencyBox = new ComboBox();
-            AmmountToConvertBox = new TextBox();
+            AmountToConvertBox = new TextBox();
             ExchangeButton = new Button();
             ConvertedAmountDisplay = new Label();
             labelEUR = new Label();
@@ -176,15 +176,16 @@
             ToCurrencyBox.Size = new Size(207, 75);
             ToCurrencyBox.TabIndex = 49;
             // 
-            // AmmountToConvertBox
+            // AmountToConvertBox
             // 
-            AmmountToConvertBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            AmmountToConvertBox.ForeColor = Color.FromArgb(255, 193, 37);
-            AmmountToConvertBox.Location = new Point(22, 274);
-            AmmountToConvertBox.Name = "AmmountToConvertBox";
-            AmmountToConvertBox.Size = new Size(345, 74);
-            AmmountToConvertBox.TabIndex = 51;
-            AmmountToConvertBox.Text = "0";
+            AmountToConvertBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            AmountToConvertBox.ForeColor = Color.FromArgb(255, 193, 37);
+            AmountToConvertBox.Location = new Point(22, 274);
+            AmountToConvertBox.Name = "AmountToConvertBox";
+            AmountToConvertBox.Size = new Size(345, 74);
+            AmountToConvertBox.TabIndex = 51;
+            AmountToConvertBox.Text = "0";
+            AmountToConvertBox.TextChanged += AmountToConvertBox_TextChanged;
             // 
             // ExchangeButton
             // 
@@ -388,7 +389,7 @@
             Controls.Add(labelEUR);
             Controls.Add(ConvertedAmountDisplay);
             Controls.Add(ExchangeButton);
-            Controls.Add(AmmountToConvertBox);
+            Controls.Add(AmountToConvertBox);
             Controls.Add(ToCurrencyBox);
             Controls.Add(FromCurrencyBox);
             Controls.Add(pictureBox30);
@@ -403,6 +404,7 @@
             Name = "CurrencyExchange";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += CurrencyExchange_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
@@ -432,7 +434,7 @@
         private PictureBox pictureBox30;
         private ComboBox FromCurrencyBox;
         private ComboBox ToCurrencyBox;
-        private TextBox AmmountToConvertBox;
+        private TextBox AmountToConvertBox;
         private Button ExchangeButton;
         private Label ConvertedAmountDisplay;
         private Label labelEUR;
