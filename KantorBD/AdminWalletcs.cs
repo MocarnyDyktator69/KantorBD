@@ -102,6 +102,15 @@ namespace KantorBD
 
             getWallets();
 
+            MySqlCommand command = new MySqlCommand("SELECT currencyCode FROM Currency", db.getConnection());
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                comboBoxCurrency.Items.Add(reader["currencyCode"].ToString());
+            }
+            db.closeConnection();
+
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -143,7 +152,228 @@ namespace KantorBD
             AdminSettings f4 = new AdminSettings();
             f4.Show();
         }
-        
+
+        private void buttonFirst_Click(object sender, EventArgs e)
+        {
+            if (listViewWallet.Items.Count > 0)
+            {
+                listViewWallet.Items[walletID].Selected = false;
+                walletID = 0;
+                listViewWallet.Items[walletID].Selected = true;
+            }
+        }
+
+        private void buttonPrevious_Click(object sender, EventArgs e)
+        {
+            if (listViewWallet.Items.Count > 0)
+            {
+                listViewWallet.Items[walletID].Selected = false;
+                walletID--;
+                if (walletID < 0)
+                {
+                    walletID = 0;
+                }
+                listViewWallet.Items[walletID].Selected = true;
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            if (listViewWallet.Items.Count > 0)
+            {
+                listViewWallet.Items[walletID].Selected = false;
+                walletID++;
+                if (walletID >= listViewWallet.Items.Count)
+                {
+                    walletID = listViewWallet.Items.Count - 1;
+                }
+                listViewWallet.Items[walletID].Selected = true;
+            }
+        }
+
+        private void buttonLast_Click(object sender, EventArgs e)
+        {
+            if (listViewWallet.Items.Count > 0)
+            {
+                listViewWallet.Items[walletID].Selected = false;
+                walletID = listViewWallet.Items.Count - 1;
+                listViewWallet.Items[walletID].Selected = true;
+            }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            listViewWallet.Items.Clear();
+            string email = textBoxEmail.Text.Trim();
+            string currency = comboBoxCurrency.SelectedItem == null ? null : comboBoxCurrency.SelectedItem.ToString();
+
+            foreach (WalletDTO wallet in wallets)
+            {
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(currency))
+                {
+                    if (wallet.Email == email && wallet.Currencies.ContainsKey(currency))
+                    {
+                        ListViewItem item = new ListViewItem(wallet.Email);
+                        item.SubItems.Add(wallet.WalletID.ToString());
+
+                        int currencyColumnIndex = 2;
+                        foreach (var currencyValue in wallet.Currencies)
+                        {
+                            if (currencyValue.Key == currency)
+                            {
+                                item.SubItems.Add(currencyValue.Value.ToString());
+                            }
+                            else
+                            {
+                                item.SubItems.Add("");
+                            }
+                            currencyColumnIndex++;
+                        }
+
+                        listViewWallet.Items.Add(item);
+                    }
+                }
+                else if (!string.IsNullOrEmpty(email))
+                {
+                    if (wallet.Email == email)
+                    {
+                        ListViewItem item = new ListViewItem(wallet.Email);
+                        item.SubItems.Add(wallet.WalletID.ToString());
+                        int currencyColumnIndex = 2;
+                        foreach (var currencyValue in wallet.Currencies)
+                        {
+                            item.SubItems.Add(currencyValue.Value.ToString());
+                            currencyColumnIndex++;
+                        }
+                        listViewWallet.Items.Add(item);
+                    }
+                }
+                else if (!string.IsNullOrEmpty(currency))
+                {
+                    if (wallet.Currencies.ContainsKey(currency))
+                    {
+                        ListViewItem item = new ListViewItem(wallet.Email);
+                        item.SubItems.Add(wallet.WalletID.ToString());
+
+                        int currencyColumnIndex = 2;
+                        foreach (var currencyValue in wallet.Currencies)
+                        {
+                            if (currencyValue.Key == currency)
+                            {
+                                item.SubItems.Add(currencyValue.Value.ToString());
+                            }
+                            else
+                            {
+                                item.SubItems.Add("");
+                            }
+                            currencyColumnIndex++;
+                        }
+
+                        listViewWallet.Items.Add(item);
+                    }
+                }
+            }
+            labelWalletI.Text = listViewWallet.Items.Count.ToString() + " Wallets";
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            string email = textBoxEmail.Text.Trim();
+            string currency = comboBoxCurrency.SelectedItem == null ? null : comboBoxCurrency.SelectedItem.ToString();
+            decimal balance = 0;
+
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Please enter email.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(currency))
+            {
+                MessageBox.Show("Please select currency.");
+                return;
+            }
+
+            if (!decimal.TryParse(textBoxBalance.Text, out balance))
+            {
+                MessageBox.Show("Please enter valid balance.");
+                return;
+            }
+
+            WalletDTO walletToEdit = null;
+            foreach (WalletDTO wallet in wallets)
+            {
+                if (wallet.Email == email && wallet.Currencies.ContainsKey(currency))
+                {
+                    walletToEdit = wallet;
+                    break;
+                }
+            }
+
+            if (walletToEdit != null)
+            {
+                walletToEdit.Currencies[currency] += balance;
+
+                // Update the database
+                UpdateWalletBalance(walletToEdit.WalletID, currency, walletToEdit.Currencies[currency]);
+
+                // Update the UI
+                listViewWallet.Items.Clear();
+                foreach (WalletDTO wallet in wallets)
+                {
+                    ListViewItem item = new ListViewItem(wallet.Email);
+                    item.SubItems.Add(wallet.WalletID.ToString());
+                    int currencyColumnIndex = 2;
+                    foreach (var currencyValue in wallet.Currencies)
+                    {
+                        item.SubItems.Add(currencyValue.Value.ToString());
+                        currencyColumnIndex++;
+                    }
+                    item.Tag = wallet;
+                    listViewWallet.Items.Add(item);
+                }
+                labelWalletI.Text = wallets.Count.ToString() + " Wallets";
+            }
+            else
+            {
+                MessageBox.Show("Wallet not found.");
+            }
+        }
+
+        private void UpdateWalletBalance(int walletID, string currencyCode, decimal newBalance)
+        {
+            string query = "UPDATE WalletCurrency SET balance = @balance WHERE walletID = @walletID AND currencyID = (SELECT currencyID FROM Currency WHERE currencyCode = @currencyCode)";
+            MySqlCommand command = new MySqlCommand(query, db.getConnection());
+            command.Parameters.AddWithValue("@walletID", walletID);
+            command.Parameters.AddWithValue("@currencyCode", currencyCode);
+            command.Parameters.AddWithValue("@balance", newBalance);
+
+            db.openConnection();
+            command.ExecuteNonQuery();
+            db.closeConnection();
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textBoxEmail.Clear();
+            textBoxBalance.Clear();
+            comboBoxCurrency.SelectedIndex = -1;
+            listViewWallet.Items.Clear();
+            foreach (WalletDTO wallet in wallets)
+            {
+                ListViewItem item = new ListViewItem(wallet.Email);
+                item.SubItems.Add(wallet.WalletID.ToString());
+                int currencyColumnIndex = 2;
+                foreach (var currencyValue in wallet.Currencies)
+                {
+                    item.SubItems.Add(currencyValue.Value.ToString());
+                    currencyColumnIndex++;
+                }
+                item.Tag = wallet;
+                listViewWallet.Items.Add(item);
+            }
+            labelWalletI.Text = wallets.Count.ToString() + " Wallets";
+        }
     }
 
     public class WalletDTO

@@ -101,11 +101,11 @@
             buttonClear.TabIndex = 58;
             buttonClear.Text = "Clear";
             buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
             // 
             // comboBoxCurrency
             // 
             comboBoxCurrency.FormattingEnabled = true;
-            comboBoxCurrency.Items.AddRange(new object[] { "PLN", "EUR", "GPB", "USD" });
             comboBoxCurrency.Location = new Point(483, 547);
             comboBoxCurrency.Name = "comboBoxCurrency";
             comboBoxCurrency.Size = new Size(121, 23);
@@ -123,6 +123,7 @@
             buttonEdit.TabIndex = 56;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = false;
+            buttonEdit.Click += buttonEdit_Click;
             // 
             // buttonSearch
             // 
@@ -136,6 +137,7 @@
             buttonSearch.TabIndex = 55;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // textBoxBalance
             // 
@@ -217,6 +219,7 @@
             buttonLast.TabIndex = 47;
             buttonLast.Text = ">>";
             buttonLast.UseVisualStyleBackColor = false;
+            buttonLast.Click += buttonLast_Click;
             // 
             // buttonNext
             // 
@@ -230,6 +233,7 @@
             buttonNext.TabIndex = 46;
             buttonNext.Text = ">";
             buttonNext.UseVisualStyleBackColor = false;
+            buttonNext.Click += buttonNext_Click;
             // 
             // buttonPrevious
             // 
@@ -243,6 +247,7 @@
             buttonPrevious.TabIndex = 45;
             buttonPrevious.Text = "<";
             buttonPrevious.UseVisualStyleBackColor = false;
+            buttonPrevious.Click += buttonPrevious_Click;
             // 
             // buttonFirst
             // 
@@ -256,6 +261,7 @@
             buttonFirst.TabIndex = 44;
             buttonFirst.Text = "<<";
             buttonFirst.UseVisualStyleBackColor = false;
+            buttonFirst.Click += buttonFirst_Click;
             // 
             // MenuPanel
             // 

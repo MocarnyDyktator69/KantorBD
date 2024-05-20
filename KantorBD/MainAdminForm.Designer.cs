@@ -30,6 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainAdminForm));
             panel1 = new Panel();
+            rateBox = new ComboBox();
+            labelPLN = new Label();
+            labelGBP = new Label();
+            labelUSD = new Label();
+            labelEUR = new Label();
+            pictureBox30 = new PictureBox();
+            pictureBox29 = new PictureBox();
+            pictureBox28 = new PictureBox();
+            pictureBox27 = new PictureBox();
+            label3 = new Label();
             MenuPanel = new Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -38,8 +48,11 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             labelClose = new Label();
-            label1 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
             MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -52,7 +65,16 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(36, 26, 82);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(rateBox);
+            panel1.Controls.Add(labelPLN);
+            panel1.Controls.Add(labelGBP);
+            panel1.Controls.Add(labelUSD);
+            panel1.Controls.Add(labelEUR);
+            panel1.Controls.Add(pictureBox30);
+            panel1.Controls.Add(pictureBox29);
+            panel1.Controls.Add(pictureBox28);
+            panel1.Controls.Add(pictureBox27);
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(MenuPanel);
             panel1.Controls.Add(labelClose);
             panel1.Dock = DockStyle.Fill;
@@ -60,6 +82,111 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 681);
             panel1.TabIndex = 0;
+            // 
+            // rateBox
+            // 
+            rateBox.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rateBox.ForeColor = Color.FromArgb(255, 193, 37);
+            rateBox.FormattingEnabled = true;
+            rateBox.Location = new Point(832, 193);
+            rateBox.Name = "rateBox";
+            rateBox.Size = new Size(200, 75);
+            rateBox.TabIndex = 66;
+            rateBox.SelectedIndexChanged += rateBox_SelectedIndexChanged;
+            // 
+            // labelPLN
+            // 
+            labelPLN.BackColor = Color.White;
+            labelPLN.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelPLN.ForeColor = Color.FromArgb(255, 193, 37);
+            labelPLN.Location = new Point(832, 573);
+            labelPLN.Name = "labelPLN";
+            labelPLN.Size = new Size(200, 75);
+            labelPLN.TabIndex = 62;
+            labelPLN.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelGBP
+            // 
+            labelGBP.BackColor = Color.White;
+            labelGBP.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelGBP.ForeColor = Color.FromArgb(255, 193, 37);
+            labelGBP.Location = new Point(832, 478);
+            labelGBP.Name = "labelGBP";
+            labelGBP.Size = new Size(200, 75);
+            labelGBP.TabIndex = 63;
+            labelGBP.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelUSD
+            // 
+            labelUSD.BackColor = Color.White;
+            labelUSD.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelUSD.ForeColor = Color.FromArgb(255, 193, 37);
+            labelUSD.Location = new Point(832, 383);
+            labelUSD.Name = "labelUSD";
+            labelUSD.Size = new Size(200, 75);
+            labelUSD.TabIndex = 64;
+            labelUSD.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelEUR
+            // 
+            labelEUR.BackColor = Color.White;
+            labelEUR.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelEUR.ForeColor = Color.FromArgb(255, 193, 37);
+            labelEUR.Location = new Point(832, 288);
+            labelEUR.Name = "labelEUR";
+            labelEUR.Size = new Size(200, 75);
+            labelEUR.TabIndex = 65;
+            labelEUR.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox30
+            // 
+            pictureBox30.Image = (Image)resources.GetObject("pictureBox30.Image");
+            pictureBox30.Location = new Point(730, 383);
+            pictureBox30.Name = "pictureBox30";
+            pictureBox30.Size = new Size(51, 73);
+            pictureBox30.TabIndex = 61;
+            pictureBox30.TabStop = false;
+            // 
+            // pictureBox29
+            // 
+            pictureBox29.Image = (Image)resources.GetObject("pictureBox29.Image");
+            pictureBox29.Location = new Point(730, 478);
+            pictureBox29.Name = "pictureBox29";
+            pictureBox29.Size = new Size(60, 72);
+            pictureBox29.TabIndex = 60;
+            pictureBox29.TabStop = false;
+            // 
+            // pictureBox28
+            // 
+            pictureBox28.Image = (Image)resources.GetObject("pictureBox28.Image");
+            pictureBox28.Location = new Point(721, 288);
+            pictureBox28.Name = "pictureBox28";
+            pictureBox28.Size = new Size(69, 75);
+            pictureBox28.TabIndex = 59;
+            pictureBox28.TabStop = false;
+            // 
+            // pictureBox27
+            // 
+            pictureBox27.Image = (Image)resources.GetObject("pictureBox27.Image");
+            pictureBox27.Location = new Point(647, 573);
+            pictureBox27.Name = "pictureBox27";
+            pictureBox27.Size = new Size(162, 65);
+            pictureBox27.TabIndex = 58;
+            pictureBox27.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(36, 26, 82);
+            label3.Cursor = Cursors.Hand;
+            label3.Font = new Font("Comic Sans MS", 30F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label3.ForeColor = Color.FromArgb(255, 193, 37);
+            label3.Location = new Point(516, 204);
+            label3.Name = "label3";
+            label3.Size = new Size(293, 56);
+            label3.TabIndex = 57;
+            label3.Text = "Exchange rate";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MenuPanel
             // 
@@ -162,15 +289,6 @@
             labelClose.Text = "X";
             labelClose.Click += labelClose_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(444, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(41, 15);
-            label1.TabIndex = 17;
-            label1.Text = "MENU";
-            // 
             // MainAdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,6 +301,10 @@
             Text = "MainForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
             MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -204,6 +326,15 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
         private PictureBox pictureBox6;
-        private Label label1;
+        protected ComboBox rateBox;
+        private Label labelPLN;
+        private Label labelGBP;
+        private Label labelUSD;
+        private Label labelEUR;
+        private PictureBox pictureBox30;
+        private PictureBox pictureBox29;
+        private PictureBox pictureBox28;
+        private PictureBox pictureBox27;
+        private Label label3;
     }
 }
