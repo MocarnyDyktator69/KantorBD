@@ -21,26 +21,6 @@ namespace KantorBD
 
         DB db = new DB();
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxBirth_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxBirth_Leave(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSigUp_Click(object sender, EventArgs e)
         {
             RegUserDTO user = new RegUserDTO

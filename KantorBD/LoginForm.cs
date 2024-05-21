@@ -23,31 +23,6 @@ namespace KantorBD
 
         DB db = new DB();
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DB db = new DB();
@@ -106,11 +81,6 @@ namespace KantorBD
                     MessageBox.Show("Wrong email or password", "Wrong Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 

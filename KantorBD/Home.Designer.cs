@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            pictureBoxHome = new PictureBox();
-            pictureBoxWallet = new PictureBox();
-            pictureBoxCurrencyExchange = new PictureBox();
-            pictureBoxMoneyTransfer = new PictureBox();
-            pictureBoxTransactionHistory = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBoxLogout = new PictureBox();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
             rateBox = new ComboBox();
             labelPLN = new Label();
             labelGBP = new Label();
@@ -52,120 +43,28 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            MenuPanel = new Panel();
+            buttonMoneyTransfer = new PictureBox();
+            buttonHome = new PictureBox();
+            buttonCurrencyExchange = new PictureBox();
+            buttonSettings = new PictureBox();
+            buttonWallet = new PictureBox();
+            buttonHistory = new PictureBox();
+            buttonLogOut = new PictureBox();
+            labelClose = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
+            MenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)buttonHome).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)buttonCurrencyExchange).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)buttonSettings).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)buttonWallet).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)buttonHistory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)buttonLogOut).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBoxHome
-            // 
-            pictureBoxHome.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBoxHome.Image = (Image)resources.GetObject("pictureBoxHome.Image");
-            pictureBoxHome.Location = new Point(335, 19);
-            pictureBoxHome.Name = "pictureBoxHome";
-            pictureBoxHome.Size = new Size(84, 98);
-            pictureBoxHome.TabIndex = 91;
-            pictureBoxHome.TabStop = false;
-            pictureBoxHome.Click += pictureBoxHome_Click;
-            // 
-            // pictureBoxWallet
-            // 
-            pictureBoxWallet.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBoxWallet.Image = (Image)resources.GetObject("pictureBoxWallet.Image");
-            pictureBoxWallet.Location = new Point(425, 23);
-            pictureBoxWallet.Name = "pictureBoxWallet";
-            pictureBoxWallet.Size = new Size(112, 98);
-            pictureBoxWallet.TabIndex = 90;
-            pictureBoxWallet.TabStop = false;
-            pictureBoxWallet.Click += pictureBoxWallet_Click;
-            // 
-            // pictureBoxCurrencyExchange
-            // 
-            pictureBoxCurrencyExchange.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBoxCurrencyExchange.Image = (Image)resources.GetObject("pictureBoxCurrencyExchange.Image");
-            pictureBoxCurrencyExchange.Location = new Point(533, 12);
-            pictureBoxCurrencyExchange.Name = "pictureBoxCurrencyExchange";
-            pictureBoxCurrencyExchange.Size = new Size(112, 107);
-            pictureBoxCurrencyExchange.TabIndex = 89;
-            pictureBoxCurrencyExchange.TabStop = false;
-            pictureBoxCurrencyExchange.Click += pictureBoxCurrencyExchange_Click;
-            // 
-            // pictureBoxMoneyTransfer
-            // 
-            pictureBoxMoneyTransfer.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBoxMoneyTransfer.Image = (Image)resources.GetObject("pictureBoxMoneyTransfer.Image");
-            pictureBoxMoneyTransfer.Location = new Point(651, 23);
-            pictureBoxMoneyTransfer.Name = "pictureBoxMoneyTransfer";
-            pictureBoxMoneyTransfer.Size = new Size(97, 94);
-            pictureBoxMoneyTransfer.TabIndex = 88;
-            pictureBoxMoneyTransfer.TabStop = false;
-            pictureBoxMoneyTransfer.Click += pictureBoxMoneyTransfer_Click;
-            // 
-            // pictureBoxTransactionHistory
-            // 
-            pictureBoxTransactionHistory.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBoxTransactionHistory.Image = (Image)resources.GetObject("pictureBoxTransactionHistory.Image");
-            pictureBoxTransactionHistory.Location = new Point(754, 12);
-            pictureBoxTransactionHistory.Name = "pictureBoxTransactionHistory";
-            pictureBoxTransactionHistory.Size = new Size(114, 107);
-            pictureBoxTransactionHistory.TabIndex = 87;
-            pictureBoxTransactionHistory.TabStop = false;
-            pictureBoxTransactionHistory.Click += pictureBoxTransactionHistory_Click;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(874, 12);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(80, 107);
-            pictureBox3.TabIndex = 86;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBoxLogout
-            // 
-            pictureBoxLogout.BackColor = Color.FromArgb(16, 9, 48);
-            pictureBoxLogout.BackgroundImageLayout = ImageLayout.None;
-            pictureBoxLogout.Image = (Image)resources.GetObject("pictureBoxLogout.Image");
-            pictureBoxLogout.Location = new Point(952, 12);
-            pictureBoxLogout.Name = "pictureBoxLogout";
-            pictureBoxLogout.Size = new Size(100, 109);
-            pictureBoxLogout.TabIndex = 85;
-            pictureBoxLogout.TabStop = false;
-            pictureBoxLogout.Click += pictureBoxLogout_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(16, 9, 48);
-            label1.Cursor = Cursors.Hand;
-            label1.Font = new Font("Comic Sans MS", 30F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label1.ForeColor = Color.FromArgb(255, 193, 37);
-            label1.Location = new Point(34, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(261, 56);
-            label1.TabIndex = 83;
-            label1.Text = "Jan Kowalski";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.FromArgb(36, 26, 82);
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1040, 109);
-            pictureBox1.TabIndex = 84;
-            pictureBox1.TabStop = false;
             // 
             // rateBox
             // 
@@ -329,12 +228,128 @@
             label6.Text = "Polski złoty";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // MenuPanel
+            // 
+            MenuPanel.BackColor = Color.FromArgb(16, 9, 48);
+            MenuPanel.Controls.Add(buttonMoneyTransfer);
+            MenuPanel.Controls.Add(buttonHome);
+            MenuPanel.Controls.Add(buttonCurrencyExchange);
+            MenuPanel.Controls.Add(buttonSettings);
+            MenuPanel.Controls.Add(buttonWallet);
+            MenuPanel.Controls.Add(buttonHistory);
+            MenuPanel.Controls.Add(buttonLogOut);
+            MenuPanel.Location = new Point(-2, 64);
+            MenuPanel.Name = "MenuPanel";
+            MenuPanel.Size = new Size(1064, 110);
+            MenuPanel.TabIndex = 107;
+            // 
+            // buttonMoneyTransfer
+            // 
+            buttonMoneyTransfer.Cursor = Cursors.Hand;
+            buttonMoneyTransfer.Image = (Image)resources.GetObject("buttonMoneyTransfer.Image");
+            buttonMoneyTransfer.Location = new Point(644, 20);
+            buttonMoneyTransfer.Margin = new Padding(5);
+            buttonMoneyTransfer.Name = "buttonMoneyTransfer";
+            buttonMoneyTransfer.Size = new Size(65, 65);
+            buttonMoneyTransfer.TabIndex = 18;
+            buttonMoneyTransfer.TabStop = false;
+            buttonMoneyTransfer.Click += buttonMoneyTransfer_Click;
+            // 
+            // buttonHome
+            // 
+            buttonHome.Cursor = Cursors.Hand;
+            buttonHome.Image = (Image)resources.GetObject("buttonHome.Image");
+            buttonHome.Location = new Point(344, 20);
+            buttonHome.Margin = new Padding(5);
+            buttonHome.Name = "buttonHome";
+            buttonHome.Size = new Size(65, 65);
+            buttonHome.TabIndex = 17;
+            buttonHome.TabStop = false;
+            buttonHome.Click += buttonHome_Click;
+            // 
+            // buttonCurrencyExchange
+            // 
+            buttonCurrencyExchange.Cursor = Cursors.Hand;
+            buttonCurrencyExchange.Image = (Image)resources.GetObject("buttonCurrencyExchange.Image");
+            buttonCurrencyExchange.Location = new Point(544, 20);
+            buttonCurrencyExchange.Margin = new Padding(5);
+            buttonCurrencyExchange.Name = "buttonCurrencyExchange";
+            buttonCurrencyExchange.Size = new Size(65, 65);
+            buttonCurrencyExchange.TabIndex = 17;
+            buttonCurrencyExchange.TabStop = false;
+            buttonCurrencyExchange.Click += buttonCurrencyExchange_Click;
+            // 
+            // buttonSettings
+            // 
+            buttonSettings.Cursor = Cursors.Hand;
+            buttonSettings.Image = (Image)resources.GetObject("buttonSettings.Image");
+            buttonSettings.Location = new Point(844, 20);
+            buttonSettings.Margin = new Padding(5);
+            buttonSettings.Name = "buttonSettings";
+            buttonSettings.Size = new Size(65, 65);
+            buttonSettings.TabIndex = 17;
+            buttonSettings.TabStop = false;
+            buttonSettings.Click += buttonSettings_Click;
+            // 
+            // buttonWallet
+            // 
+            buttonWallet.Cursor = Cursors.Hand;
+            buttonWallet.Image = (Image)resources.GetObject("buttonWallet.Image");
+            buttonWallet.Location = new Point(444, 20);
+            buttonWallet.Margin = new Padding(5);
+            buttonWallet.Name = "buttonWallet";
+            buttonWallet.Size = new Size(65, 65);
+            buttonWallet.TabIndex = 2;
+            buttonWallet.TabStop = false;
+            buttonWallet.Click += buttonWallet_Click;
+            // 
+            // buttonHistory
+            // 
+            buttonHistory.Cursor = Cursors.Hand;
+            buttonHistory.Image = (Image)resources.GetObject("buttonHistory.Image");
+            buttonHistory.Location = new Point(744, 20);
+            buttonHistory.Margin = new Padding(5);
+            buttonHistory.Name = "buttonHistory";
+            buttonHistory.Size = new Size(65, 65);
+            buttonHistory.TabIndex = 1;
+            buttonHistory.TabStop = false;
+            buttonHistory.Click += buttonHistory_Click;
+            // 
+            // buttonLogOut
+            // 
+            buttonLogOut.BackColor = Color.FromArgb(16, 9, 48);
+            buttonLogOut.Cursor = Cursors.Hand;
+            buttonLogOut.Image = (Image)resources.GetObject("buttonLogOut.Image");
+            buttonLogOut.ImageLocation = "";
+            buttonLogOut.Location = new Point(944, 20);
+            buttonLogOut.Margin = new Padding(5);
+            buttonLogOut.Name = "buttonLogOut";
+            buttonLogOut.Size = new Size(65, 65);
+            buttonLogOut.TabIndex = 0;
+            buttonLogOut.TabStop = false;
+            buttonLogOut.Click += buttonLogOut_Click;
+            // 
+            // labelClose
+            // 
+            labelClose.AutoSize = true;
+            labelClose.Cursor = Cursors.Hand;
+            labelClose.Font = new Font("Comic Sans MS", 27.75F);
+            labelClose.ForeColor = Color.FromArgb(255, 193, 37);
+            labelClose.Location = new Point(1001, 9);
+            labelClose.Name = "labelClose";
+            labelClose.Size = new Size(49, 52);
+            labelClose.TabIndex = 106;
+            labelClose.Text = "X";
+            labelClose.Click += labelClose_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(MenuPanel);
+            Controls.Add(labelClose);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -349,29 +364,22 @@
             Controls.Add(pictureBox28);
             Controls.Add(pictureBox27);
             Controls.Add(label3);
-            Controls.Add(pictureBoxHome);
-            Controls.Add(pictureBoxWallet);
-            Controls.Add(pictureBoxCurrencyExchange);
-            Controls.Add(pictureBoxMoneyTransfer);
-            Controls.Add(pictureBoxTransactionHistory);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBoxLogout);
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
-            ((System.ComponentModel.ISupportInitialize)pictureBoxHome).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxWallet).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxCurrencyExchange).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMoneyTransfer).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxTransactionHistory).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxLogout).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
+            MenuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)buttonHome).EndInit();
+            ((System.ComponentModel.ISupportInitialize)buttonCurrencyExchange).EndInit();
+            ((System.ComponentModel.ISupportInitialize)buttonSettings).EndInit();
+            ((System.ComponentModel.ISupportInitialize)buttonWallet).EndInit();
+            ((System.ComponentModel.ISupportInitialize)buttonHistory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)buttonLogOut).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -379,14 +387,6 @@
         #endregion
 
         private PictureBox pictureBoxHome;
-        private PictureBox pictureBoxWallet;
-        private PictureBox pictureBoxCurrencyExchange;
-        private PictureBox pictureBoxMoneyTransfer;
-        private PictureBox pictureBoxTransactionHistory;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBoxLogout;
-        private Label label1;
-        private PictureBox pictureBox1;
         protected ComboBox rateBox;
         private Label labelPLN;
         private Label labelGBP;
@@ -401,5 +401,14 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Panel MenuPanel;
+        private PictureBox buttonHome;
+        private PictureBox buttonCurrencyExchange;
+        private PictureBox buttonSettings;
+        private PictureBox buttonWallet;
+        private PictureBox buttonHistory;
+        private PictureBox buttonLogOut;
+        private Label labelClose;
+        private PictureBox buttonMoneyTransfer;
     }
 }

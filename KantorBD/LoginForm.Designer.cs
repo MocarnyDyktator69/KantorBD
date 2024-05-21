@@ -54,7 +54,6 @@ namespace KantorBD
             label1.TabIndex = 5;
             label1.Text = "Sign In";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -68,26 +67,23 @@ namespace KantorBD
             label2.TabIndex = 6;
             label2.Text = "E-mail:";
             label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label2_Click;
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxEmail.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             textBoxEmail.Location = new Point(218, 314);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(600, 71);
+            textBoxEmail.Size = new Size(600, 74);
             textBoxEmail.TabIndex = 7;
-            textBoxEmail.TextChanged += textBox1_TextChanged;
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            textBoxPassword.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             textBoxPassword.Location = new Point(218, 443);
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(600, 71);
+            textBoxPassword.Size = new Size(600, 74);
             textBoxPassword.TabIndex = 9;
             textBoxPassword.UseSystemPasswordChar = true;
-            textBoxPassword.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -101,7 +97,6 @@ namespace KantorBD
             label3.TabIndex = 8;
             label3.Text = "Password:";
             label3.TextAlign = ContentAlignment.MiddleCenter;
-            label3.Click += label3_Click;
             // 
             // buttonSigIn
             // 
@@ -156,13 +151,11 @@ namespace KantorBD
             panel1.Controls.Add(buttonSigIn);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(textBoxPassword);
-            panel1.Cursor = Cursors.Default;
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 681);
             panel1.TabIndex = 13;
-            panel1.Paint += panel1_Paint;
             // 
             // labelClose
             // 
@@ -189,7 +182,6 @@ namespace KantorBD
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
-            Load += Form2_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

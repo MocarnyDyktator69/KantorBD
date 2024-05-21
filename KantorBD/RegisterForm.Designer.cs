@@ -148,6 +148,7 @@
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(600, 59);
             textBoxPassword.TabIndex = 16;
+            textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxEmail
             // 
@@ -246,7 +247,6 @@
             label2.TabIndex = 7;
             label2.Text = "Name:";
             label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -258,7 +258,6 @@
             label1.Size = new Size(268, 90);
             label1.TabIndex = 0;
             label1.Text = "Sign Up";
-            label1.Click += label1_Click;
             // 
             // RegisterForm
             // 
@@ -270,8 +269,6 @@
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterForm";
-            Enter += textBoxBirth_Enter;
-            Leave += textBoxBirth_Leave;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

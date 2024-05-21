@@ -59,7 +59,6 @@
             pictureBox1.Size = new Size(330, 330);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -73,7 +72,6 @@
             label1.TabIndex = 4;
             label1.Text = "KANTOREX";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click_1;
             // 
             // button3
             // 
@@ -117,7 +115,6 @@
             Name = "StartForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

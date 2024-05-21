@@ -40,46 +40,59 @@ namespace KantorBD
             LoadTransactionHistory();
         }
 
-        private void pictureBoxLogout_Click(object sender, EventArgs e)
+        private void buttonHome_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void pictureBoxCurrencyExchange_Click(object sender, EventArgs e)
-        {
-            CurrencyExchange currencyExchange = new CurrencyExchange(loggedInUserID);
-            currencyExchange.ShowDialog();
-            RefreshTransactionHistory();
-        }
-
-        private void pictureBoxWallet_Click(object sender, EventArgs e)
-        {
-            Wallet wallet = new Wallet(loggedInUserID);
-            wallet.ShowDialog();
-            RefreshTransactionHistory();
-        }
-
-        private void pictureBoxMoneyTransfer_Click(object sender, EventArgs e)
-        {
-            MoneyTransfer moneytransfer = new MoneyTransfer(loggedInUserID);
-            moneytransfer.ShowDialog();
-            RefreshTransactionHistory();
-        }
-
-        private void pictureBoxHome_Click(object sender, EventArgs e)
-        {
+            this.Hide();
             Home home = new Home(loggedInUserID);
             home.Show();
-            this.Hide();
         }
 
-           
-
-        private void pictureBoxUserAccount_Click(object sender, EventArgs e)
+        private void buttonWallet_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Wallet wallet = new Wallet(loggedInUserID);
+            wallet.Show();
+            RefreshTransactionHistory();
+        }
+
+        private void buttonCurrencyExchange_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CurrencyExchange currencyExchange = new CurrencyExchange(loggedInUserID);
+            currencyExchange.Show();
+        }
+
+        private void buttonMoneyTransfer_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MoneyTransfer moneyTransfer = new MoneyTransfer(loggedInUserID);
+            moneyTransfer.Show();
+        }
+
+        private void buttonHistory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TransactionHistory transactionHistory = new TransactionHistory(loggedInUserID);
+            transactionHistory.Show();
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
             UserAccount userAccount = new UserAccount(loggedInUserID);
             userAccount.Show();
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
             this.Hide();
+            StartForm f5 = new StartForm();
+            f5.Show();
+        }
+
+        private void labelClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
