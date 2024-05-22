@@ -26,7 +26,7 @@ namespace KantorBD
         {
             transactionsuser.Clear();
 
-            string query = "SELECT T.*, U.email AS user_email, C1.currencyCode AS from_currency_code, C2.currencyCode AS to_currency_code, DATE(T.transactionDate) AS transactionsDate FROM Transactions AS T JOIN User AS U ON T.userID = U.userID JOIN Wallet AS W ON T.walletID = W.walletID JOIN Currency AS C1 ON T.fromCurrencyID = C1.currencyID JOIN Currency AS C2 ON T.toCurrencyID = C2.currencyID WHERE U.userID = @userID ORDER BY T.transactionDate DESC";
+            string query = "CALL GetTransactionsByUserID(@userID)";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             adapter.SelectCommand.Parameters.AddWithValue("@userID", loggedInUserID);
             DataTable table = new DataTable();
@@ -204,7 +204,7 @@ namespace KantorBD
 
         private void FillCurrencyCodes()
         {
-            string query = "SELECT currencyCode FROM Currency";
+            string query = "CALL GetCurrencyCodes()";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataTable table = new DataTable();
             adapter.Fill(table);

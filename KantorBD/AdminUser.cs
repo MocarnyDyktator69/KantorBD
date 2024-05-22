@@ -27,7 +27,7 @@ namespace KantorBD
         {
             users.Clear();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT U.*, UT.type FROM `User` AS U JOIN `Usertype` AS UT ON U.usertypeID = UT.usertypeID;", db.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter("CALL GetAllUserAdmin()", db.getConnection());
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -41,7 +41,7 @@ namespace KantorBD
                     Surname = row["surname"] == DBNull.Value ? null : row["surname"].ToString(),
                     Email = row["email"] == DBNull.Value ? null : row["email"].ToString(),
                     BirthDate = row["birth_date"] == DBNull.Value ? DateTime.MinValue : DateTime.TryParse(row["birth_date"].ToString(), out DateTime birthdate) ? birthdate : DateTime.MinValue,
-                    Type = row["type"] == DBNull.Value ? null : row["type"].ToString()
+                    Type = row["user_type"] == DBNull.Value ? null : row["user_type"].ToString()
                 };
                 users.Add(user);
             }

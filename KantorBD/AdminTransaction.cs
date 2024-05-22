@@ -32,7 +32,7 @@ namespace KantorBD
         {
             transactions.Clear();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT T.*, U.email AS user_email, C1.currencyCode AS from_currency_code, C2.currencyCode AS to_currency_code, DATE(T.transactionDate) AS transactionsDate FROM Transactions AS T JOIN User AS U ON T.userID = U.userID JOIN Wallet AS W ON T.walletID = W.walletID JOIN Currency AS C1 ON T.fromCurrencyID = C1.currencyID JOIN Currency AS C2 ON T.toCurrencyID = C2.currencyID ORDER BY T.transactionDate DESC;", db.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter("CALL GetAllTransactionsAdmin()", db.getConnection());
             DataTable table = new DataTable();
             adapter.Fill(table);
 

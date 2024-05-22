@@ -27,7 +27,7 @@ namespace KantorBD
         {
             wallets.Clear();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT W.*, WC.*, U.email AS user_email, C.currencyCode AS currency_code, C.currencyName AS currency_name FROM Wallet AS W JOIN User AS U ON W.userID = U.userID JOIN WalletCurrency AS WC ON W.walletID = WC.walletID JOIN Currency AS C ON WC.currencyID = C.currencyID;", db.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter("CALL GetAllWalletAdmin()", db.getConnection());
             DataTable table = new DataTable();
             adapter.Fill(table);
 
