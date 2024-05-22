@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionHistory));
-            label2 = new Label();
-            dataGridViewTransactions = new DataGridView();
             MenuPanel = new Panel();
             buttonMoneyTransfer = new PictureBox();
             buttonHome = new PictureBox();
@@ -40,7 +38,20 @@
             buttonHistory = new PictureBox();
             buttonLogOut = new PictureBox();
             labelClose = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).BeginInit();
+            listViewTransaction = new ListView();
+            labelTransactionI = new Label();
+            buttonClear = new Button();
+            buttonSearch = new Button();
+            dateTimePicker1 = new DateTimePicker();
+            label6 = new Label();
+            label5 = new Label();
+            buttonLast = new Button();
+            buttonNext = new Button();
+            buttonPrevious = new Button();
+            buttonFirst = new Button();
+            comboBoxCurrencyCodes = new ComboBox();
+            comboBoxToCurrencyCodes = new ComboBox();
+            label1 = new Label();
             MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)buttonHome).BeginInit();
@@ -50,29 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)buttonHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)buttonLogOut).BeginInit();
             SuspendLayout();
-            // 
-            // label2
-            // 
-            label2.BackColor = Color.FromArgb(36, 26, 82);
-            label2.Cursor = Cursors.Hand;
-            label2.Font = new Font("Comic Sans MS", 27.5F);
-            label2.ForeColor = Color.FromArgb(255, 193, 37);
-            label2.Location = new Point(364, 177);
-            label2.Name = "label2";
-            label2.Size = new Size(383, 60);
-            label2.TabIndex = 33;
-            label2.Text = "Transaction History";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // dataGridViewTransactions
-            // 
-            dataGridViewTransactions.BackgroundColor = Color.FromArgb(5, 5, 50);
-            dataGridViewTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTransactions.GridColor = Color.FromArgb(255, 193, 37);
-            dataGridViewTransactions.Location = new Point(12, 240);
-            dataGridViewTransactions.Name = "dataGridViewTransactions";
-            dataGridViewTransactions.Size = new Size(1040, 350);
-            dataGridViewTransactions.TabIndex = 35;
             // 
             // MenuPanel
             // 
@@ -188,21 +176,192 @@
             labelClose.Text = "X";
             labelClose.Click += labelClose_Click;
             // 
+            // listViewTransaction
+            // 
+            listViewTransaction.Location = new Point(54, 180);
+            listViewTransaction.Name = "listViewTransaction";
+            listViewTransaction.Size = new Size(955, 214);
+            listViewTransaction.TabIndex = 110;
+            listViewTransaction.UseCompatibleStateImageBehavior = false;
+            // 
+            // labelTransactionI
+            // 
+            labelTransactionI.AutoSize = true;
+            labelTransactionI.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            labelTransactionI.ForeColor = Color.FromArgb(255, 193, 37);
+            labelTransactionI.Location = new Point(870, 397);
+            labelTransactionI.Name = "labelTransactionI";
+            labelTransactionI.Size = new Size(92, 23);
+            labelTransactionI.TabIndex = 111;
+            labelTransactionI.Text = "100 Users";
+            // 
+            // buttonClear
+            // 
+            buttonClear.BackColor = Color.FromArgb(16, 9, 48);
+            buttonClear.FlatStyle = FlatStyle.Flat;
+            buttonClear.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonClear.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonClear.Location = new Point(541, 605);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(150, 50);
+            buttonClear.TabIndex = 121;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.BackColor = Color.FromArgb(16, 9, 48);
+            buttonSearch.FlatStyle = FlatStyle.Flat;
+            buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonSearch.Location = new Point(369, 605);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.TabIndex = 120;
+            buttonSearch.Text = "Search";
+            buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(625, 546);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 23);
+            dateTimePicker1.TabIndex = 119;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.ForeColor = Color.FromArgb(255, 193, 37);
+            label6.Location = new Point(625, 507);
+            label6.Name = "label6";
+            label6.Size = new Size(233, 29);
+            label6.TabIndex = 118;
+            label6.Text = "TRANSACTION DATE";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label5.ForeColor = Color.FromArgb(255, 193, 37);
+            label5.Location = new Point(195, 507);
+            label5.Name = "label5";
+            label5.Size = new Size(187, 29);
+            label5.TabIndex = 116;
+            label5.Text = "FROM CURRENCY";
+            // 
+            // buttonLast
+            // 
+            buttonLast.BackColor = Color.FromArgb(16, 9, 48);
+            buttonLast.FlatStyle = FlatStyle.Flat;
+            buttonLast.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonLast.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonLast.Location = new Point(708, 434);
+            buttonLast.Name = "buttonLast";
+            buttonLast.Size = new Size(150, 50);
+            buttonLast.TabIndex = 115;
+            buttonLast.Text = ">>";
+            buttonLast.UseVisualStyleBackColor = false;
+            buttonLast.Click += buttonLast_Click;
+            // 
+            // buttonNext
+            // 
+            buttonNext.BackColor = Color.FromArgb(16, 9, 48);
+            buttonNext.FlatStyle = FlatStyle.Flat;
+            buttonNext.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonNext.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonNext.Location = new Point(541, 434);
+            buttonNext.Name = "buttonNext";
+            buttonNext.Size = new Size(150, 50);
+            buttonNext.TabIndex = 114;
+            buttonNext.Text = ">";
+            buttonNext.UseVisualStyleBackColor = false;
+            buttonNext.Click += buttonNext_Click;
+            // 
+            // buttonPrevious
+            // 
+            buttonPrevious.BackColor = Color.FromArgb(16, 9, 48);
+            buttonPrevious.FlatStyle = FlatStyle.Flat;
+            buttonPrevious.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonPrevious.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonPrevious.Location = new Point(369, 434);
+            buttonPrevious.Name = "buttonPrevious";
+            buttonPrevious.Size = new Size(150, 50);
+            buttonPrevious.TabIndex = 113;
+            buttonPrevious.Text = "<";
+            buttonPrevious.UseVisualStyleBackColor = false;
+            buttonPrevious.Click += buttonPrevious_Click;
+            // 
+            // buttonFirst
+            // 
+            buttonFirst.BackColor = Color.FromArgb(16, 9, 48);
+            buttonFirst.FlatStyle = FlatStyle.Flat;
+            buttonFirst.Font = new Font("Comic Sans MS", 22.5F, FontStyle.Bold);
+            buttonFirst.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonFirst.Location = new Point(195, 434);
+            buttonFirst.Name = "buttonFirst";
+            buttonFirst.Size = new Size(150, 50);
+            buttonFirst.TabIndex = 112;
+            buttonFirst.Text = "<<";
+            buttonFirst.UseVisualStyleBackColor = false;
+            buttonFirst.Click += buttonFirst_Click;
+            // 
+            // comboBoxCurrencyCodes
+            // 
+            comboBoxCurrencyCodes.FormattingEnabled = true;
+            comboBoxCurrencyCodes.Location = new Point(195, 546);
+            comboBoxCurrencyCodes.Name = "comboBoxCurrencyCodes";
+            comboBoxCurrencyCodes.Size = new Size(187, 23);
+            comboBoxCurrencyCodes.TabIndex = 122;
+            // 
+            // comboBoxToCurrencyCodes
+            // 
+            comboBoxToCurrencyCodes.FormattingEnabled = true;
+            comboBoxToCurrencyCodes.Location = new Point(412, 546);
+            comboBoxToCurrencyCodes.Name = "comboBoxToCurrencyCodes";
+            comboBoxToCurrencyCodes.Size = new Size(187, 23);
+            comboBoxToCurrencyCodes.TabIndex = 124;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.ForeColor = Color.FromArgb(255, 193, 37);
+            label1.Location = new Point(429, 507);
+            label1.Name = "label1";
+            label1.Size = new Size(158, 29);
+            label1.TabIndex = 123;
+            label1.Text = "TO CURRENCY";
+            // 
             // TransactionHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(comboBoxToCurrencyCodes);
+            Controls.Add(label1);
+            Controls.Add(comboBoxCurrencyCodes);
+            Controls.Add(buttonClear);
+            Controls.Add(buttonSearch);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(buttonLast);
+            Controls.Add(buttonNext);
+            Controls.Add(buttonPrevious);
+            Controls.Add(buttonFirst);
+            Controls.Add(labelTransactionI);
+            Controls.Add(listViewTransaction);
             Controls.Add(MenuPanel);
             Controls.Add(labelClose);
-            Controls.Add(dataGridViewTransactions);
-            Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "TransactionHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TransactionHistory";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactions).EndInit();
+            Load += TransactionHistory_Load;
             MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)buttonHome).EndInit();
@@ -221,8 +380,6 @@
         }
 
 #endregion
-        private Label label2;
-        private DataGridView dataGridViewTransactions;
         private Panel MenuPanel;
         private PictureBox buttonMoneyTransfer;
         private PictureBox buttonHome;
@@ -232,5 +389,19 @@
         private PictureBox buttonHistory;
         private PictureBox buttonLogOut;
         private Label labelClose;
+        private ListView listViewTransaction;
+        private Label labelTransactionI;
+        private Button buttonClear;
+        private Button buttonSearch;
+        private DateTimePicker dateTimePicker1;
+        private Label label6;
+        private Label label5;
+        private Button buttonLast;
+        private Button buttonNext;
+        private Button buttonPrevious;
+        private Button buttonFirst;
+        private ComboBox comboBoxCurrencyCodes;
+        private ComboBox comboBoxToCurrencyCodes;
+        private Label label1;
     }
 }

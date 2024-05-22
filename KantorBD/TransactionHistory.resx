@@ -121,7 +121,7 @@
   <data name="buttonMoneyTransfer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAABhhJREFUeF7tmmGIVUUUxxdZREREQkJCRKRERCJEQkREJCRCIkQiog8RERHiBz9I
+        vAAADrwBlbxySQAABhhJREFUeF7tmmGIVUUUxxdZREREQkJCRKRERCJEQkREJCRCIkQiog8RERHiBz9I
         9CGIiIiIPoj4QUREYhGRiJCQkJAIiQgRkSWWWCIiRCJEIkLC/r+75z7Pnp373rtv7r59L+4ffuy+mTnn
         zsybmTtn5k20atWqVatWrVq1WiQ9uPrELvGxOCXOiSlxXlwUX4gvjUviK+PrwBXxTQLSfbnLovSBT/xf
         EDz3mHjMqrX40sNWCxr5YIT4R3wolls18yVny8QaMWlJpPH5ukhVYhRgtKyw6g4mOdgt+IbvCpz+LRiC
@@ -257,7 +257,7 @@
   <data name="buttonHistory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAA2xJREFUeF7tm79rFEEUx0MIQSwsg4iIiIpYWKUQS/8IsRIRKwsLCwn2QUSCiIQg
+        vAAADrwBlbxySQAAA2xJREFUeF7tm79rFEEUx0MIQSwsg4iIiIpYWKUQS/8IsRIRKwsLCwn2QUSCiIQg
         IhYWYmERREIIIhJERERERMRCREREJFiKSPx84e3xmJxmbm53b9bdL3wgNzPvzbsvl/0xOzv2N60/3jcO
         V2AVnsELeGm8Nt4Y7/rwvgLuwFYrsVox0WlYz5AVqN4EJpl1k+bGMmyxUqsRE1xyE+bIElRnAsnn3GTi
         FyyOgO/g6/Dch0kruVyRWAdAP9maddUq5n0S1BFyD8o3gaRX3SQiBwPW3N+euzBhIeWIhNfcBCIHA46D
