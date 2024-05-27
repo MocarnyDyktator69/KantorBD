@@ -111,5 +111,12 @@ namespace KantorBD
         {
             Application.Exit();
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ExchangeRateHistory exchangeRateHistory = new ExchangeRateHistory(loggedInUserID);
+            exchangeRateHistory.Show();
+        }
     }
 }

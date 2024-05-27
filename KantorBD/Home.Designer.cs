@@ -52,6 +52,7 @@
             buttonHistory = new PictureBox();
             buttonLogOut = new PictureBox();
             labelClose = new Label();
+            buttonSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
@@ -342,12 +343,27 @@
             labelClose.Text = "X";
             labelClose.Click += labelClose_Click;
             // 
+            // buttonSearch
+            // 
+            buttonSearch.BackColor = Color.FromArgb(16, 9, 48);
+            buttonSearch.FlatStyle = FlatStyle.Flat;
+            buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
+            buttonSearch.Location = new Point(151, 525);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(200, 72);
+            buttonSearch.TabIndex = 108;
+            buttonSearch.Text = "Historia kursów";
+            buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(buttonSearch);
             Controls.Add(MenuPanel);
             Controls.Add(labelClose);
             Controls.Add(label6);
@@ -410,5 +426,6 @@
         private PictureBox buttonLogOut;
         private Label labelClose;
         private PictureBox buttonMoneyTransfer;
+        private Button buttonSearch;
     }
 }

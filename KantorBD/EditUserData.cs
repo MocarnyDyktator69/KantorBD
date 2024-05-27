@@ -174,38 +174,57 @@ namespace KantorBD
                 return;
             }
 
-            string query = "UPDATE `user` u " +
-                           "LEFT JOIN creditcard c ON u.userID = c.userID " +
-                           "SET u.name = @name, u.surname = @surname, u.email = @email, " +
-                           "c.cardNumber = @cardNumber, c.cvv = @cvv, c.expirationDate = @expirationDate " +
-                           "WHERE u.userID = @userID";
+            string updateUserQuery = "UPDATE `user` SET name = @name, surname = @surname, email = @mail WHERE userID = @userID";
+            string checkCardQuery = "SELECT COUNT(*) FROM creditcard WHERE userID = @userID";
+            string updateCardQuery = "UPDATE creditcard SET cardNumber = @cardNumber, cvv = @cvv, expirationDate = @expirationDate WHERE userID = @userID";
+            string insertCardQuery = "INSERT INTO creditcard (userID, cardNumber, cvv, expirationDate) VALUES (@userID, @cardNumber, @cvv, @expirationDate)";
 
             db.openConnection();
-            using (MySqlCommand command = new MySqlCommand(query, db.getConnection()))
+
+            using (MySqlCommand updateUserCommand = new MySqlCommand(updateUserQuery, db.getConnection()))
             {
-                command.Parameters.AddWithValue("@name", newName);
-                command.Parameters.AddWithValue("@surname", newSurname);
-                command.Parameters.AddWithValue("@email", newMail);
-                command.Parameters.AddWithValue("@cardNumber", newCardNumber);
-                command.Parameters.AddWithValue("@cvv", newCVV);
-                command.Parameters.AddWithValue("@expirationDate", newExpirationDate);
-                command.Parameters.AddWithValue("@userID", loggedInUserID);
+                updateUserCommand.Parameters.AddWithValue("@name", newName);
+                updateUserCommand.Parameters.AddWithValue("@surname", newSurname);
+                updateUserCommand.Parameters.AddWithValue("@mail", newMail);
+                updateUserCommand.Parameters.AddWithValue("@userID", loggedInUserID);
+                updateUserCommand.ExecuteNonQuery();
+            }
 
-                int rowsAffected = command.ExecuteNonQuery();
+            using (MySqlCommand checkCardCommand = new MySqlCommand(checkCardQuery, db.getConnection()))
+            {
+                checkCardCommand.Parameters.AddWithValue("@userID", loggedInUserID);
+                int cardCount = Convert.ToInt32(checkCardCommand.ExecuteScalar());
 
-                if (rowsAffected > 0)
+                if (cardCount > 0)
                 {
-                    MessageBox.Show("Data has been saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UserAccount userAccount = new UserAccount(loggedInUserID);
-                    userAccount.Show();
-                    this.Hide();
+                    using (MySqlCommand updateCardCommand = new MySqlCommand(updateCardQuery, db.getConnection()))
+                    {
+                        updateCardCommand.Parameters.AddWithValue("@cardNumber", newCardNumber);
+                        updateCardCommand.Parameters.AddWithValue("@cvv", newCVV);
+                        updateCardCommand.Parameters.AddWithValue("@expirationDate", newExpirationDate);
+                        updateCardCommand.Parameters.AddWithValue("@userID", loggedInUserID);
+                        updateCardCommand.ExecuteNonQuery();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("There was a problem saving the data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    using (MySqlCommand insertCardCommand = new MySqlCommand(insertCardQuery, db.getConnection()))
+                    {
+                        insertCardCommand.Parameters.AddWithValue("@cardNumber", newCardNumber);
+                        insertCardCommand.Parameters.AddWithValue("@cvv", newCVV);
+                        insertCardCommand.Parameters.AddWithValue("@expirationDate", newExpirationDate);
+                        insertCardCommand.Parameters.AddWithValue("@userID", loggedInUserID);
+                        insertCardCommand.ExecuteNonQuery();
+                    }
                 }
             }
+
+            MessageBox.Show("Data has been saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            UserAccount userAccount = new UserAccount(loggedInUserID);
+            userAccount.Show();
+            this.Hide();
         }
+
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
