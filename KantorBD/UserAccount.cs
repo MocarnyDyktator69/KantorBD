@@ -9,6 +9,7 @@ namespace KantorBD
     {
         private int loggedInUserID;
         private DB db;
+        private UserAccountDTO userData;
 
         public UserAccount(int userID)
         {
@@ -20,10 +21,7 @@ namespace KantorBD
 
         private void LoadUserData()
         {
-            string query = "SELECT u.name, u.surname, u.email, c.cardNumber " +
-                           "FROM `user` u " +
-                           "LEFT JOIN creditcard c ON u.userID = c.userID " +
-                           "WHERE u.userID = @userID";
+            string query = "CALL GetUserAccountData(@userID)";
 
             using (MySqlCommand command = new MySqlCommand(query, db.getConnection()))
             {
@@ -36,17 +34,15 @@ namespace KantorBD
                     {
                         if (reader.Read())
                         {
-                            labelName.Text = "Name: " + reader["name"].ToString();
-                            labelSurname.Text = "Surname: " + reader["surname"].ToString();
-                            labelMail.Text = "Email: " + reader["email"].ToString();
-                            if (!reader.IsDBNull(reader.GetOrdinal("cardNumber")))
+                            userData = new UserAccountDTO
                             {
-                                labelCardNumber.Text = "Card Number: " + reader["cardNumber"].ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("No card number found for this user.");
-                            }
+                                Name = reader["name"].ToString(),
+                                Surname = reader["surname"].ToString(),
+                                Email = reader["email"].ToString(),
+                                CardNumber = reader.IsDBNull(reader.GetOrdinal("cardNumber")) ? null : reader["cardNumber"].ToString()
+                            };
+
+                            DisplayUserData();
                         }
                         else
                         {
@@ -62,6 +58,22 @@ namespace KantorBD
                 {
                     db.closeConnection();
                 }
+            }
+        }
+
+        private void DisplayUserData()
+        {
+            labelName.Text = "Name: " + userData.Name;
+            labelSurname.Text = "Surname: " + userData.Surname;
+            labelMail.Text = "Email: " + userData.Email;
+
+            if (userData.CardNumber != null)
+            {
+                labelCardNumber.Text = "Card Number: " + userData.CardNumber;
+            }
+            else
+            {
+                MessageBox.Show("No card number found for this user.");
             }
         }
 
@@ -125,5 +137,13 @@ namespace KantorBD
         {
             Application.Exit();
         }
+    }
+
+    public class UserAccountDTO
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string CardNumber { get; set; }
     }
 }

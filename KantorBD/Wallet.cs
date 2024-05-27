@@ -12,12 +12,34 @@ namespace KantorBD
         {
             InitializeComponent();
             loggedInUserID = userID;
-            LoadWalletData();
+            var walletDataList = LoadWalletData();
+
+            foreach (var walletData in walletDataList)
+            {
+                switch (walletData.CurrencyCode)
+                {
+                    case "PLN":
+                        labelPLN.Text = walletData.Balance.ToString();
+                        break;
+                    case "EUR":
+                        labelEUR.Text = walletData.Balance.ToString();
+                        break;
+                    case "GBP":
+                        labelGBP.Text = walletData.Balance.ToString();
+                        break;
+                    case "USD":
+                        labelUSD.Text = walletData.Balance.ToString();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
-        private void LoadWalletData()
+        private List<WalletDataDTO> LoadWalletData()
         {
             int walletID = GetUserWalletID(loggedInUserID);
+            var walletDataList = new List<WalletDataDTO>();
 
             using (DB db = new DB())
             {
@@ -36,12 +58,15 @@ namespace KantorBD
                             {
                                 decimal balance = reader.GetDecimal(0);
                                 string currencyCode = reader.GetString(1);
-                                UpdateLabel(currencyCode, balance);
+                                var walletData = new WalletDataDTO { Balance = balance, CurrencyCode = currencyCode };
+                                walletDataList.Add(walletData);
                             }
                         }
                     }
                 }
             }
+
+            return walletDataList;
         }
 
         private int GetUserWalletID(int userID)
@@ -148,5 +173,11 @@ namespace KantorBD
         {
             Application.Exit();
         }
+    }
+
+    public class WalletDataDTO
+    {
+        public decimal Balance { get; set; }
+        public string CurrencyCode { get; set; }
     }
 }

@@ -327,6 +327,7 @@
             Controls.Add(buttonPrevious);
             Controls.Add(buttonFirst);
             Controls.Add(listView1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ExchangeRateHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ExchangeRateHistory";

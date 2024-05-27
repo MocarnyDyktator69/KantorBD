@@ -56,5 +56,12 @@ namespace KantorBD
             AdminSettings f4 = new AdminSettings();
             f4.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartForm f5 = new StartForm();
+            f5.Show();
+        }
     }
 }

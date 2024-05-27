@@ -374,6 +374,13 @@ namespace KantorBD
             }
             labelWalletI.Text = wallets.Count.ToString() + " Wallets";
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartForm f5 = new StartForm();
+            f5.Show();
+        }
     }
 
     public class WalletDTO

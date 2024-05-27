@@ -63,7 +63,7 @@ namespace KantorBD
 
         private bool InsertUser(RegUserDTO user)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `user`(`name`, `surname`, `email`, `password`, `birth_date`) VALUES (@fn,@fs,@email,@h,@b)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("CALL InsertUser(@fn, @fs, @email, @h, @b)", db.getConnection());
             command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = user.Name;
             command.Parameters.Add("@fs", MySqlDbType.VarChar).Value = user.Surname;
             command.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.Email;
@@ -95,7 +95,7 @@ namespace KantorBD
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` WHERE `email` = @uE", db.getConnection());
+            MySqlCommand command = new MySqlCommand("CALL CheckEmail(@uE)", db.getConnection());
 
             command.Parameters.Add("@uE", MySqlDbType.VarChar).Value = email;
 
