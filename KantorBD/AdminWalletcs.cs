@@ -381,6 +381,18 @@ namespace KantorBD
             StartForm f5 = new StartForm();
             f5.Show();
         }
+
+        private void listViewWallet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureNotifiBox_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminNotification f7 = new AdminNotification();
+            f7.Show();
+        }
     }
 
     public class WalletDTO

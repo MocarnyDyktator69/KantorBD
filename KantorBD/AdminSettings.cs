@@ -63,5 +63,11 @@ namespace KantorBD
             StartForm f5 = new StartForm();
             f5.Show();
         }
+        private void pictureNotifiBox_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminNotification f7 = new AdminNotification();
+            f7.Show();
+        }
     }
 }

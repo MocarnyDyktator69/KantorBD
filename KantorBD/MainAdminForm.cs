@@ -126,6 +126,12 @@ namespace KantorBD
             MainAdminForm f6 = new MainAdminForm();
             f6.Show();
         }
+        private void pictureNotifiBox_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminNotification f7 = new AdminNotification();
+            f7.Show();
+        }
 
         private void rateBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -148,5 +154,7 @@ namespace KantorBD
                 MessageBox.Show("An error occurred while retrieving exchange rates!", "Error - API error", MessageBoxButtons.OK);
             }
         }
+
+        
     }
 }

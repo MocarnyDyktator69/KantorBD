@@ -300,6 +300,13 @@ namespace KantorBD
         {
 
         }
+
+        private void pictureNotifiBox_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminNotification f7 = new AdminNotification();
+            f7.Show();
+        }
     }
 
     public class UserDTO

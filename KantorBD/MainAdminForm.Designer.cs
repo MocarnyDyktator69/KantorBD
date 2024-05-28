@@ -41,6 +41,7 @@
             pictureBox27 = new PictureBox();
             label3 = new Label();
             MenuPanel = new Panel();
+            pictureNotifiBox = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -54,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
             MenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureNotifiBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -191,6 +193,7 @@
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.FromArgb(16, 9, 48);
+            MenuPanel.Controls.Add(pictureNotifiBox);
             MenuPanel.Controls.Add(pictureBox6);
             MenuPanel.Controls.Add(pictureBox5);
             MenuPanel.Controls.Add(pictureBox4);
@@ -201,6 +204,16 @@
             MenuPanel.Name = "MenuPanel";
             MenuPanel.Size = new Size(1064, 110);
             MenuPanel.TabIndex = 16;
+            // 
+            // pictureNotifiBox
+            // 
+            pictureNotifiBox.Image = (Image)resources.GetObject("pictureNotifiBox.Image");
+            pictureNotifiBox.Location = new Point(345, 20);
+            pictureNotifiBox.Name = "pictureNotifiBox";
+            pictureNotifiBox.Size = new Size(65, 65);
+            pictureNotifiBox.TabIndex = 67;
+            pictureNotifiBox.TabStop = false;
+            pictureNotifiBox.Click += pictureNotifiBox_Click;
             // 
             // pictureBox6
             // 
@@ -306,6 +319,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
             MenuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureNotifiBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -314,6 +328,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
+
+
+
 
         #endregion
 
@@ -336,5 +353,6 @@
         private PictureBox pictureBox28;
         private PictureBox pictureBox27;
         private Label label3;
+        private PictureBox pictureNotifiBox;
     }
 }
