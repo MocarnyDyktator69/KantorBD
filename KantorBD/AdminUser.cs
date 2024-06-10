@@ -173,7 +173,7 @@ namespace KantorBD
             string email = textBoxEmail.Text;
             string usertypeID = comboBoxUserTypeId.Text;
 
-            MySqlCommand command = new MySqlCommand("UPDATE `user` SET `name`=@nm, `surname`=@sn, `email`=@em, `usertypeID`= @typ WHERE `userID` = @id", db.getConnection());
+            MySqlCommand command = new MySqlCommand("CALL UpdateUserAdmin(@id, @nm, @sn, @em, @typ)", db.getConnection());
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             command.Parameters.Add("@nm", MySqlDbType.VarChar).Value = name;
@@ -199,7 +199,7 @@ namespace KantorBD
         {
             int id = (int)numericID.Value;
 
-            MySqlCommand command = new MySqlCommand("DELETE FROM `user` WHERE `userID` = @id", db.getConnection());
+            MySqlCommand command = new MySqlCommand("CALL DeleteUserAdmin(@id)", db.getConnection());
 
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 

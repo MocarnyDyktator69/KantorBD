@@ -102,7 +102,7 @@ namespace KantorBD
 
             getWallets();
 
-            MySqlCommand command = new MySqlCommand("SELECT currencyCode FROM Currency", db.getConnection());
+            MySqlCommand command = new MySqlCommand("CALL GetCurrencyCodes()", db.getConnection());
             db.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
