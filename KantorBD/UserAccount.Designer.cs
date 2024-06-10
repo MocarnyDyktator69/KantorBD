@@ -253,6 +253,7 @@
             Name = "UserAccount";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UserAccount";
+            Load += UserAccount_Load;
             MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)buttonHome).EndInit();

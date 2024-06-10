@@ -9,16 +9,20 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace KantorBD
 {
     public partial class Home : Form
     {
         private int loggedInUserID;
+        private string connectionString = "server=localhost;port=3306;username=root;password=;database=kantor_db";
+
         public Home(int userID)
         {
             InitializeComponent();
             loggedInUserID = userID;
+            LoadNotificationsOnHome();
         }
 
         private double GetExchangeRate(string fromCurrency, string toCurrency)
@@ -55,6 +59,40 @@ namespace KantorBD
             catch
             {
                 MessageBox.Show("An error occurred while retrieving exchange rates!", "Error - API error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void LoadNotificationsOnHome()
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM notifications";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        listViewNotifi.Items.Clear(); // Clear existing items
+
+                        while (reader.Read())
+                        {
+                            string title = reader["title"].ToString();
+                            string content = reader["content"].ToString();
+
+                            ListViewItem item = new ListViewItem(title);
+                            item.SubItems.Add(content);
+
+                            listViewNotifi.Items.Add(item);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while loading notifications: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -117,6 +155,11 @@ namespace KantorBD
             this.Hide();
             ExchangeRateHistory exchangeRateHistory = new ExchangeRateHistory(loggedInUserID);
             exchangeRateHistory.Show();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

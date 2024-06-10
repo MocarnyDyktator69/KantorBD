@@ -303,6 +303,7 @@
             Name = "Wallet";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Wallet";
+            Load += Wallet_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();

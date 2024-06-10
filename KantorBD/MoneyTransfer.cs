@@ -206,5 +206,10 @@ namespace KantorBD
         {
             Application.Exit();
         }
+
+        private void MoneyTransfer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -137,6 +137,11 @@ namespace KantorBD
         {
             Application.Exit();
         }
+
+        private void UserAccount_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class UserAccountDTO

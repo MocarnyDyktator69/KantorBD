@@ -309,6 +309,7 @@ namespace KantorBD
             Name = "MoneyTransfer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
+            Load += MoneyTransfer_Load;
             MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)buttonHome).EndInit();
