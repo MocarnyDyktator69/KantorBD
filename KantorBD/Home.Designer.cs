@@ -53,6 +53,7 @@
             buttonLogOut = new PictureBox();
             labelClose = new Label();
             buttonSearch = new Button();
+            listViewNotifi = new ListView();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
@@ -73,7 +74,7 @@
             rateBox.ForeColor = Color.FromArgb(255, 193, 37);
             rateBox.FormattingEnabled = true;
             rateBox.Items.AddRange(new object[] { "EUR", "USD", "GBP", "PLN" });
-            rateBox.Location = new Point(151, 339);
+            rateBox.Location = new Point(177, 382);
             rateBox.Name = "rateBox";
             rateBox.Size = new Size(200, 75);
             rateBox.TabIndex = 101;
@@ -84,7 +85,7 @@
             labelPLN.BackColor = Color.White;
             labelPLN.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelPLN.ForeColor = Color.FromArgb(255, 193, 37);
-            labelPLN.Location = new Point(660, 541);
+            labelPLN.Location = new Point(177, 597);
             labelPLN.Name = "labelPLN";
             labelPLN.Size = new Size(200, 75);
             labelPLN.TabIndex = 100;
@@ -95,7 +96,7 @@
             labelGBP.BackColor = Color.White;
             labelGBP.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelGBP.ForeColor = Color.FromArgb(255, 193, 37);
-            labelGBP.Location = new Point(660, 430);
+            labelGBP.Location = new Point(707, 597);
             labelGBP.Name = "labelGBP";
             labelGBP.Size = new Size(200, 75);
             labelGBP.TabIndex = 99;
@@ -106,7 +107,7 @@
             labelUSD.BackColor = Color.White;
             labelUSD.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelUSD.ForeColor = Color.FromArgb(255, 193, 37);
-            labelUSD.Location = new Point(660, 322);
+            labelUSD.Location = new Point(177, 498);
             labelUSD.Name = "labelUSD";
             labelUSD.Size = new Size(200, 75);
             labelUSD.TabIndex = 98;
@@ -117,7 +118,7 @@
             labelEUR.BackColor = Color.White;
             labelEUR.Font = new Font("Comic Sans MS", 36F, FontStyle.Regular, GraphicsUnit.Point, 238);
             labelEUR.ForeColor = Color.FromArgb(255, 193, 37);
-            labelEUR.Location = new Point(660, 222);
+            labelEUR.Location = new Point(707, 496);
             labelEUR.Name = "labelEUR";
             labelEUR.Size = new Size(200, 75);
             labelEUR.TabIndex = 97;
@@ -126,7 +127,7 @@
             // pictureBox30
             // 
             pictureBox30.Image = (Image)resources.GetObject("pictureBox30.Image");
-            pictureBox30.Location = new Point(888, 322);
+            pictureBox30.Location = new Point(405, 498);
             pictureBox30.Name = "pictureBox30";
             pictureBox30.Size = new Size(51, 73);
             pictureBox30.TabIndex = 96;
@@ -135,7 +136,7 @@
             // pictureBox29
             // 
             pictureBox29.Image = (Image)resources.GetObject("pictureBox29.Image");
-            pictureBox29.Location = new Point(888, 430);
+            pictureBox29.Location = new Point(935, 597);
             pictureBox29.Name = "pictureBox29";
             pictureBox29.Size = new Size(60, 72);
             pictureBox29.TabIndex = 95;
@@ -144,7 +145,7 @@
             // pictureBox28
             // 
             pictureBox28.Image = (Image)resources.GetObject("pictureBox28.Image");
-            pictureBox28.Location = new Point(888, 222);
+            pictureBox28.Location = new Point(935, 496);
             pictureBox28.Name = "pictureBox28";
             pictureBox28.Size = new Size(69, 75);
             pictureBox28.TabIndex = 94;
@@ -153,7 +154,7 @@
             // pictureBox27
             // 
             pictureBox27.Image = (Image)resources.GetObject("pictureBox27.Image");
-            pictureBox27.Location = new Point(888, 541);
+            pictureBox27.Location = new Point(405, 597);
             pictureBox27.Name = "pictureBox27";
             pictureBox27.Size = new Size(162, 65);
             pictureBox27.TabIndex = 93;
@@ -166,7 +167,7 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Comic Sans MS", 30F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label3.ForeColor = Color.FromArgb(255, 193, 37);
-            label3.Location = new Point(104, 257);
+            label3.Location = new Point(401, 394);
             label3.Name = "label3";
             label3.Size = new Size(293, 56);
             label3.TabIndex = 92;
@@ -180,7 +181,7 @@
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label2.ForeColor = Color.FromArgb(255, 193, 37);
-            label2.Location = new Point(551, 240);
+            label2.Location = new Point(598, 514);
             label2.Name = "label2";
             label2.Size = new Size(94, 38);
             label2.TabIndex = 102;
@@ -194,7 +195,7 @@
             label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label4.ForeColor = Color.FromArgb(255, 193, 37);
-            label4.Location = new Point(570, 339);
+            label4.Location = new Point(87, 515);
             label4.Name = "label4";
             label4.Size = new Size(75, 38);
             label4.TabIndex = 103;
@@ -208,7 +209,7 @@
             label5.Cursor = Cursors.Hand;
             label5.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label5.ForeColor = Color.FromArgb(255, 193, 37);
-            label5.Location = new Point(570, 446);
+            label5.Location = new Point(617, 613);
             label5.Name = "label5";
             label5.Size = new Size(66, 38);
             label5.TabIndex = 104;
@@ -222,7 +223,7 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Comic Sans MS", 20F, FontStyle.Regular, GraphicsUnit.Point, 238);
             label6.ForeColor = Color.FromArgb(255, 193, 37);
-            label6.Location = new Point(488, 559);
+            label6.Location = new Point(5, 615);
             label6.Name = "label6";
             label6.Size = new Size(157, 38);
             label6.TabIndex = 105;
@@ -349,7 +350,7 @@
             buttonSearch.FlatStyle = FlatStyle.Flat;
             buttonSearch.Font = new Font("Comic Sans MS", 15F, FontStyle.Bold, GraphicsUnit.Point, 238);
             buttonSearch.ForeColor = Color.FromArgb(255, 193, 37);
-            buttonSearch.Location = new Point(151, 525);
+            buttonSearch.Location = new Point(707, 385);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(200, 72);
             buttonSearch.TabIndex = 108;
@@ -357,12 +358,28 @@
             buttonSearch.UseVisualStyleBackColor = false;
             buttonSearch.Click += buttonSearch_Click;
             // 
+            // listViewNotifi
+            // 
+            listViewNotifi = new System.Windows.Forms.ListView();
+            listViewNotifi.Location = new Point(22, 190);
+            listViewNotifi.Name = "listViewNotifi";
+            listViewNotifi.Size = new Size(1020, 170);
+            listViewNotifi.TabIndex = 109;
+            listViewNotifi.UseCompatibleStateImageBehavior = false;
+            listViewNotifi.TabIndex = 59;
+            listViewNotifi.UseCompatibleStateImageBehavior = false;
+            listViewNotifi.View = System.Windows.Forms.View.Details;
+            listViewNotifi.Columns.Add("Title", 200, HorizontalAlignment.Left);
+            listViewNotifi.Columns.Add("Content", 800, HorizontalAlignment.Left);
+            Controls.Add(listViewNotifi);
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 26, 82);
             ClientSize = new Size(1064, 681);
+            Controls.Add(listViewNotifi);
             Controls.Add(buttonSearch);
             Controls.Add(MenuPanel);
             Controls.Add(labelClose);
@@ -427,5 +444,6 @@
         private Label labelClose;
         private PictureBox buttonMoneyTransfer;
         private Button buttonSearch;
+        private ListView listViewNotifi;
     }
 }

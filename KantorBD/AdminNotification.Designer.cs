@@ -301,7 +301,6 @@
             listViewNotifi.Size = new Size(1020, 213);
             listViewNotifi.TabIndex = 59;
             listViewNotifi.UseCompatibleStateImageBehavior = false;
-            listViewNotifi.SelectedIndexChanged += listViewNotifi_SelectedIndexChanged;
             // 
             // AdminNotification
             // 

@@ -173,6 +173,16 @@ namespace KantorBD
         {
             Application.Exit();
         }
+
+        private void pictureNotifiBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Wallet_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class WalletDataDTO

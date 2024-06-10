@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -177,10 +176,6 @@ namespace KantorBD
             {
                 MessageBox.Show("Wybierz powiadomienie do usunięcia.");
             }
-        }
-        private void listViewNotifi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void ClearFields()

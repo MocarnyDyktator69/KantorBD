@@ -50,6 +50,7 @@
             buttonHistory = new PictureBox();
             buttonLogOut = new PictureBox();
             labelClose = new Label();
+            pictureNotifiBox = new PictureBox();
             MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)buttonMoneyTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)buttonHome).BeginInit();
@@ -58,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)buttonWallet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)buttonHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)buttonLogOut).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureNotifiBox).BeginInit();
             SuspendLayout();
             // 
             // buttonClear
@@ -197,6 +199,7 @@
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.FromArgb(16, 9, 48);
+            MenuPanel.Controls.Add(pictureNotifiBox);
             MenuPanel.Controls.Add(buttonMoneyTransfer);
             MenuPanel.Controls.Add(buttonHome);
             MenuPanel.Controls.Add(buttonCurrencyExchange);
@@ -307,6 +310,16 @@
             labelClose.TabIndex = 116;
             labelClose.Text = "X";
             // 
+            // pictureNotifiBox
+            // 
+            pictureNotifiBox.Image = (Image)resources.GetObject("pictureNotifiBox.Image");
+            pictureNotifiBox.Location = new Point(245, 20);
+            pictureNotifiBox.Margin = new Padding(5);
+            pictureNotifiBox.Name = "pictureNotifiBox";
+            pictureNotifiBox.Size = new Size(65, 65);
+            pictureNotifiBox.TabIndex = 118;
+            pictureNotifiBox.TabStop = false;
+            // 
             // ExchangeRateHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -339,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)buttonWallet).EndInit();
             ((System.ComponentModel.ISupportInitialize)buttonHistory).EndInit();
             ((System.ComponentModel.ISupportInitialize)buttonLogOut).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureNotifiBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -365,5 +379,6 @@
         private PictureBox buttonHistory;
         private PictureBox buttonLogOut;
         private Label labelClose;
+        private PictureBox pictureNotifiBox;
     }
 }
